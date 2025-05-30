@@ -10,6 +10,9 @@ class BookingStatus(models.Model):
     # Example: "Pending", "Confirmed"
     status = models.CharField(max_length=20, unique=True)
 
+    def __str__(self):
+        return self.status
+
 
 # Location Model (Stores seating areas)
 
@@ -41,8 +44,11 @@ class Reservation(models.Model):
     booking_date = models.DateField(null=True)
     booking_time = models.TimeField(null=True)
     num_of_guests = models.PositiveSmallIntegerField(default=1)
-    booking_status = models.IntegerField(
-        null=True)  # Can be mapped to enum values
+    booking_status = models.ForeignKey(
+        BookingStatus,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="reservations")
     special_requests = models.TextField(blank=True, null=True)
     booked_on = models.DateTimeField(auto_now_add=True)
 
@@ -50,4 +56,5 @@ class Reservation(models.Model):
         ordering = ["-booked_on"]
 
     def __str__(self):
-        return f"Booking by {self.user.username} on {self.booking_date} for Table {self.table.id}"
+        return f"Booking by {self.user.username} \
+            on {self.booking_date} ({self.booking_status.status})"
