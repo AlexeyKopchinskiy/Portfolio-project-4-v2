@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+# Booking Status Model (Stores different reservation statuses)
+
+
+class BookingStatus(models.Model):
+    # Example: "Pending", "Confirmed"
+    status = models.CharField(max_length=20, unique=True)
+
+
 # Location Model (Stores seating areas)
 
 
