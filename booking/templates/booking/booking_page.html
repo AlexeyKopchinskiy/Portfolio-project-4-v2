@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% load static %}
+<script src="{% static 'js/script.js' %}" defer></script>
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center">Book a Table</h1>
+
+  {% if error %}
+  <div class="alert alert-danger">{{ error }}</div>
+  {% endif %}
+
+  <form method="POST" action="">
+    {% csrf_token %}
+
+    <!-- Table Selection -->
+    <div class="mb-3">
+      <label for="table" class="form-label">Select a Table:</label>
+      <select name="table" id="table" class="form-select" required>
+        <option value="">-- Select a Table --</option>
+        {% for table in tables %}
+        <option value="{{ table.id }}">
+          Table {{ table.id }} | Seats: {{ table.size }} | Location: {{
+          table.location.location }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Booking Date -->
+    <div class="mb-3">
+      <label for="booking_date" class="form-label">Booking Date:</label>
+      <input
+        type="date"
+        class="form-control"
+        id="booking_date"
+        name="booking_date"
+        required
+      />
+    </div>
+
+    <!-- Booking Time -->
+    <div class="mb-3">
+      <label for="booking_time" class="form-label">Booking Time:</label>
+      <input
+        type="time"
+        class="form-control"
+        id="booking_time"
+        name="booking_time"
+        required
+      />
+    </div>
+
+    <!-- Number of Guests -->
+    <div class="mb-3">
+      <label for="num_of_guests" class="form-label">Number of Guests:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="num_of_guests"
+        name="num_of_guests"
+        min="1"
+        value="1"
+        required
+      />
+    </div>
+
+    <!-- Special Requests with Summernote -->
+    <div class="mb-3">
+      <label for="special_requests" class="form-label">Special Requests:</label>
+      <textarea
+        id="summernote"
+        name="special_requests"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Confirm Booking</button>
+  </form>
+</div>
+{% endblock %}

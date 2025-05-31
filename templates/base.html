@@ -1,4 +1,7 @@
-{% load static %} {% url 'home' as home_url %}
+{% load static %}
+<script src="{% static 'js/script.js' %}" defer></script>
+
+{% url 'home' as home_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -32,6 +35,12 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="{% static 'summernote/summernote.min.css' %}"
+    />
+    <script src="{% static 'summernote/summernote.min.js' %}" defer></script>
   </head>
 
   <body class="d-flex flex-column h-100 main-bg">
