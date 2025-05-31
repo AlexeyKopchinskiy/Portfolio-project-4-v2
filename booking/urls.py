@@ -1,6 +1,7 @@
-from .views import booking_page, signup
+from .views import booking_page
 from django.urls import path
 from django.contrib.auth.views import LoginView
+from .views import signup
 from . import views
 
 urlpatterns = [
