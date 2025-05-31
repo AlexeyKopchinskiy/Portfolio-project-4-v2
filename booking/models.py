@@ -40,6 +40,8 @@ class Table(models.Model):
 class Reservation(models.Model):
     table = models.ForeignKey(
         Table, on_delete=models.CASCADE, related_name="reservations")
+    location = models.ForeignKey(
+        Location, on_delete=models.CASCADE, null=True, blank=True, related_name="reservations")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     booking_date = models.DateField(null=True)
     booking_time = models.TimeField(null=True)

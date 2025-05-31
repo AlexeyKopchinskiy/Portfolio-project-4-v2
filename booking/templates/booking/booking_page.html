@@ -12,15 +12,27 @@
   <form method="POST" action="">
     {% csrf_token %}
 
+    <!-- Location Selection -->
+    <div class="mb-3">
+      <label for="location" class="form-label">Select a Location:</label>
+      <select name="location" id="location" class="form-select" required>
+        <option value="">-- Select a Location --</option>
+        {% for loc in locations %}
+        <option value="{{ loc.id }}">{{ loc.location }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
     <!-- Table Selection -->
     <div class="mb-3">
       <label for="table" class="form-label">Select a Table:</label>
       <select name="table" id="table" class="form-select" required>
         <option value="">-- Select a Table --</option>
         {% for table in tables %}
-        <option value="{{ table.id }}">
+        <!-- Include a data attribute for filtering -->
+        <option value="{{ table.id }}" data-location="{{ table.location.id }}">
           Table {{ table.id }} | Seats: {{ table.size }} | Location: {{
-          table.location.location }}
+          table.location }}
         </option>
         {% endfor %}
       </select>

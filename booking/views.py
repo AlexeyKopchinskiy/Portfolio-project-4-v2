@@ -8,34 +8,52 @@ from .forms import SignupForm
 @login_required
 def booking_page(request):
     if request.method == "POST":
-        table_id = request.POST.get("table")  # 🔥 Get selected table ID
+        location_id = request.POST.get("location")
+        table_id = request.POST.get("table")
         booking_date = request.POST.get("booking_date")
         booking_time = request.POST.get("booking_time")
         num_of_guests = request.POST.get("num_of_guests")
         special_requests = request.POST.get("special_requests")
 
+        # Ensure a location was selected
+        if not location_id:
+            locations = Location.objects.all()
+            tables = Table.objects.select_related(
+                "location").all()  # all tables
+            return render(request, "booking/booking_page.html", {
+                "error": "Please select a location.",
+                "locations": locations,
+                "tables": tables
+            })
+
+        # Ensure a table was selected
         if not table_id:
-            tables = Table.objects.select_related('location').all()
+            locations = Location.objects.all()
+            tables = Table.objects.select_related("location").all()
             return render(request, "booking/booking_page.html", {
                 "error": "Please select a table.",
+                "locations": locations,
                 "tables": tables
             })
 
         try:
+            location = Location.objects.get(id=int(location_id))
             table = Table.objects.get(id=int(table_id))
-        except (Table.DoesNotExist, ValueError):
-            tables = Table.objects.select_related('location').all()
+        except (Location.DoesNotExist, Table.DoesNotExist, ValueError):
+            locations = Location.objects.all()
+            tables = Table.objects.select_related("location").all()
             return render(request, "booking/booking_page.html", {
-                "error": "Invalid table selection",
+                "error": "Invalid selection.",
+                "locations": locations,
                 "tables": tables
             })
 
-        booking_status = BookingStatus.objects.filter(
-            name="Pending").first()  # 🔥 Set default status
+        booking_status = BookingStatus.objects.filter(name="Pending").first()
 
-        # 🔥 Create and save the reservation record
+        # Create the reservation record using the selected location and table.
         new_reservation = Reservation.objects.create(
             table=table,
+            location=location,  # storing the selected location
             user=request.user,
             booking_date=booking_date,
             booking_time=booking_time,
@@ -44,12 +62,12 @@ def booking_page(request):
             special_requests=special_requests
         )
 
-        # ✅ Redirect to confirmation page
         return redirect("booking_confirmation")
 
-    tables = Table.objects.select_related(
-        'location').all()  # 🔥 Load available tables
-    return render(request, "booking/booking_page.html", {"tables": tables})
+    # For GET requests, fetch all locations and tables.
+    locations = Location.objects.all()
+    tables = Table.objects.select_related("location").all()
+    return render(request, "booking/booking_page.html", {"locations": locations, "tables": tables})
 
 
 def signup(request):
