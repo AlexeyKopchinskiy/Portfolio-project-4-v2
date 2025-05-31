@@ -1,0 +1,352 @@
+[
+    {
+        "model": "booking.reservation",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "table": 3,
+            "booking_date": "2025-06-01",
+            "booking_time": "18:30",
+            "num_of_guests": 2,
+            "booking_status": 1,
+            "special_requests": "Window seat, anniversary dinner",
+            "booked_on": "2025-05-26T10:15:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "table": 5,
+            "booking_date": "2025-06-02",
+            "booking_time": "20:00",
+            "num_of_guests": 4,
+            "booking_status": 2,
+            "special_requests": "Vegetarian menu requested",
+            "booked_on": "2025-05-27T11:45:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "table": 1,
+            "booking_date": "2025-06-03",
+            "booking_time": "19:15",
+            "num_of_guests": 3,
+            "booking_status": 3,
+            "special_requests": "Quiet table preferred",
+            "booked_on": "2025-05-28T09:30:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "table": 2,
+            "booking_date": "2025-06-04",
+            "booking_time": "21:00",
+            "num_of_guests": 5,
+            "booking_status": 1,
+            "special_requests": "",
+            "booked_on": "2025-05-29T14:20:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 5,
+        "fields": {
+            "user": 4,
+            "table": 4,
+            "booking_date": "2025-06-05",
+            "booking_time": "17:45",
+            "num_of_guests": 6,
+            "booking_status": 2,
+            "special_requests": "High chair needed",
+            "booked_on": "2025-05-30T16:00:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 6,
+        "fields": {
+            "user": 4,
+            "table": 6,
+            "booking_date": "2025-06-06",
+            "booking_time": "20:30",
+            "num_of_guests": 2,
+            "booking_status": 3,
+            "special_requests": "Birthday celebration, cake required",
+            "booked_on": "2025-05-31T12:10:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 7,
+        "fields": {
+            "user": 4,
+            "table": 7,
+            "booking_date": "2025-06-07",
+            "booking_time": "19:00",
+            "num_of_guests": 8,
+            "booking_status": 1,
+            "special_requests": "Allergy to nuts, please avoid",
+            "booked_on": "2025-06-01T13:25:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 8,
+        "fields": {
+            "user": 4,
+            "table": 8,
+            "booking_date": "2025-06-08",
+            "booking_time": "18:00",
+            "num_of_guests": 3,
+            "booking_status": 2,
+            "special_requests": "",
+            "booked_on": "2025-06-02T15:30:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 9,
+        "fields": {
+            "user": 4,
+            "table": 9,
+            "booking_date": "2025-06-09",
+            "booking_time": "20:15",
+            "num_of_guests": 4,
+            "booking_status": 3,
+            "special_requests": "Table near the bar",
+            "booked_on": "2025-06-03T17:40:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 10,
+        "fields": {
+            "user": 4,
+            "table": 10,
+            "booking_date": "2025-06-10",
+            "booking_time": "19:30",
+            "num_of_guests": 2,
+            "booking_status": 1,
+            "special_requests": "",
+            "booked_on": "2025-06-04T18:50:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 11,
+        "fields": {
+            "user": 4,
+            "table": 11,
+            "booking_date": "2025-06-11",
+            "booking_time": "21:15",
+            "num_of_guests": 5,
+            "booking_status": 2,
+            "special_requests": "Late arrival, please hold the table",
+            "booked_on": "2025-06-05T20:00:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 12,
+        "fields": {
+            "user": 4,
+            "table": 12,
+            "booking_date": "2025-06-12",
+            "booking_time": "18:45",
+            "num_of_guests": 3,
+            "booking_status": 3,
+            "special_requests": "",
+            "booked_on": "2025-06-06T19:10:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 13,
+        "fields": {
+            "user": 4,
+            "table": 13,
+            "booking_date": "2025-06-13",
+            "booking_time": "20:00",
+            "num_of_guests": 4,
+            "booking_status": 1,
+            "special_requests": "Table with a view",
+            "booked_on": "2025-06-07T21:20:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 14,
+        "fields": {
+            "user": 4,
+            "table": 14,
+            "booking_date": "2025-06-14",
+            "booking_time": "19:30",
+            "num_of_guests": 2,
+            "booking_status": 2,
+            "special_requests": "",
+            "booked_on": "2025-06-08T22:30:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 15,
+        "fields": {
+            "user": 4,
+            "table": 15,
+            "booking_date": "2025-06-15",
+            "booking_time": "18:15",
+            "num_of_guests": 6,
+            "booking_status": 3,
+            "special_requests": "",
+            "booked_on": "2025-06-09T23:40:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 16,
+        "fields": {
+            "user": 4,
+            "table": 16,
+            "booking_date": "2025-06-16",
+            "booking_time": "20:45",
+            "num_of_guests": 3,
+            "booking_status": 1,
+            "special_requests": "Please provide a high chair",
+            "booked_on": "2025-06-10T12:50:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 17,
+        "fields": {
+            "user": 4,
+            "table": 17,
+            "booking_date": "2025-06-17",
+            "booking_time": "19:00",
+            "num_of_guests": 4,
+            "booking_status": 2,
+            "special_requests": "",
+            "booked_on": "2025-06-11T14:05:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 18,
+        "fields": {
+            "user": 4,
+            "table": 18,
+            "booking_date": "2025-06-18",
+            "booking_time": "21:30",
+            "num_of_guests": 2,
+            "booking_status": 3,
+            "special_requests": "",
+            "booked_on": "2025-06-12T16:15:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 19,
+        "fields": {
+            "user": 4,
+            "table": 19,
+            "booking_date": "2025-06-19",
+            "booking_time": "20:15",
+            "num_of_guests": 5,
+            "booking_status": 1,
+            "special_requests": "",
+            "booked_on": "2025-06-13T18:25:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 20,
+        "fields": {
+            "user": 4,
+            "table": 20,
+            "booking_date": "2025-06-20",
+            "booking_time": "19:45",
+            "num_of_guests": 3,
+            "booking_status": 2,
+            "special_requests": "Please reserve a parking spot",
+            "booked_on": "2025-06-14T20:35:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 21,
+        "fields": {
+            "user": 4,
+            "table": 21,
+            "booking_date": "2025-06-21",
+            "booking_time": "18:30",
+            "num_of_guests": 2,
+            "booking_status": 3,
+            "special_requests": "",
+            "booked_on": "2025-06-15T22:45:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 22,
+        "fields": {
+            "user": 4,
+            "table": 22,
+            "booking_date": "2025-06-22",
+            "booking_time": "20:00",
+            "num_of_guests": 4,
+            "booking_status": 1,
+            "special_requests": "Table near the window",
+            "booked_on": "2025-06-16T12:55:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 23,
+        "fields": {
+            "user": 4,
+            "table": 23,
+            "booking_date": "2025-06-23",
+            "booking_time": "19:15",
+            "num_of_guests": 3,
+            "booking_status": 2,
+            "special_requests": "",
+            "booked_on": "2025-06-17T14:05:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 24,
+        "fields": {
+            "user": 4,
+            "table": 24,
+            "booking_date": "2025-06-24",
+            "booking_time": "21:00",
+            "num_of_guests": 5,
+            "booking_status": 3,
+            "special_requests": "Please provide a quiet table",
+            "booked_on": "2025-06-18T16:15:00Z"
+        }
+    },
+    {
+        "model": "booking.reservation",
+        "pk": 25,
+        "fields": {
+            "user": 4,
+            "table": 25,
+            "booking_date": "2025-06-25",
+            "booking_time": "18:45",
+            "num_of_guests": 2,
+            "booking_status": 1,
+            "special_requests": "",
+            "booked_on": "2025-06-19T18:25:00Z"
+        }
+    }
+]
