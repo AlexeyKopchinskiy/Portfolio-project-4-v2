@@ -8,6 +8,9 @@ from .forms import SignupForm
 @login_required
 def booking_page(request):
     if request.method == "POST":
+        print("Inside POST branch!")
+
+        # Extract data from POST
         location_id = request.POST.get("location")
         table_id = request.POST.get("table")
         booking_date = request.POST.get("booking_date")
@@ -15,18 +18,16 @@ def booking_page(request):
         num_of_guests = request.POST.get("num_of_guests")
         special_requests = request.POST.get("special_requests")
 
-        # Ensure a location was selected
+        # Validate that required selections are made
         if not location_id:
             locations = Location.objects.all()
-            tables = Table.objects.select_related(
-                "location").all()  # all tables
+            tables = Table.objects.select_related("location").all()
             return render(request, "booking/booking_page.html", {
                 "error": "Please select a location.",
                 "locations": locations,
                 "tables": tables
             })
 
-        # Ensure a table was selected
         if not table_id:
             locations = Location.objects.all()
             tables = Table.objects.select_related("location").all()
@@ -36,6 +37,7 @@ def booking_page(request):
                 "tables": tables
             })
 
+        # Get the location and table objects or return an error view if not found
         try:
             location = Location.objects.get(id=int(location_id))
             table = Table.objects.get(id=int(table_id))
@@ -48,12 +50,13 @@ def booking_page(request):
                 "tables": tables
             })
 
-        booking_status = BookingStatus.objects.filter(name="Pending").first()
+        # Get the booking status (make sure the field name 'status' is correct)
+        booking_status = BookingStatus.objects.filter(status="Pending").first()
 
-        # Create the reservation record using the selected location and table.
+        # Create the reservation and assign it to new_reservation
         new_reservation = Reservation.objects.create(
             table=table,
-            location=location,  # storing the selected location
+            location=location,
             user=request.user,
             booking_date=booking_date,
             booking_time=booking_time,
@@ -62,9 +65,12 @@ def booking_page(request):
             special_requests=special_requests
         )
 
-        return redirect("booking_confirmation")
+        print("New reservation created with ID:", new_reservation.id)
 
-    # For GET requests, fetch all locations and tables.
+        # Redirect to the confirmation page using the new reservation's ID
+        return redirect("booking_confirmation", reservation_id=new_reservation.id)
+
+    # For GET requests, load locations and tables into context
     locations = Location.objects.all()
     tables = Table.objects.select_related("location").all()
     return render(request, "booking/booking_page.html", {"locations": locations, "tables": tables})
@@ -80,3 +86,21 @@ def signup(request):
     else:
         form = SignupForm()
     return render(request, "booking/signup.html", {"form": form})
+
+
+# def booking_confirmation(request, reservation_id):
+#     try:
+#         reservation = Reservation.objects.get(pk=reservation_id)
+#     except Reservation.DoesNotExist:
+#         return redirect("booking_page")
+#     return render(request, "booking/booking_confirm.html", {"reservation": reservation})
+
+
+def booking_confirmation(request, reservation_id):
+    try:
+        # Eagerly load the related Table and Location objects.
+        reservation = Reservation.objects.select_related(
+            'table', 'location').get(pk=reservation_id)
+    except Reservation.DoesNotExist:
+        return redirect("booking_page")
+    return render(request, "booking/booking_confirm.html", {"reservation": reservation})

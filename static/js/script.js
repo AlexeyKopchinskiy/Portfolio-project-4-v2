@@ -1,4 +1,4 @@
-console.log("Life, The Universe and Everything!");
+console.log("Eat as 4, pay as 3!");
 
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize Summernote (if applicable)

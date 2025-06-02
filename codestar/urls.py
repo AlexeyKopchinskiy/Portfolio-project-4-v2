@@ -22,9 +22,9 @@ from booking.views import signup  # Import signup directly
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("signup/", signup, name="signup"),  # 🔥 Enables direct /signup/
-
     path('summernote/', include('django_summernote.urls')),
     path("booking/", include("booking.urls")),
+    # path('booking/', include(('booking.urls', 'booking'), namespace='booking')),
     path("", include("blog.urls"), name="blog-urls"),
     path("accounts/", include("django.contrib.auth.urls")),
 ]

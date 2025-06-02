@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %}
+<div
+  class="confirmation-container"
+  style="text-align: center; margin-top: 2rem"
+>
+  <h1>Booking Confirmed!</h1>
+  <p>Thank you for your reservation. Here are your booking details:</p>
+  <div>
+    <p><strong>Booking Date:</strong> {{ reservation.booking_date }}</p>
+    <p><strong>Booking Time:</strong> {{ reservation.booking_time }}</p>
+    <p><strong>Number of Guests:</strong> {{ reservation.num_of_guests }}</p>
+    <p>
+      <strong>Table:</strong> Table {{ reservation.table.id }} — Seats:
+      {{reservation.table.size|default:"N/A" }}
+    </p>
+    <p><strong>Location:</strong> {{ reservation.location }}</p>
+  </div>
+  <p>We look forward to serving you soon!</p>
+  <a
+    href="{% url 'home' %}"
+    class="btn btn-primary"
+    style="padding: 0.5rem 1rem; text-decoration: none"
+  >
+    Return Home
+  </a>
+</div>
+{% endblock %}
