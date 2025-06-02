@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 def home(request):
     """Render the home page."""
-    return render(request, 'pages/home.html', {'welcome_message': 'Welcome to my site!'})
+    return render(request, 'pages/home.html', {'welcome_message': 'Welcome to our restaurant! '})
 
 
 def about(request):
