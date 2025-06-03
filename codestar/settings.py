@@ -16,8 +16,12 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
+LOGIN_REDIRECT_URL = "/member/"
+LOGOUT_REDIRECT_URL = "/"
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
@@ -47,6 +51,8 @@ INSTALLED_APPS = [
     'blog',
     'booking',
     'pages',
+    'users',
+    # 'whitenoise.runserver_nostatic',  # For serving static files in development
 ]
 
 MIDDLEWARE = [
@@ -65,9 +71,10 @@ ROOT_URLCONF = 'codestar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # Can leave this empty since we are using app-level templates
+        'DIRS': [TEMPLATES_DIR],  # Use only global templates
 
-        'APP_DIRS': True,
+        'APP_DIRS': False,  # Turn off app-level template discovery
+
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

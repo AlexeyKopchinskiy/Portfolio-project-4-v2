@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from booking.views import signup  # Import signup directly
+from users.views import signup  # Import signup directly
 
 
 urlpatterns = [
@@ -24,8 +24,7 @@ urlpatterns = [
     path("signup/", signup, name="signup"),  # 🔥 Enables direct /signup/
     path('summernote/', include('django_summernote.urls')),
     path("booking/", include("booking.urls")),
-    # path('booking/', include(('booking.urls', 'booking'), namespace='booking')),
-    # path("", include("blog.urls"), name="blog-urls"),
     path('', include('pages.urls')),
     path("accounts/", include("django.contrib.auth.urls")),
+    path('', include('users.urls')),
 ]

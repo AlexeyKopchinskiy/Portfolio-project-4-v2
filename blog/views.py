@@ -9,7 +9,8 @@ class PostList(generic.ListView):
     # model = Post
     queryset = Post.objects.all().filter(status=1)
     # template_name = "post_list.html"
-    template_name = "blog/index.html"
+    # template_name = "blog/index.html"
+    template_name = "index.html"
     paginate_by = 6
 
 
@@ -28,6 +29,6 @@ def post_detail(request, slug):
 
     return render(
         request,
-        "blog/post_detail.html",
+        "post_detail.html",
         {"post": post},
     )

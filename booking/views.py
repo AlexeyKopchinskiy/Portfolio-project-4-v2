@@ -1,8 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
 from .models import Reservation, Table, BookingStatus, Location
-from .forms import SignupForm
 
 
 @login_required
@@ -74,26 +72,6 @@ def booking_page(request):
     locations = Location.objects.all()
     tables = Table.objects.select_related("location").all()
     return render(request, "booking/booking_page.html", {"locations": locations, "tables": tables})
-
-
-def signup(request):
-    if request.method == "POST":
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)  # Auto-login after registration
-            return redirect("booking")  # Redirect to booking page
-    else:
-        form = SignupForm()
-    return render(request, "booking/signup.html", {"form": form})
-
-
-# def booking_confirmation(request, reservation_id):
-#     try:
-#         reservation = Reservation.objects.get(pk=reservation_id)
-#     except Reservation.DoesNotExist:
-#         return redirect("booking_page")
-#     return render(request, "booking/booking_confirm.html", {"reservation": reservation})
 
 
 def booking_confirmation(request, reservation_id):

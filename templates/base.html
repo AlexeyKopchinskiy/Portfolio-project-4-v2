@@ -83,7 +83,21 @@
                 >Member Page</a
               >
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.path == home_url %}active{% endif %}"
+                href="{% url 'logout' %}"
+                >Logout</a
+              >
+            </li>
             {% else %}
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.path == home_url %}active{% endif %}"
+                href="{% url 'signup' %}"
+                >Sign Up</a
+              >
+            </li>
             <li class="nav-item">
               <a
                 class="nav-link {% if request.path == home_url %}active{% endif %}"

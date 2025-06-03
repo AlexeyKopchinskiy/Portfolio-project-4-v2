@@ -7,14 +7,14 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     """Render the home page."""
-    return render(request, 'pages/home.html', {'welcome_message': 'Welcome to our restaurant! '})
+    return render(request, 'home.html', {'welcome_message': 'Welcome to our restaurant! '})
 
 
 def about(request):
     """Render the about page."""
-    return render(request, 'pages/about.html')
+    return render(request, 'about.html')
 
 
 @login_required
 def member_page(request):
-    return render(request, 'pages/member.html', {"user": request.user})
+    return render(request, 'member.html', {"user": request.user})
