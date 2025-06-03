@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from booking.models import Reservation
 
 
 # Create your views here.
@@ -17,4 +18,10 @@ def about(request):
 
 @login_required
 def member_page(request):
-    return render(request, 'member.html', {"user": request.user})
+    past_bookings = Reservation.objects.filter(
+        user=request.user).order_by('-booking_date')
+
+    return render(request, 'member.html', {
+        "user": request.user,
+        "past_bookings": past_bookings,
+    })
