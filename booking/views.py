@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Reservation, Table, BookingStatus, Location
+from .forms import BookingForm
 
 
 @login_required
@@ -82,3 +83,55 @@ def booking_confirmation(request, reservation_id):
     except Reservation.DoesNotExist:
         return redirect("booking_page")
     return render(request, "booking_confirm.html", {"reservation": reservation})
+
+
+@login_required
+def update_booking(request, reservation_id):
+    booking = get_object_or_404(
+        Reservation, id=reservation_id, user=request.user)
+
+    if request.method == "POST":
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect("member_page")  # Redirect back after updating
+    else:
+        form = BookingForm(instance=booking)
+
+    return render(request, "update_booking.html", {"form": form, "booking": booking})
+
+
+@login_required
+def delete_booking(request, reservation_id):
+    booking = get_object_or_404(
+        Reservation, id=reservation_id, user=request.user)
+
+    if request.method == "POST":
+        booking.delete()
+        return redirect("member_page")  # Redirect after deletion
+
+    return render(request, "delete_booking.html", {"booking": booking})
+
+
+@login_required
+def create_booking(request):
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            new_booking = form.save(commit=False)
+            new_booking.user = request.user  # Assign current user
+            new_booking.booking_status = BookingStatus.objects.filter(
+                status="Pending").first()
+            new_booking.save()
+            return redirect("member_page")  # Redirect after creating
+    else:
+        form = BookingForm()
+
+    locations = Location.objects.all()
+    tables = Table.objects.select_related("location").all()
+
+    return render(request, "create_booking.html", {
+        "form": form,
+        "locations": locations,
+        "tables": tables
+    })

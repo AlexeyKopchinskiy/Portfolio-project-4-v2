@@ -13,6 +13,7 @@
         <th>Location</th>
         <th>Table</th>
         <th>Status</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +25,16 @@
         <td>{{ booking.location.name }}</td>
         <td>{{ booking.table.name }}</td>
         <td>{{ booking.booking_status.status }}</td>
+        <td>
+          <a
+            href="{% url 'update_booking' booking.id %}"
+            class="btn btn-warning"
+            >Update</a
+          >
+          <a href="{% url 'delete_booking' booking.id %}" class="btn btn-danger"
+            >Delete</a
+          >
+        </td>
       </tr>
       {% endfor %}
     </tbody>
@@ -31,5 +42,9 @@
   {% else %}
   <p>You have no previous bookings.</p>
   {% endif %}
+
+  <p>
+    <a href="{% url 'create_booking' %}" class="btn btn-primary">New Booking</a>
+  </p>
 </div>
 {% endblock %}
