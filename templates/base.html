@@ -117,7 +117,7 @@
           </ul>
           <span class="navbar-text text-muted">
             {% if user.is_authenticated %} Hello, <b>{{ user.username }}</b>!
-            {%else%} Our Sushi never throws an error! {% endif %}
+            {% else %} Our Sushi never throws an error! {% endif %}
           </span>
         </div>
       </div>
