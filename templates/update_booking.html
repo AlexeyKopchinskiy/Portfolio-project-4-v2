@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <h1>Edit Your Booking</h1>
+  <p>Modify your reservation details below and save the changes.</p>
+
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+    <a href="{% url 'member_page' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

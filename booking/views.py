@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Reservation, Table, BookingStatus, Location
 from .forms import BookingForm
 
@@ -108,7 +108,8 @@ def delete_booking(request, reservation_id):
 
     if request.method == "POST":
         booking.delete()
-        return redirect("member_page")  # Redirect after deletion
+        # ✅ Ensure this matches the correct URL name
+        return redirect("member_page")
 
     return render(request, "delete_booking.html", {"booking": booking})
 
@@ -135,3 +136,10 @@ def create_booking(request):
         "locations": locations,
         "tables": tables
     })
+
+
+@login_required
+def member_page(request):
+    past_bookings = Reservation.objects.filter(
+        user=request.user).order_by('-booking_date')
+    return render(request, "member.html", {"past_bookings": past_bookings})
