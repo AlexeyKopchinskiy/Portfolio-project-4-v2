@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import Reservation, Table, BookingStatus, Location
 
 
@@ -20,7 +20,7 @@ def booking_page(request):
         if not location_id:
             locations = Location.objects.all()
             tables = Table.objects.select_related("location").all()
-            return render(request, "booking/booking_page.html", {
+            return render(request, "booking_page.html", {
                 "error": "Please select a location.",
                 "locations": locations,
                 "tables": tables
@@ -29,7 +29,7 @@ def booking_page(request):
         if not table_id:
             locations = Location.objects.all()
             tables = Table.objects.select_related("location").all()
-            return render(request, "booking/booking_page.html", {
+            return render(request, "booking_page.html", {
                 "error": "Please select a table.",
                 "locations": locations,
                 "tables": tables
@@ -42,7 +42,7 @@ def booking_page(request):
         except (Location.DoesNotExist, Table.DoesNotExist, ValueError):
             locations = Location.objects.all()
             tables = Table.objects.select_related("location").all()
-            return render(request, "booking/booking_page.html", {
+            return render(request, "booking_page.html", {
                 "error": "Invalid selection.",
                 "locations": locations,
                 "tables": tables
@@ -71,7 +71,7 @@ def booking_page(request):
     # For GET requests, load locations and tables into context
     locations = Location.objects.all()
     tables = Table.objects.select_related("location").all()
-    return render(request, "booking/booking_page.html", {"locations": locations, "tables": tables})
+    return render(request, "booking_page.html", {"locations": locations, "tables": tables})
 
 
 def booking_confirmation(request, reservation_id):
@@ -81,4 +81,4 @@ def booking_confirmation(request, reservation_id):
             'table', 'location').get(pk=reservation_id)
     except Reservation.DoesNotExist:
         return redirect("booking_page")
-    return render(request, "booking/booking_confirm.html", {"reservation": reservation})
+    return render(request, "booking_confirm.html", {"reservation": reservation})

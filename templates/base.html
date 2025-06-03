@@ -90,6 +90,13 @@
                 >Logout</a
               >
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.path == home_url %}active{% endif %}"
+                href="{% url 'booking_page' %}"
+                >Book a Table</a
+              >
+            </li>
             {% else %}
             <li class="nav-item">
               <a
