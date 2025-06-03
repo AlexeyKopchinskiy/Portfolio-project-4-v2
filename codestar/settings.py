@@ -71,9 +71,12 @@ ROOT_URLCONF = 'codestar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],  # Use only global templates
+        # 'DIRS': [TEMPLATES_DIR],  # Use only global templates
 
-        'APP_DIRS': False,  # Turn off app-level template discovery
+        'DIRS': [BASE_DIR, "templates"],
+
+
+        'APP_DIRS': True,  # Turn off app-level template discovery
 
         'OPTIONS': {
             'context_processors': [
