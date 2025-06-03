@@ -49,8 +49,8 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}"
           ><span class="brand"
-            >c<span class="red-o">o</span>de<span class="thin"
-              >|star</span
+            >c<span class="red-o">o</span>ders<span class="thin"
+              >|pie</span
             ></span
           ></a
         >
@@ -75,9 +75,26 @@
                 >Home</a
               >
             </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.path == home_url %}active{% endif %}"
+                href="{% url 'member' %}"
+                >Member Page</a
+              >
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.path == home_url %}active{% endif %}"
+                href="{% url 'login' %}"
+                >Login</a
+              >
+            </li>
+            {% endif %}
           </ul>
           <span class="navbar-text text-muted">
-            Sushi never throw an error!</span
+            Our Sushi never throw an error!</span
           >
         </div>
       </div>
@@ -107,5 +124,6 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
+    <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>

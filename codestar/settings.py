@@ -65,7 +65,8 @@ ROOT_URLCONF = 'codestar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [],  # Can leave this empty since we are using app-level templates
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
