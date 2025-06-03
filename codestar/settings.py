@@ -16,6 +16,7 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
+LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/member/"
 LOGOUT_REDIRECT_URL = "/"
 
@@ -48,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_summernote',
-    'blog',
     'booking',
     'pages',
     'users',
