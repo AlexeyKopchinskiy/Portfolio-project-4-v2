@@ -153,3 +153,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SUMMERNOTE_CONFIG = {
+    'iframe': False,  # ✅ Disables iframe mode for better styling consistency
+    'width': '100%',  # ✅ Makes editor full-width
+    'height': 200,  # ✅ Sets consistent height
+    'toolbar': [
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['fullscreen', 'codeview']]
+    ],
+    'lang': 'en-US',  # ✅ Sets editor language
+}

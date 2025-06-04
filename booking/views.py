@@ -6,8 +6,9 @@ from .forms import BookingForm
 
 @login_required
 def booking_page(request):
+    form = BookingForm()
+
     if request.method == "POST":
-        print("Inside POST branch!")
 
         # Extract data from POST
         location_id = request.POST.get("location")
@@ -72,7 +73,7 @@ def booking_page(request):
     # For GET requests, load locations and tables into context
     locations = Location.objects.all()
     tables = Table.objects.select_related("location").all()
-    return render(request, "booking_page.html", {"locations": locations, "tables": tables})
+    return render(request, "booking_page.html", {"locations": locations, "tables": tables, "form": form})
 
 
 def booking_confirmation(request, reservation_id):
@@ -87,8 +88,12 @@ def booking_confirmation(request, reservation_id):
 
 @login_required
 def update_booking(request, reservation_id):
-    booking = get_object_or_404(
-        Reservation, id=reservation_id, user=request.user)
+    booking = get_object_or_404(Reservation, id=reservation_id, user=request.user)
+    # booking = get_object_or_404(Reservation, id=booking_id)
+    form = BookingForm(instance=booking)
+    locations = Location.objects.all()  # ✅ Fetch locations
+    tables = Table.objects.all()  # ✅ Fetch tables
+
 
     if request.method == "POST":
         form = BookingForm(request.POST, instance=booking)
@@ -98,7 +103,12 @@ def update_booking(request, reservation_id):
     else:
         form = BookingForm(instance=booking)
 
-    return render(request, "update_booking.html", {"form": form, "booking": booking})
+    return render(request, "update_booking.html", {
+        "form": form, 
+        "booking": booking,
+        "locations": locations,
+        "tables": tables,
+    })
 
 
 @login_required

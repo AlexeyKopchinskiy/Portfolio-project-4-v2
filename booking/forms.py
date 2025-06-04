@@ -1,5 +1,6 @@
 from django import forms
 from .models import Reservation
+from django_summernote.widgets import SummernoteWidget
 
 
 class BookingForm(forms.ModelForm):
@@ -10,7 +11,7 @@ class BookingForm(forms.ModelForm):
         widgets = {
             'booking_date': forms.DateInput(attrs={'type': 'date'}),
             'booking_time': forms.TimeInput(attrs={'type': 'time'}),
-            'special_requests': forms.Textarea(attrs={'rows': 3}),
+            'special_requests': SummernoteWidget(),
         }
 
     def __init__(self, *args, **kwargs):
@@ -24,4 +25,4 @@ class BookingForm(forms.ModelForm):
         self.fields['booking_time'].widget.attrs.update(
             {'class': 'form-control'})
         self.fields['special_requests'].widget.attrs.update(
-            {'class': 'form-control'})
+            {'class': 'form-control, summernote-editor'})
