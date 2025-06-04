@@ -97,6 +97,12 @@
                 >Book a Table</a
               >
             </li>
+
+            <li class="nav-item">
+              <a 
+              class="nav-link {% if request.path == home_url %}active{% endif %}"
+              href="{% url 'users:update_profile' %}">Edit Profile</a></li>
+
             {% else %}
 
             <li class="nav-item">

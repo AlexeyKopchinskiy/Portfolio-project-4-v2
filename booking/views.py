@@ -4,6 +4,7 @@ from .models import Reservation, Table, BookingStatus, Location
 from .forms import BookingForm
 
 
+
 @login_required
 def booking_page(request):
     form = BookingForm()
@@ -153,3 +154,4 @@ def member_page(request):
     past_bookings = Reservation.objects.filter(
         user=request.user).order_by('-booking_date')
     return render(request, "member.html", {"past_bookings": past_bookings})
+

@@ -1,6 +1,8 @@
 from django import forms
 from .models import Reservation
 from django_summernote.widgets import SummernoteWidget
+from django.contrib.auth.models import User
+
 
 
 class BookingForm(forms.ModelForm):
@@ -26,3 +28,4 @@ class BookingForm(forms.ModelForm):
             {'class': 'form-control'})
         self.fields['special_requests'].widget.attrs.update(
             {'class': 'form-control, summernote-editor'})
+

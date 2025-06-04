@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center">Update Your Profile</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- ✅ This should display the form -->
+    <button type="submit" class="btn btn-success">Save Changes</button>
+  </form>
+
+  <a href="{% url 'users:profile' %}" class="btn btn-secondary mt-3">Cancel</a>
+</div>
+{% endblock %}

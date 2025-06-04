@@ -1,4 +1,5 @@
 from .views import booking_page, booking_confirmation, update_booking, delete_booking, create_booking
+
 from django.urls import path, include
 from . import views
 from .views import member_page
@@ -16,7 +17,9 @@ urlpatterns = [
          delete_booking, name='delete_booking'),
      path('booking/create/', create_booking, name='create_booking'),
      path("member/", member_page, name="member_page"),
+     # path("users/", include("users.urls", namespace="users")),
      path('booking/delete/<int:reservation_id>/',
          delete_booking, name='delete_booking'),
      path('summernote/', include('django_summernote.urls')),
+
 ]
