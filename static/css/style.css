@@ -159,3 +159,187 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+/* Design customisation */
+
+button {
+    transition: all 0.3s ease-in-out;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: darkgray !important;
+    /* ✅ Ensures your chosen font is applied */
+}
+
+.navbar {
+    background-color: #343a40 !important;
+    color: #ffffff !important;
+    padding: 10px 20px;
+}
+
+.nav-link,
+.nav-item A {
+    color: #ffffff !important;
+}
+
+.nav-link:hover,
+.nav-item A:hover {
+    color: #08e02c !important;
+    text-decoration: underline;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.navbar-text {
+    color: #08e02c !important;
+}
+
+.text-muted {
+    color: #08e02c !important;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+}
+
+.main-bg {
+    background-color: darkgray !important;
+}
+
+.flex-shrink-0 {
+    flex-shrink: 0;
+    margin: 15px 5px 45px 5px !important;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9FAFC;
+    border-top-left-radius: 15px;
+}
+
+.navbar-toggler {
+    background-color: #08e02c;
+}
+
+/* 🔵 Large desktop screens (1440px+) */
+@media (min-width: 1440px) {
+    .table {
+        font-size: 18px;
+        /* ✅ Increase font for readability */
+    }
+
+    .table th,
+    .table td {
+        padding: 12px;
+        /* ✅ More spacing */
+    }
+}
+
+/* 🔵 Standard desktops & laptops (1024px - 1440px) */
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .table {
+        font-size: 16px;
+    }
+
+    .table-container {
+        max-width: 90%;
+        /* ✅ Slightly reduce width */
+    }
+}
+
+/* 🟢 Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .table {
+        font-size: 15px;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px;
+    }
+}
+
+/* 🟠 Large mobile phones (480px - 768px) */
+@media (max-width: 768px) {
+    .table {
+        font-size: 14px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        /* ✅ Enables scrolling */
+    }
+
+    .navbar-brand {
+        justify-content: center;
+        /* ✅ Centers the logo */
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        background-color: #08e02c;
+        left: 15px;
+        /* ✅ Keeps the toggler icon aligned left */
+        top: 15px;
+        /* ✅ Ensures it stays in place */
+    }
+}
+
+/* 🔴 Extra-small mobile screens (below 480px) */
+@media (max-width: 480px) {
+    .table thead {
+        display: none;
+        /* ❌ Hide headers */
+    }
+
+    .table tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .table td {
+        display: block;
+        text-align: left;
+        padding: 5px;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        /* ✅ Adds labels for mobile */
+        font-weight: bold;
+        display: block;
+    }
+
+    .navbar-brand {
+        justify-content: center;
+        /* ✅ Centers the logo */
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        background-color: #08e02c;
+        left: 15px;
+        /* ✅ Keeps the toggler icon aligned left */
+        top: 15px;
+        /* ✅ Ensures it stays in place */
+    }
+}

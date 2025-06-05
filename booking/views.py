@@ -4,13 +4,11 @@ from .models import Reservation, Table, BookingStatus, Location
 from .forms import BookingForm
 
 
-
 @login_required
 def booking_page(request):
     form = BookingForm()
 
     if request.method == "POST":
-
         # Extract data from POST
         location_id = request.POST.get("location")
         table_id = request.POST.get("table")
@@ -23,33 +21,46 @@ def booking_page(request):
         if not location_id:
             locations = Location.objects.all()
             tables = Table.objects.select_related("location").all()
-            return render(request, "booking_page.html", {
-                "error": "Please select a location.",
-                "locations": locations,
-                "tables": tables
-            })
+            return render(
+                request,
+                "booking_page.html",
+                {
+                    "error": "Please select a location.",
+                    "locations": locations,
+                    "tables": tables,
+                },
+            )
 
         if not table_id:
             locations = Location.objects.all()
             tables = Table.objects.select_related("location").all()
-            return render(request, "booking_page.html", {
-                "error": "Please select a table.",
-                "locations": locations,
-                "tables": tables
-            })
+            return render(
+                request,
+                "booking_page.html",
+                {
+                    "error": "Please select a table.",
+                    "locations": locations,
+                    "tables": tables,
+                },
+            )
 
-        # Get the location and table objects or return an error view if not found
+        # Get the location and table objects or return an error view if
+        # not found
         try:
             location = Location.objects.get(id=int(location_id))
             table = Table.objects.get(id=int(table_id))
         except (Location.DoesNotExist, Table.DoesNotExist, ValueError):
             locations = Location.objects.all()
             tables = Table.objects.select_related("location").all()
-            return render(request, "booking_page.html", {
-                "error": "Invalid selection.",
-                "locations": locations,
-                "tables": tables
-            })
+            return render(
+                request,
+                "booking_page.html",
+                {
+                    "error": "Invalid selection.",
+                    "locations": locations,
+                    "tables": tables,
+                },
+            )
 
         # Get the booking status (make sure the field name 'status' is correct)
         booking_status = BookingStatus.objects.filter(status="Pending").first()
@@ -63,38 +74,48 @@ def booking_page(request):
             booking_time=booking_time,
             num_of_guests=num_of_guests,
             booking_status=booking_status,
-            special_requests=special_requests
+            special_requests=special_requests,
         )
 
         print("New reservation created with ID:", new_reservation.id)
 
         # Redirect to the confirmation page using the new reservation's ID
-        return redirect("booking_confirmation", reservation_id=new_reservation.id)
+        return redirect(
+            "booking_confirmation", reservation_id=new_reservation.id
+        )
 
     # For GET requests, load locations and tables into context
     locations = Location.objects.all()
     tables = Table.objects.select_related("location").all()
-    return render(request, "booking_page.html", {"locations": locations, "tables": tables, "form": form})
+    return render(
+        request,
+        "booking_page.html",
+        {"locations": locations, "tables": tables, "form": form},
+    )
 
 
 def booking_confirmation(request, reservation_id):
     try:
         # Eagerly load the related Table and Location objects.
         reservation = Reservation.objects.select_related(
-            'table', 'location').get(pk=reservation_id)
+            "table", "location"
+        ).get(pk=reservation_id)
     except Reservation.DoesNotExist:
         return redirect("booking_page")
-    return render(request, "booking_confirm.html", {"reservation": reservation})
+    return render(
+        request, "booking_confirm.html", {"reservation": reservation}
+    )
 
 
 @login_required
 def update_booking(request, reservation_id):
-    booking = get_object_or_404(Reservation, id=reservation_id, user=request.user)
+    booking = get_object_or_404(
+        Reservation, id=reservation_id, user=request.user
+    )
     # booking = get_object_or_404(Reservation, id=booking_id)
     form = BookingForm(instance=booking)
     locations = Location.objects.all()  # ✅ Fetch locations
     tables = Table.objects.all()  # ✅ Fetch tables
-
 
     if request.method == "POST":
         form = BookingForm(request.POST, instance=booking)
@@ -104,18 +125,23 @@ def update_booking(request, reservation_id):
     else:
         form = BookingForm(instance=booking)
 
-    return render(request, "update_booking.html", {
-        "form": form, 
-        "booking": booking,
-        "locations": locations,
-        "tables": tables,
-    })
+    return render(
+        request,
+        "update_booking.html",
+        {
+            "form": form,
+            "booking": booking,
+            "locations": locations,
+            "tables": tables,
+        },
+    )
 
 
 @login_required
 def delete_booking(request, reservation_id):
     booking = get_object_or_404(
-        Reservation, id=reservation_id, user=request.user)
+        Reservation, id=reservation_id, user=request.user
+    )
 
     if request.method == "POST":
         booking.delete()
@@ -133,7 +159,8 @@ def create_booking(request):
             new_booking = form.save(commit=False)
             new_booking.user = request.user  # Assign current user
             new_booking.booking_status = BookingStatus.objects.filter(
-                status="Pending").first()
+                status="Pending"
+            ).first()
             new_booking.save()
             return redirect("member_page")  # Redirect after creating
     else:
@@ -142,16 +169,16 @@ def create_booking(request):
     locations = Location.objects.all()
     tables = Table.objects.select_related("location").all()
 
-    return render(request, "create_booking.html", {
-        "form": form,
-        "locations": locations,
-        "tables": tables
-    })
+    return render(
+        request,
+        "create_booking.html",
+        {"form": form, "locations": locations, "tables": tables},
+    )
 
 
 @login_required
 def member_page(request):
-    past_bookings = Reservation.objects.filter(
-        user=request.user).order_by('-booking_date')
+    past_bookings = Reservation.objects.filter(user=request.user).order_by(
+        "-booking_date"
+    )
     return render(request, "member.html", {"past_bookings": past_bookings})
-

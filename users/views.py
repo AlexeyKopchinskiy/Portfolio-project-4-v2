@@ -20,7 +20,7 @@ def signup(request):
 
 @login_required
 def profile(request):
-    return render(request, "profile.html") 
+    return render(request, "profile.html")
 
 
 @login_required
@@ -30,8 +30,10 @@ def update_profile(request):
         form = UserUpdateForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect("users:profile")  # ✅ Ensure valid redirect
+            return redirect("users:profile")  # Ensure valid redirect
     else:
-        form = UserUpdateForm(instance=user)  # ✅ Ensure form is created here
+        form = UserUpdateForm(instance=user)  # Ensure form is created here
 
-    return render(request, "update_profile.html", {"form": form})  # ✅ Pass the form to the template
+    return render(
+        request, "update_profile.html", {"form": form}
+    )  # Pass the form to the template

@@ -1,5 +1,5 @@
 {
-  "files.exclude": {
+   "files.exclude": {
       "**/.DS_Store": true,
       "**/.git": true,
       "**/.github": true,

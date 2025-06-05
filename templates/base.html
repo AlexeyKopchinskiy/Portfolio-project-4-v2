@@ -47,12 +47,16 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}"
+        {% comment %} <a class="navbar-brand" href="{% url 'home' %}"
           ><span class="brand"
             >c<span class="red-o">o</span>ders<span class="thin"
               >|pie</span
             ></span
           ></a
+        > {% endcomment %}
+        <a class="navbar-brand" href="{% url 'home' %}"
+          ><img src="{% static 'images/Sushi-bar-logo.png' %}" alt="Sushi Bar Logo" width="120">
+          </a
         >
         <button
           class="navbar-toggler"
@@ -122,7 +126,10 @@
             {% endif %}
           </ul>
           <span class="navbar-text text-muted">
-            {% if user.is_authenticated %} Hello, <b>{{ user.username }}</b>!
+            {% if user.is_authenticated %} 
+            <a class="nav-link {% if request.path == home_url %}active{% endif %}" 
+            href="{% url 'member' %}"
+            >Hello, <b>{{ user.username }}</b>!</a>
             {% else %} Our Sushi never throws an error! {% endif %}
           </span>
         </div>
@@ -138,7 +145,7 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
       <p class="m-0 text-center text-white">
-        {% block copyright %} Made by Code Instituters {% endblock copyright %}
+        {% block copyright %} Made by hungry Coders for hungry Coders {% endblock copyright %}
       </p>
       <p class="m-0 text-center text-white">
         Follow us: <i class="fab fa-facebook-square ms-3"></i>
