@@ -1,6 +1,6 @@
 body {
     background-color: #F9FAFC;
-    background: url("/static/images/sushi-world-1.jpg");
+    background: url("/static/images/Giant-sushi-set-with-overlay.png");
     /* background-repeat: no-repeat !important; */
     min-height: 100%;
     min-width: 100%;
@@ -34,7 +34,7 @@ body {
 
 .main-bg {
     /* background-color: darkgray; */
-
+    padding: 0;
 }
 
 .card {
@@ -51,6 +51,14 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
+    background-color: #188181;
+}
+
+.img-fluid {
+    position: relative;
+    /* bottom: 5%; */
+    width: 100%;
+    min-width: 30%;
     background-color: #188181;
 }
 
@@ -215,25 +223,28 @@ body {
     color: #08e02c !important;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .container {
         width: 100%;
     }
-}
+} */
 
 
 
 .flex-shrink-0 {
     flex-shrink: 0;
-    margin: 15px 5px 45px 5px !important;
+    margin: 0 !important;
+    height: 100%;
+    padding: 0;
 }
 
 .container {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     padding: 20px;
     background-color: #F9FAFC;
-    border-top-left-radius: 15px;
+    /* border-top-left-radius: 15px; */
+    height: 100%;
 }
 
 .navbar-toggler {
@@ -304,6 +315,10 @@ body {
         top: 15px;
         /* ✅ Ensures it stays in place */
     }
+
+    /* .container {
+        width: 100%;
+    } */
 }
 
 /* 🔴 Extra-small mobile screens (below 480px) */
@@ -311,6 +326,10 @@ body {
     .table thead {
         display: none;
         /* ❌ Hide headers */
+    }
+
+    .container {
+        width: 100%;
     }
 
     .table tr {
