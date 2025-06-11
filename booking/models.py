@@ -23,25 +23,34 @@ class Location(models.Model):
     def __str__(self):
         return self.location
 
+
 # Table Model (Stores table details)
 
 
 class Table(models.Model):
     size = models.SmallIntegerField(null=True)  # Number of seats
     location = models.ForeignKey(
-        Location, on_delete=models.CASCADE, related_name="tables")
+        Location, on_delete=models.CASCADE, related_name="tables"
+    )
 
     def __str__(self):
         return f"Table {self.id} ({self.location.location})"
+
 
 # Reservation Model (Handles bookings)
 
 
 class Reservation(models.Model):
     table = models.ForeignKey(
-        Table, on_delete=models.CASCADE, related_name="reservations")
+        Table, on_delete=models.CASCADE, related_name="reservations"
+    )
     location = models.ForeignKey(
-        Location, on_delete=models.CASCADE, null=True, blank=True, related_name="reservations")
+        Location,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="reservations",
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     booking_date = models.DateField(null=True)
     booking_time = models.TimeField(null=True)
@@ -50,7 +59,8 @@ class Reservation(models.Model):
         BookingStatus,
         on_delete=models.SET_NULL,
         null=True,
-        related_name="reservations")
+        related_name="reservations",
+    )
     special_requests = models.TextField(blank=True, null=True)
     booked_on = models.DateTimeField(auto_now_add=True)
 
