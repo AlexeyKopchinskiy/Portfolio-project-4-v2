@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
 from .models import Reservation, Table, BookingStatus, Location
 from .forms import BookingForm
 
@@ -182,3 +183,30 @@ def member_page(request):
         "-booking_date"
     )
     return render(request, "member.html", {"past_bookings": past_bookings})
+
+
+@login_required
+def get_available_tables(request):
+    date = request.GET.get("date")
+    time = request.GET.get("time")
+
+    # Get tables that are already booked for the given date & time
+    booked_table_ids = Reservation.objects.filter(
+        booking_date=date, booking_time=time
+    ).values_list("table_id", flat=True)
+
+    # Get available tables
+    available_tables = Table.objects.exclude(id__in=booked_table_ids)
+
+    data = {
+        "available_tables": [
+            {
+                "id": table.id,
+                "size": table.size,
+                "location": table.location.location,
+            }
+            for table in available_tables
+        ]
+    }
+
+    return JsonResponse(data)
