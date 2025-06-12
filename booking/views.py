@@ -201,7 +201,7 @@ def get_available_tables(request):
             datetime.combine(booking_date, booking_time) - timedelta(hours=1)
         ).time()
         upper_bound = (
-            datetime.combine(booking_date, booking_time) + timedelta(hours=1)
+            datetime.combine(booking_date, booking_time) + timedelta(hours=2)
         ).time()
 
     except ValueError:

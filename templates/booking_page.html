@@ -13,7 +13,7 @@
     {% csrf_token %}
 
     <!-- Location Selection -->
-    <div class="mb-3">
+    {% comment %} <div class="mb-3">
       <label for="location" class="form-label">Select a Location:</label>
       <select name="location" id="location" class="form-select" required>
         <option value="">-- Select a Location --</option>
@@ -21,12 +21,12 @@
         <option value="{{ loc.id }}">{{ loc.location }}</option>
         {% endfor %}
       </select>
-    </div>
+    </div> {% endcomment %}
 
     <!-- Table Selection -->
     <div class="mb-3">
       <label for="table" class="form-label">Select a Table:</label>
-      <select name="table" id="table" class="form-select" required>
+      <select name="table" id="table" class="form-select" size="10" required>
         <option value="">-- Select a Table --</option>
         {% for table in tables %}
         <!-- Include a data attribute for filtering -->
