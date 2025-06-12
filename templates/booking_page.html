@@ -13,45 +13,46 @@
   <form method="POST" action="">
     {% csrf_token %}
 
+    <div class="row g-3"> 
 
-    <!-- Booking Date -->
-    <div class="mb-3">
-      <label for="booking_date" class="form-label">Booking Date:</label>
-      <input
-        type="date"
-        class="form-control"
-        id="booking_date"
-        name="booking_date"
-        required
-      />
+      <!-- Booking Date -->
+      <div class="col-md-4">
+        <label for="booking_date" class="form-label">Booking Date:</label>
+        <input
+          type="date"
+          class="form-control"
+          id="booking_date"
+          name="booking_date"
+          required
+        />
+      </div>
+
+      <!-- Booking Time -->
+      <div class="col-md-4">
+        <label for="booking_time" class="form-label">Booking Time:</label>
+        <input
+          type="time"
+          class="form-control"
+          id="booking_time"
+          name="booking_time"
+          required
+        />
+      </div>
+
+      <!-- Number of Guests -->
+      <div class="col-md-4">
+        <label for="num_of_guests" class="form-label">Number of Guests:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="num_of_guests"
+          name="num_of_guests"
+          min="1"
+          value="1"
+          required
+        />
+      </div>
     </div>
-
-    <!-- Booking Time -->
-    <div class="mb-3">
-      <label for="booking_time" class="form-label">Booking Time:</label>
-      <input
-        type="time"
-        class="form-control"
-        id="booking_time"
-        name="booking_time"
-        required
-      />
-    </div>
-
-    <!-- Number of Guests -->
-    <div class="mb-3">
-      <label for="num_of_guests" class="form-label">Number of Guests:</label>
-      <input
-        type="number"
-        class="form-control"
-        id="num_of_guests"
-        name="num_of_guests"
-        min="1"
-        value="1"
-        required
-      />
-    </div>
-
     <!-- Table Selection -->
     <div class="mb-3">
       <label for="table" class="form-label">Available Tables:</label>
@@ -78,7 +79,10 @@
       ></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">Confirm Booking</button>
+    <div class="mt-3">
+      <button type="submit" class="btn btn-primary">Confirm Booking</button>
+      <button type="reset" class="btn btn-secondary ms-2">Reset</button>
+    </div>
   </form>
   {% else %}
   <p>You need to <a href="{% url 'login' %}">log in</a> to book a table.</p>
