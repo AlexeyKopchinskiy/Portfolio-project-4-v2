@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Reservation, Table, BookingStatus, Location
 from .forms import BookingForm
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 @login_required
@@ -186,28 +186,36 @@ def member_page(request):
     return render(request, "member.html", {"past_bookings": past_bookings})
 
 
-# @login_required
+@login_required
 def get_available_tables(request):
     date_str = request.GET.get("date")
     time_str = request.GET.get("time")
 
-    print(
-        f"Received Date: {date_str}, Received Time: {time_str}"
-    )  # ✅ Debugging
-
     try:
-        # ✅ Convert string to actual date object
+        # ✅ Convert string to actual date & time objects
         booking_date = datetime.strptime(date_str, "%Y-%m-%d").date()
         booking_time = datetime.strptime(time_str, "%H:%M").time()
+
+        # ✅ Define time range (±1 hour)
+        lower_bound = (
+            datetime.combine(booking_date, booking_time) - timedelta(hours=1)
+        ).time()
+        upper_bound = (
+            datetime.combine(booking_date, booking_time) + timedelta(hours=1)
+        ).time()
+
     except ValueError:
         return JsonResponse(
-            {"error": f"Invalid date or time format: {date_str}, {time_str}"},
-            status=400,
+            {"error": "Invalid date or time format"}, status=400
         )
 
-    # ✅ Query booked tables
+    # ✅ Query booked tables within the ±1 hour range
     booked_table_ids = Reservation.objects.filter(
-        booking_date=booking_date, booking_time=booking_time
+        booking_date=booking_date,
+        booking_time__range=(
+            lower_bound,
+            upper_bound,
+        ),  # ✅ Exclude tables booked within ±1 hour
     ).values_list("table_id", flat=True)
 
     # ✅ Get available tables
