@@ -210,3 +210,22 @@ def get_available_tables(request):
     }
 
     return JsonResponse(data)
+
+
+@login_required
+def cancel_booking(request, reservation_id):
+    booking = get_object_or_404(
+        Reservation, id=reservation_id, user=request.user
+    )
+
+    if request.method == "POST":
+        booking.delete()  # ✅ Remove reservation
+        return redirect(
+            "cancel_booking_confirm"
+        )  # ✅ Redirect to confirmation page
+
+    return render(request, "cancel_booking.html", {"booking": booking})
+
+
+def cancel_booking_confirm(request):
+    return render(request, "cancel_booking_confirm.html")

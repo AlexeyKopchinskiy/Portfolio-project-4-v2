@@ -10,7 +10,12 @@ from .views import (
 
 from django.urls import path, include
 from . import views
-from .views import member_page, get_available_tables
+from .views import (
+    member_page,
+    get_available_tables,
+    cancel_booking,
+    cancel_booking_confirm,
+)
 
 
 urlpatterns = [
@@ -45,5 +50,15 @@ urlpatterns = [
         "get-available-tables/",
         get_available_tables,
         name="get_available_tables",
+    ),
+    path(
+        "booking/cancel/<int:reservation_id>/",
+        cancel_booking,
+        name="cancel_booking",
+    ),
+    path(
+        "booking/cancel/confirm/",
+        cancel_booking_confirm,
+        name="cancel_booking_confirm",
     ),
 ]

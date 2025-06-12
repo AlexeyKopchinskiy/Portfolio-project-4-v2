@@ -6,10 +6,24 @@
   <p>Modify your reservation details below and save the changes.</p>
 
   <form method="post">
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %}
+    {{ form.as_p }}
 
     <button type="submit" class="btn btn-success">Save Changes</button>
-    <a href="{% url 'member_page' %}" class="btn btn-secondary">Cancel</a>
+    
+    <!-- ✅ Redirect to cancellation confirmation page -->
+    <a href="{% url 'cancel_booking' reservation_id=booking.id %}" class="btn btn-danger">Cancel Booking</a>
+    
+    <a href="{% url 'member_page' %}" class="btn btn-secondary">Back</a>
   </form>
+
+
+  {% if error %}
+  <div class="alert alert-danger mt-3">{{ error }}</div>
+  {% endif %}
+
+  {% if success %}
+  <div class="alert alert-success mt-3">{{ success }}</div>
+  {% endif %}
 </div>
 {% endblock %}
