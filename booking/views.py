@@ -9,68 +9,44 @@ from datetime import datetime, timedelta
 @login_required
 def booking_page(request):
     form = BookingForm()
+    tables = Table.objects.select_related(
+        "location"
+    ).all()  # ✅ Preload locations
 
     if request.method == "POST":
         # Extract data from POST
-        location_id = request.POST.get("location")
         table_id = request.POST.get("table")
         booking_date = request.POST.get("booking_date")
         booking_time = request.POST.get("booking_time")
         num_of_guests = request.POST.get("num_of_guests")
         special_requests = request.POST.get("special_requests")
 
-        # Validate that required selections are made
-        if not location_id:
-            locations = Location.objects.all()
-            tables = Table.objects.select_related("location").all()
-            return render(
-                request,
-                "booking_page.html",
-                {
-                    "error": "Please select a location.",
-                    "locations": locations,
-                    "tables": tables,
-                },
-            )
-
+        # Validate that a table is selected
         if not table_id:
-            locations = Location.objects.all()
-            tables = Table.objects.select_related("location").all()
+            tables = Table.objects.all()
             return render(
                 request,
                 "booking_page.html",
-                {
-                    "error": "Please select a table.",
-                    "locations": locations,
-                    "tables": tables,
-                },
+                {"error": "Please select a table.", "tables": tables},
             )
 
-        # Get the location and table objects or return an error view if
-        # not found
+        # Get the table object or return an error if not found
         try:
-            location = Location.objects.get(id=int(location_id))
             table = Table.objects.get(id=int(table_id))
-        except (Location.DoesNotExist, Table.DoesNotExist, ValueError):
-            locations = Location.objects.all()
-            tables = Table.objects.select_related("location").all()
+        except (Table.DoesNotExist, ValueError):
+            tables = Table.objects.all()
             return render(
                 request,
                 "booking_page.html",
-                {
-                    "error": "Invalid selection.",
-                    "locations": locations,
-                    "tables": tables,
-                },
+                {"error": "Invalid table selection.", "tables": tables},
             )
 
-        # Get the booking status (make sure the field name 'status' is correct)
+        # Get the default booking status
         booking_status = BookingStatus.objects.filter(status="Pending").first()
 
-        # Create the reservation and assign it to new_reservation
+        # Create the reservation (without location)
         new_reservation = Reservation.objects.create(
             table=table,
-            location=location,
             user=request.user,
             booking_date=booking_date,
             booking_time=booking_time,
@@ -81,18 +57,17 @@ def booking_page(request):
 
         print("New reservation created with ID:", new_reservation.id)
 
-        # Redirect to the confirmation page using the new reservation's ID
+        # Redirect to the confirmation page
         return redirect(
             "booking_confirmation", reservation_id=new_reservation.id
         )
 
-    # For GET requests, load locations and tables into context
-    locations = Location.objects.all()
-    tables = Table.objects.select_related("location").all()
+    # For GET requests, load tables into context
+    tables = Table.objects.all()
     return render(
         request,
         "booking_page.html",
-        {"locations": locations, "tables": tables, "form": form},
+        {"tables": tables, "form": form},
     )
 
 
