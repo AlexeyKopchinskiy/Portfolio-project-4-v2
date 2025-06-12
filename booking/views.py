@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Reservation, Table, BookingStatus, Location
 from .forms import BookingForm
+from datetime import datetime
 
 
 @login_required
@@ -185,17 +186,31 @@ def member_page(request):
     return render(request, "member.html", {"past_bookings": past_bookings})
 
 
-@login_required
+# @login_required
 def get_available_tables(request):
-    date = request.GET.get("date")
-    time = request.GET.get("time")
+    date_str = request.GET.get("date")
+    time_str = request.GET.get("time")
 
-    # Get tables that are already booked for the given date & time
+    print(
+        f"Received Date: {date_str}, Received Time: {time_str}"
+    )  # ✅ Debugging
+
+    try:
+        # ✅ Convert string to actual date object
+        booking_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+        booking_time = datetime.strptime(time_str, "%H:%M").time()
+    except ValueError:
+        return JsonResponse(
+            {"error": f"Invalid date or time format: {date_str}, {time_str}"},
+            status=400,
+        )
+
+    # ✅ Query booked tables
     booked_table_ids = Reservation.objects.filter(
-        booking_date=date, booking_time=time
+        booking_date=booking_date, booking_time=booking_time
     ).values_list("table_id", flat=True)
 
-    # Get available tables
+    # ✅ Get available tables
     available_tables = Table.objects.exclude(id__in=booked_table_ids)
 
     data = {
