@@ -48,31 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
   smokingCheckbox.disabled = true;
   accessibleCheckbox.disabled = true;
 
-  function restoreFullTableList() {
-    fetch(`/booking/get-available-tables/`) // ✅ Fetch all tables without filters
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("Restoring full table list:", data.available_tables);
-
-        // ✅ Reset table dropdown
-        tableSelect.innerHTML = `<option value="">-- Select a Table --</option>`;
-
-        data.available_tables.forEach(table => {
-          const option = document.createElement("option");
-          option.value = table.id;
-          option.textContent = `Table ${table.id} | Seats: ${table.size} | Location: ${table.location}` +
-            (table.smoking ? " | Smoking" : "") +
-            (table.accessible ? " | Accessible" : "");
-          tableSelect.appendChild(option);
-        });
-      })
-      .catch(error => console.error("Error restoring tables:", error));
-  }
 
   function updateTableOptions() {
     const selectedDate = dateInput.value;
