@@ -202,6 +202,8 @@ def get_available_tables(request):
                 "id": table.id,
                 "size": table.size,
                 "location": table.location.location,
+                "smoking": table.smoking,
+                "accessible": table.accessible,
             }
             for table in available_tables
         ]

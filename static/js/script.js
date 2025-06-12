@@ -39,21 +39,56 @@ document.addEventListener("DOMContentLoaded", function () {
   const dateInput = document.getElementById("booking_date");
   const timeInput = document.getElementById("booking_time");
   const guestCountInput = document.getElementById("num_of_guests");
+  const smokingCheckbox = document.getElementById("smoking");
+  const accessibleCheckbox = document.getElementById("accessible");
   const tableSelect = document.getElementById("table");
 
-  // ✅ Disable guest count field initially
+  // ✅ Disable guest count, smoking, and accessible checkboxes initially
   guestCountInput.disabled = true;
+  smokingCheckbox.disabled = true;
+  accessibleCheckbox.disabled = true;
+
+  function restoreFullTableList() {
+    fetch(`/booking/get-available-tables/`) // ✅ Fetch all tables without filters
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Restoring full table list:", data.available_tables);
+
+        // ✅ Reset table dropdown
+        tableSelect.innerHTML = `<option value="">-- Select a Table --</option>`;
+
+        data.available_tables.forEach(table => {
+          const option = document.createElement("option");
+          option.value = table.id;
+          option.textContent = `Table ${table.id} | Seats: ${table.size} | Location: ${table.location}` +
+            (table.smoking ? " | Smoking" : "") +
+            (table.accessible ? " | Accessible" : "");
+          tableSelect.appendChild(option);
+        });
+      })
+      .catch(error => console.error("Error restoring tables:", error));
+  }
 
   function updateTableOptions() {
     const selectedDate = dateInput.value;
     const selectedTime = timeInput.value;
     const selectedGuests = parseInt(guestCountInput.value, 10) || 0;
+    const smokingOnly = smokingCheckbox.checked;
+    const accessibleOnly = accessibleCheckbox.checked;
 
-    // ✅ Enable guest count field only if date & time are selected
-    guestCountInput.disabled = !selectedDate || !selectedTime;
+    // ✅ Enable guest count, smoking, and accessible checkboxes only if date & time are selected
+    const enableFilters = selectedDate && selectedTime;
+    guestCountInput.disabled = !enableFilters;
+    smokingCheckbox.disabled = !enableFilters;
+    accessibleCheckbox.disabled = !enableFilters;
 
     // ✅ Prevent request if date or time is missing
-    if (!selectedDate || !selectedTime) {
+    if (!enableFilters) {
       console.warn("Date and time must be selected before filtering tables.");
       return;
     }
@@ -66,17 +101,24 @@ document.addEventListener("DOMContentLoaded", function () {
         // ✅ Clear existing options
         tableSelect.innerHTML = `<option value="">-- Select a Table --</option>`;
 
-        // ✅ Filter tables based on guest count
-        const filteredTables = data.available_tables.filter(table => selectedGuests <= table.size);
+        // ✅ Filter tables based on guest count, smoking, and accessibility
+        const filteredTables = data.available_tables.filter(table => {
+          const fitsGuests = selectedGuests <= table.size;
+          const fitsSmoking = !smokingOnly || table.smoking === true;
+          const fitsAccessible = !accessibleOnly || table.accessible === true;
+          return fitsGuests && fitsSmoking && fitsAccessible;
+        });
 
         if (filteredTables.length === 0) {
-          console.warn("No tables available for this guest count");
+          console.warn("No tables available for the selected criteria");
           tableSelect.innerHTML = `<option value="">No available tables</option>`;
         } else {
           filteredTables.forEach(table => {
             const option = document.createElement("option");
             option.value = table.id;
-            option.textContent = `Table ${table.id} | Seats: ${table.size} | Location: ${table.location}`;
+            option.textContent = `Table ${table.id} | Seats: ${table.size} | Location: ${table.location}` +
+              (table.smoking ? " | Smoking" : "") +
+              (table.accessible ? " | Accessible" : "");
             tableSelect.appendChild(option);
           });
         }
@@ -84,8 +126,10 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch(error => console.error("Error fetching tables:", error));
   }
 
-  // ✅ Update tables when date, time, or guest count changes
+  // ✅ Update tables when date, time, guest count, smoking, or accessibility changes
   dateInput.addEventListener("change", updateTableOptions);
   timeInput.addEventListener("change", updateTableOptions);
   guestCountInput.addEventListener("change", updateTableOptions);
+  smokingCheckbox.addEventListener("change", updateTableOptions);
+  accessibleCheckbox.addEventListener("change", updateTableOptions);
 });

@@ -29,6 +29,8 @@ class Location(models.Model):
 
 class Table(models.Model):
     size = models.SmallIntegerField(null=True)  # Number of seats
+    smoking = models.BooleanField(default=False)  # ✅ Smoking area?
+    accessible = models.BooleanField(default=False)  # ✅ Accessible table?
     location = models.ForeignKey(
         Location, on_delete=models.CASCADE, related_name="tables"
     )
