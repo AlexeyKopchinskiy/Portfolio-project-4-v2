@@ -8,20 +8,29 @@ from booking.models import Reservation
 
 def home(request):
     """Render the home page."""
-    return render(request, 'home.html', {'welcome_message': 'Welcome to our restaurant! '})
+    return render(
+        request,
+        "pages-html/home.html",
+        {"welcome_message": "Welcome to our restaurant! "},
+    )
 
 
 def about(request):
     """Render the about page."""
-    return render(request, 'about.html')
+    return render(request, "pages-html/about.html")
 
 
 @login_required
 def member_page(request):
-    past_bookings = Reservation.objects.filter(
-        user=request.user).order_by('-booking_date')
+    past_bookings = Reservation.objects.filter(user=request.user).order_by(
+        "-booking_date"
+    )
 
-    return render(request, 'member.html', {
-        "user": request.user,
-        "past_bookings": past_bookings,
-    })
+    return render(
+        request,
+        "users-html/member.html",
+        {
+            "user": request.user,
+            "past_bookings": past_bookings,
+        },
+    )

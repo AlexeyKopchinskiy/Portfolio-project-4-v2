@@ -35,5 +35,5 @@ def update_profile(request):
         form = UserUpdateForm(instance=user)  # Ensure form is created here
 
     return render(
-        request, "update_profile.html", {"form": form}
+        request, "users-html/update_profile.html", {"form": form}
     )  # Pass the form to the template

@@ -26,7 +26,7 @@ def booking_page(request):
             tables = Table.objects.all()
             return render(
                 request,
-                "booking_page.html",
+                "booking-html/booking_page.html",
                 {"error": "Please select a table.", "tables": tables},
             )
 
@@ -37,7 +37,7 @@ def booking_page(request):
             tables = Table.objects.all()
             return render(
                 request,
-                "booking_page.html",
+                "booking-html/booking_page.html",
                 {"error": "Invalid table selection.", "tables": tables},
             )
 
@@ -66,7 +66,7 @@ def booking_page(request):
     tables = Table.objects.all()
     return render(
         request,
-        "booking_page.html",
+        "booking-html/booking_page.html",
         {"tables": tables, "form": form},
     )
 
@@ -80,7 +80,9 @@ def booking_confirmation(request, reservation_id):
     except Reservation.DoesNotExist:
         return redirect("booking_page")
     return render(
-        request, "booking_confirm.html", {"reservation": reservation}
+        request,
+        "booking-html/booking_confirm.html",
+        {"reservation": reservation},
     )
 
 
@@ -104,7 +106,7 @@ def update_booking(request, reservation_id):
 
     return render(
         request,
-        "update_booking.html",
+        "booking-html/update_booking.html",
         {
             "form": form,
             "booking": booking,
@@ -125,7 +127,9 @@ def delete_booking(request, reservation_id):
         # ✅ Ensure this matches the correct URL name
         return redirect("member_page")
 
-    return render(request, "delete_booking.html", {"booking": booking})
+    return render(
+        request, "booking-html/delete_booking.html", {"booking": booking}
+    )
 
 
 @login_required
@@ -158,7 +162,9 @@ def member_page(request):
     past_bookings = Reservation.objects.filter(user=request.user).order_by(
         "-booking_date"
     )
-    return render(request, "member.html", {"past_bookings": past_bookings})
+    return render(
+        request, "users-html/member.html", {"past_bookings": past_bookings}
+    )
 
 
 @login_required
@@ -224,8 +230,10 @@ def cancel_booking(request, reservation_id):
             "cancel_booking_confirm"
         )  # ✅ Redirect to confirmation page
 
-    return render(request, "cancel_booking.html", {"booking": booking})
+    return render(
+        request, "booking-html/cancel_booking.html", {"booking": booking}
+    )
 
 
 def cancel_booking_confirm(request):
-    return render(request, "cancel_booking_confirm.html")
+    return render(request, "booking-html/cancel_booking_confirm.html")
