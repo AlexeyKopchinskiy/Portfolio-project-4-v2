@@ -1,5 +1,5 @@
 """
-URL configuration for codestar project.
+URL configuration for sushibar project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -31,7 +31,9 @@ urlpatterns = [
     path("users/", include("users.urls", namespace="users")),
     path("", include("django.contrib.auth.urls")),
     path(
-        "password_reset/", auth_views.PasswordResetView.as_view(), name="password_reset"
+        "password_reset/",
+        auth_views.PasswordResetView.as_view(),
+        name="password_reset",
     ),
     path(
         "password_reset/done/",
