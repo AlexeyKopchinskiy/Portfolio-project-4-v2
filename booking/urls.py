@@ -19,8 +19,6 @@ from .views import (
 
 
 urlpatterns = [
-    # path('confirmation/<int:reservation_id>/',
-    #      views.booking_confirmation, name='booking_confirmation'),
     path("booking/", booking_page, name="booking_page"),
     path(
         "booking/<int:reservation_id>/",
@@ -39,7 +37,6 @@ urlpatterns = [
     ),
     path("booking/create/", create_booking, name="create_booking"),
     path("member/", member_page, name="member_page"),
-    # path("users/", include("users.urls", namespace="users")),
     path(
         "booking/delete/<int:reservation_id>/",
         delete_booking,
