@@ -26,11 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const tableSelect = document.getElementById("table");
 
   // Save original table options.
-  const originalTableOptions = Array.from(tableSelect.options).map(opt => ({
-    html: opt.innerHTML,
-    value: opt.value,
-    dataLocation: opt.getAttribute("data-location")
-  }));
+  const originalTableOptions = Array.from(tableSelect.options).map(opt => ({ html: opt.innerHTML, value: opt.value, dataLocation: opt.getAttribute("data-location") }));
 
 });
 
