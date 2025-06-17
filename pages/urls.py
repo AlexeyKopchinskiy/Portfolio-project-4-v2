@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import member_page, menu_page
+from .views import member_page, menu_page, CustomPasswordResetView
 from . import views
 
 urlpatterns = [
@@ -8,4 +8,9 @@ urlpatterns = [
     path("about/", views.about, name="about"),  # URL for the about page.
     path("member/", member_page, name="member"),  # URL for the member page
     path("menu/", menu_page, name="menu"),  # ✅ Add the correct menu path
+    path(
+        "password-reset/",
+        CustomPasswordResetView.as_view(),
+        name="password_reset",
+    ),
 ]

@@ -1,10 +1,30 @@
-{% extends "base.html" %} {% block content %}
-<div class="container mt-5">
-  <h1 class="text-center">Login</h1>
-  <form method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Log in</button>
-  </form>
-  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-5">
+    <h2 class="text-center">🔐 Login to Your Account</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+
+            <!-- 🔑 Add Password Reset Link Below -->
+            <div class="text-center mt-3">
+                <a href="{% url 'password_reset' %}" class="text-muted">Forgot your password?</a>
+            </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}

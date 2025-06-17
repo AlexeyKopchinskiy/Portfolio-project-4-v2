@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordResetView
 from booking.models import Reservation
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -39,3 +41,10 @@ def member_page(request):
 def menu_page(request):
     """Renders the sushi menu page."""
     return render(request, "pages-html/menu.html")
+
+
+class CustomPasswordResetView(PasswordResetView):
+    """Handles password reset requests."""
+
+    template_name = "pages-html/password_reset.html"
+    success_url = reverse_lazy("password_reset_done")
