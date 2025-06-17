@@ -1,5 +1,3 @@
-console.log("Eat as 4, pay as 3!");
-
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Summernote (if applicable)
   if (document.querySelector("#summernote")) {
@@ -26,8 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const tableSelect = document.getElementById("table");
 
   // Save original table options.
-  const originalTableOptions = Array.from(tableSelect.options).map(opt => ({ html: opt.innerHTML, value: opt.value, dataLocation: opt.getAttribute("data-location") }));
-
+  const originalTableOptions = Array.from(tableSelect.options).map(opt => ({
+    html: opt.innerHTML,
+    value: opt.value,
+    dataLocation: opt.getAttribute("data-location")
+  }));
 });
 
 // Script to dynamically update table options based on date and time selection
@@ -44,7 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
   smokingCheckbox.disabled = true;
   accessibleCheckbox.disabled = true;
 
-
+  /**
+  * Updates available table options based on selected date, time, guest count,
+  * smoking preference, and accessibility preference.
+  */
   function updateTableOptions() {
     const selectedDate = dateInput.value;
     const selectedTime = timeInput.value;
@@ -52,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const smokingOnly = smokingCheckbox.checked;
     const accessibleOnly = accessibleCheckbox.checked;
 
-    // ✅ Enable guest count, smoking, and accessible checkboxes only if date & time are selected
+    // ✅ Enable filters only if date & time are selected
     const enableFilters = selectedDate && selectedTime;
     guestCountInput.disabled = !enableFilters;
     smokingCheckbox.disabled = !enableFilters;
@@ -64,6 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    /**
+     * Fetches available tables from the server based on selected date and time.
+     * Filters tables further based on guest count, smoking preference, and accessibility.
+     */
     fetch(`/booking/get-available-tables/?date=${selectedDate}&time=${selectedTime}`)
       .then(response => response.json())
       .then(data => {
