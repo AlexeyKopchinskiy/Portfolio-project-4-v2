@@ -15,8 +15,8 @@ Includes:
 """
 urlpatterns = [
     # Handles user registration.
-    # Displays a signup form, processes user input, and redirects upon successful
-    # signup.
+    # Displays a signup form, processes user input, and redirects upon
+    # successful signup.
     path("signup/", signup, name="signup"),
     # Handles user login.
     # Uses Django's built-in authentication view with a custom template.

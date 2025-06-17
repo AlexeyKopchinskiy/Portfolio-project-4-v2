@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Reservation, Table, BookingStatus, Location
 from .forms import BookingForm
+from django.contrib import messages
 from datetime import datetime, timedelta
 
 
@@ -107,12 +108,12 @@ def update_booking(request, reservation_id):
 
     - Fetches existing reservation and displays an editable form.
     - Saves updated information upon form submission.
-    - Redirects back to the member page after successful update.
+    - Shows a confirmation message after successful update.
+    - Redirects back to the member page.
     """
     booking = get_object_or_404(
         Reservation, id=reservation_id, user=request.user
     )
-    # booking = get_object_or_404(Reservation, id=booking_id)
     form = BookingForm(instance=booking)
     locations = Location.objects.all()  # ✅ Fetch locations
     tables = Table.objects.all()  # ✅ Fetch tables
@@ -121,9 +122,10 @@ def update_booking(request, reservation_id):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
+            messages.success(
+                request, "✅ Your booking has been successfully updated!"
+            )  # ✅ Confirmation message
             return redirect("member_page")  # Redirect back after updating
-    else:
-        form = BookingForm(instance=booking)
 
     return render(
         request,
@@ -151,6 +153,10 @@ def delete_booking(request, reservation_id):
 
     if request.method == "POST":
         booking.delete()
+        messages.success(
+            request, "✅ Your booking has been successfully canceled!"
+        )  # ✅ Confirmation message
+
         # ✅ Ensure this matches the correct URL name
         return redirect("member_page")
 

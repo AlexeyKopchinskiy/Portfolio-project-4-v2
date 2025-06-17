@@ -1,10 +1,41 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% block content %}
+
 <div class="container mt-5">
-  <h1 class="text-center">Sign Up</h1>
-  <form method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-success">Register</button>
-  </form>
-  <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+  <h1 class="text-center mb-4">🚀 Create Your Account</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="mb-3 d-flex align-items-center">
+              <label class="form-label w-50 text-start">{{ field.label }}</label>
+              <div class="w-100">
+                {{ field }}
+                {% if field.errors %}
+                <div class="text-danger">
+                  {{ field.errors }}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-success w-100">Register</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="text-start mt-3">
+        Already have an account? 
+        <a href="{% url 'login' %}" class="fw-bold text-primary">Log in</a>
+      </p>
+    </div>
+  </div>
 </div>
+
 {% endblock %}

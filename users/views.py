@@ -32,7 +32,7 @@ def signup(request):
     else:
         form = SignUpForm()
 
-    return render(request, "signup.html", {"form": form})
+    return render(request, "users-html/signup.html", {"form": form})
 
 
 @login_required

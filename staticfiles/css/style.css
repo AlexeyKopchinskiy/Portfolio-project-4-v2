@@ -1,32 +1,49 @@
+html,
 body {
+    height: 100%;
+    /* ✅ Ensures full height */
     background-color: #F9FAFC;
+    background: url("/static/images/Giant-sushi-set-with-overlay.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: darkgray !important;
 }
 
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
+.wrapper {
+    flex: 1;
+    /* ✅ Makes the content push the footer down */
 }
 
-.red-o {
-    color: #E84610;
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9FAFC;
+    height: 100%;
 }
 
-.thin {
-    font-weight: 300;
+.main-content {
+    flex-grow: 1;
+    /* ✅ Pushes the footer down */
 }
 
-.light-bg {
-    background-color: #fff;
+.footer {
+    width: 100%;
+    color: #06aeec !important;
+    padding: 15px 0;
+    text-align: center;
 }
+
 
 .dark-bg {
     background-color: #445261;
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    padding: 0;
 }
 
 .card {
@@ -34,128 +51,177 @@ body {
     background-color: transparent;
 }
 
-.image-container {
+.img-fluid {
     position: relative;
-}
-
-.image-flash {
-    position: absolute;
-    bottom: 5%;
+    width: 100%;
     min-width: 30%;
-    left: -2px;
     background-color: #188181;
 }
 
-.scale {
-    width: 100%;
-    height: auto;
+/* Design customisation */
+
+button {
+    transition: all 0.3s ease-in-out;
 }
 
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
+.navbar {
+    background-color: #343a40 !important;
+    color: #ffffff !important;
+    padding: 10px 20px;
 }
 
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
+.nav-link,
+.nav-item A {
+    color: #ffffff !important;
 }
 
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
-
-.post-link {
-    text-decoration: none;
-    color: #445261;
-}
-
-.post-link:hover,
-.page-link {
-    color: #E84610;
-}
-
-.post-title {
-    margin-top: 10%;
-    margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
-}
-
-.btn-signup,
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
-
-.link {
-    color: #23BBBB;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #445261;
+.nav-link:hover,
+.nav-item A:hover {
+    color: #08e02c !important;
     text-decoration: underline;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
+
+.navbar-text {
+    color: #08e02c !important;
 }
 
-.btn-delete {
-    color: #fff;
-    background: #E84610;
+.flex-shrink-0 {
+    flex-shrink: 0;
+    margin: 0 !important;
+    height: 100%;
+    padding: 0;
 }
 
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
+/* Enable dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
-.faded {
-    color: rgb(172, 175, 175);
+/* Prevent dropdown flickering on hover */
+.nav-item.dropdown .dropdown-menu {
+    margin-top: 0;
 }
 
-.approval {
-    color: rgb(222, 146, 168);
+.dropdown-menu {
+    background-color: #445261;
+}
+
+.dropdown-menu A:hover {
+    color: blueviolet !important;
+}
+
+
+/* 🔵 Large desktop screens (1440px+) */
+@media (min-width: 1440px) {
+    .table {
+        font-size: 18px;
+        /* ✅ Increase font for readability */
+    }
+
+    .table th,
+    .table td {
+        padding: 12px;
+        /* ✅ More spacing */
+    }
+}
+
+/* 🔵 Standard desktops & laptops (1024px - 1440px) */
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .table {
+        font-size: 16px;
+    }
+
+    .table-container {
+        max-width: 90%;
+        /* ✅ Slightly reduce width */
+    }
+}
+
+/* 🟢 Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .table {
+        font-size: 15px;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px;
+    }
+}
+
+/* 🟠 Large mobile phones (480px - 768px) */
+@media (max-width: 768px) {
+    .table {
+        font-size: 14px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        /* ✅ Enables scrolling */
+    }
+
+    .navbar-brand {
+        justify-content: center;
+        /* ✅ Centers the logo */
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        background-color: #08e02c;
+        left: 15px;
+        /* ✅ Keeps the toggler icon aligned left */
+        top: 15px;
+        /* ✅ Ensures it stays in place */
+    }
+}
+
+/* 🔴 Extra-small mobile screens (below 480px) */
+@media (max-width: 480px) {
+    .table thead {
+        display: none;
+        /* ❌ Hide headers */
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .table tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .table td {
+        display: block;
+        text-align: left;
+        padding: 5px;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        /* ✅ Adds labels for mobile */
+        font-weight: bold;
+        display: block;
+    }
+
+    .navbar-brand {
+        justify-content: center;
+        /* ✅ Centers the logo */
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        background-color: #08e02c;
+        left: 15px;
+        /* ✅ Keeps the toggler icon aligned left */
+        top: 15px;
+        /* ✅ Ensures it stays in place */
+    }
 }

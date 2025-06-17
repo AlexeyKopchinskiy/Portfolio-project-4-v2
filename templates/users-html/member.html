@@ -3,6 +3,13 @@
   <h1>Welcome, {{ user.username }}!</h1>
   <h2 class="text-center">👤 Member Dashboard</h2>
 
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">{{ message }}</div>  <!-- ✅ Bootstrap-styled alert -->
+    {% endfor %}
+  {% endif %}
+
+
   <p>Your past reservations:</p>
 
   {% if past_bookings %}
