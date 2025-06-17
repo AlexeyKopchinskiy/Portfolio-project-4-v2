@@ -1,6 +1,40 @@
-{% extends "base.html" %} {% block content %}
-<div class="container">
-  <h1>About Us</h1>
-  <p>This page gives you information about the website.</p>
-</div>
+{% extends "base.html" %} {% load static %} {% block content %}
+ <!-- Hero Section -->
+
+
+<!-- About Section -->
+<section class="container my-5">
+  <div class="row align-items-center">
+    <h1 class="display-4">Welcome to Coders Sushi Bar 🍣</h1>
+      <p class="lead">Where tradition meets innovation, serving fresh and authentic Japanese cuisine.</p>
+      
+      <div class="col-md-6">
+          <img src="{% static 'images/close-up-on-the-deliciously-looking-sushi-plate-3.webp' %}" class="img-fluid rounded" alt="Sushi Bar Interior">
+      </div>
+      <div class="col-md-6">
+          <h2>🍱 Experience Authentic Japanese Flavors</h2>
+          <p class="text-muted">
+              At **Coders Sushi Bar**, we craft each dish with passion, precision, and the freshest ingredients.
+              Our sushi chefs blend traditional techniques with modern artistry to bring you an unforgettable dining experience.
+          </p>
+          <ul class="list-unstyled">
+              <li>✅ Fresh, locally sourced seafood</li>
+              <li>✅ Handcrafted sushi made to perfection</li>
+              <li>✅ Cozy and elegant atmosphere</li>
+              <li>✅ Wide selection of Japanese sake & beverages</li>
+          </ul>
+      </div>
+      
+  </div>
+  <div class="text-center mt-4">
+    <!-- Call to Action -->
+    <h2>Reserve Your Table Today!</h2>
+    <p class="text-muted">Enjoy the finest sushi experience with friends, family, or colleagues.</p>
+    <a href="{% url 'booking_page' %}" class="btn btn-success btn-lg">Book a Table</a>
+    <a href="{% url 'menu' %}" class="btn btn-primary btn-lg">Explore Our Menu</a>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 {% endblock %}

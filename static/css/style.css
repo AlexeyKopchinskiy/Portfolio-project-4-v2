@@ -1,6 +1,6 @@
 body {
     background-color: #F9FAFC;
-    background: url("/static/images/Giant-sushi-set-with-overlay.png");
+    background: url("/static/images/Giant-sushi-set-with-overlay.webp");
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -241,16 +241,8 @@ body {
 }
 
 .text-muted {
-    color: #08e02c !important;
+    color: #242424 !important;
 }
-
-/* @media (max-width: 600px) {
-    .container {
-        width: 100%;
-    }
-} */
-
-
 
 .flex-shrink-0 {
     flex-shrink: 0;
@@ -271,6 +263,25 @@ body {
 .navbar-toggler {
     background-color: #08e02c;
 }
+
+/* Enable dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Prevent dropdown flickering on hover */
+.nav-item.dropdown .dropdown-menu {
+    margin-top: 0;
+}
+
+.dropdown-menu {
+    background-color: #445261;
+}
+
+.dropdown-menu A:hover {
+    color: blueviolet !important;
+}
+
 
 /* 🔵 Large desktop screens (1440px+) */
 @media (min-width: 1440px) {

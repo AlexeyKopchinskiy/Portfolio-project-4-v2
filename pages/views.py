@@ -34,3 +34,8 @@ def member_page(request):
             "past_bookings": past_bookings,
         },
     )
+
+
+def menu_page(request):
+    """Renders the sushi menu page."""
+    return render(request, "pages-html/menu.html")
