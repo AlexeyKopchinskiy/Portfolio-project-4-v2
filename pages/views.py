@@ -40,7 +40,7 @@ def member_page(request):
 
 def menu_page(request):
     """Renders the sushi menu page."""
-    return render(request, "pages-html/menu.html")
+    return render(request, "pages-html/menu-full.html")
 
 
 class CustomPasswordResetView(PasswordResetView):

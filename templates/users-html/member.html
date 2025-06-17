@@ -1,6 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <div class="container mt-5">
   <h1>Welcome, {{ user.username }}!</h1>
+  <h2 class="text-center">👤 Member Dashboard</h2>
+
   <p>Your past reservations:</p>
 
   {% if past_bookings %}
@@ -40,11 +42,15 @@
     </tbody>
   </table>
   {% else %}
-  <p>You have no previous bookings.</p>
+  <div class="text-center mt-4">
+    <p class="text-muted">You have no bookings yet. Why not explore our menu and book a table?</p>
+    {% include "pages-html/menu.html" with embedded=True %}
+  </div>
   {% endif %}
-
-  <p>
-    <a href="{% url 'booking_page' %}" class="btn btn-primary">Book a table</a>
-  </p>
+  <div class="text-center mt-4">
+    <p>
+      <a href="{% url 'booking_page' %}" class="btn btn-primary">Book a table</a>
+    </p>
+  </div>
 </div>
 {% endblock %}
