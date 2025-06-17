@@ -61,13 +61,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link {% if request.path == home_url %}active{% endif %}"
-                aria-current="page"
-                href="{% url 'home' %}"
-                >Home</a
-              >
+            <li class="nav-item dropdown">
+              <a 
+                class="nav-link dropdown-toggle {% if request.path == home_url %}active{% endif %}" 
+                href="#" 
+                id="homeDropdown" 
+                role="button" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                <li>
+                  <a class="dropdown-item" href="{% url 'home' %}">Home Page</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'menu' %}">Menu</a>
+                </li>
+              </ul>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">

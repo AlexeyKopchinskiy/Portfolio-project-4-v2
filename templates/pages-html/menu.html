@@ -1,0 +1,87 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">🍣 Sushi Bar Menu</h1>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        
+        <!-- Appetizers -->
+        <div class="col">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h3 class="card-title">🍱 Appetizers</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Edamame – Steamed soybeans with sea salt</li>
+                        <li class="list-group-item">Miso Soup – Traditional Japanese soup with tofu, seaweed, and scallions</li>
+                        <li class="list-group-item">Seaweed Salad – Marinated seaweed with sesame seeds</li>
+                        <li class="list-group-item">Gyoza – Pan-fried dumplings filled with pork or vegetables</li>
+                        <li class="list-group-item">Takoyaki – Octopus-filled savory dough balls</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nigiri -->
+        <div class="col">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h3 class="card-title">🍣 Nigiri</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Maguro (Tuna)</li>
+                        <li class="list-group-item">Sake (Salmon)</li>
+                        <li class="list-group-item">Ebi (Shrimp)</li>
+                        <li class="list-group-item">Hamachi (Yellowtail)</li>
+                        <li class="list-group-item">Unagi (Grilled Eel)</li>
+                        <li class="list-group-item">Tamago (Sweet Egg Omelette)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sushi Rolls -->
+        <div class="col">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h3 class="card-title">🌯 Sushi Rolls (Maki)</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">California Roll – Crab, avocado, cucumber</li>
+                        <li class="list-group-item">Spicy Tuna Roll – Tuna, spicy mayo, cucumber</li>
+                        <li class="list-group-item">Dragon Roll – Eel, avocado, cucumber, topped with spicy sauce</li>
+                        <li class="list-group-item">Rainbow Roll – Assorted sashimi over a California roll</li>
+                        <li class="list-group-item">Tempura Shrimp Roll – Crispy shrimp tempura, avocado, eel sauce</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hot Dishes -->
+        <div class="col">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h3 class="card-title">🔥 Hot Dishes</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Udon Noodles – Thick wheat noodles in savory broth</li>
+                        <li class="list-group-item">Katsu Don – Breaded pork cutlet over rice with sauce</li>
+                        <li class="list-group-item">Teriyaki Chicken – Grilled chicken with teriyaki glaze</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beverages -->
+        <div class="col">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h3 class="card-title">🍶 Beverages</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Green Tea (Hot/Iced)</li>
+                        <li class="list-group-item">Sake (Warm or Cold)</li>
+                        <li class="list-group-item">Japanese Beer (Asahi, Sapporo, Kirin)</li>
+                        <li class="list-group-item">Soft Drinks & Sparkling Water</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+</div>
+{% endblock %}
