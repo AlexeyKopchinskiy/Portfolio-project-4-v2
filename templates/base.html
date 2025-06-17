@@ -79,12 +79,17 @@
               </ul>
             </li>
             {% if user.is_authenticated %}
-            <li class="nav-item">
+            <li class="nav-item dropdown">
               <a
-                class="nav-link {% if request.path == home_url %}active{% endif %}"
+                class="nav-link dropdown-toggle {% if request.path == home_url %}active{% endif %}"
                 href="{% url 'member' %}"
                 >Member Page</a
               >
+              <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                <li>
+                  <a class="dropdown-item" href="{% url 'users:update_profile' %}">Edit Profile</a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a
@@ -100,11 +105,6 @@
                 >Book a Table</a
               >
             </li>
-
-            <li class="nav-item">
-              <a 
-              class="nav-link {% if request.path == home_url %}active{% endif %}"
-              href="{% url 'users:update_profile' %}">Edit Profile</a></li>
 
             {% else %}
 
