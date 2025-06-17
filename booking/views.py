@@ -8,6 +8,14 @@ from datetime import datetime, timedelta
 
 @login_required
 def booking_page(request):
+    """
+    Handles the main booking page where users can select a table and make a
+    reservation.
+
+    - Displays available tables.
+    - Processes form submissions to create a new reservation.
+    - Redirects to booking confirmation after successful reservation.
+    """
     form = BookingForm()
     tables = Table.objects.select_related(
         "location"
@@ -72,6 +80,12 @@ def booking_page(request):
 
 
 def booking_confirmation(request, reservation_id):
+    """
+    Displays the booking confirmation page with reservation details.
+
+    - Retrieves reservation information.
+    - Redirects to the booking page if reservation does not exist.
+    """
     try:
         # Eagerly load the related Table and Location objects.
         reservation = Reservation.objects.select_related(
@@ -88,6 +102,13 @@ def booking_confirmation(request, reservation_id):
 
 @login_required
 def update_booking(request, reservation_id):
+    """
+    Allows users to update their booking details.
+
+    - Fetches existing reservation and displays an editable form.
+    - Saves updated information upon form submission.
+    - Redirects back to the member page after successful update.
+    """
     booking = get_object_or_404(
         Reservation, id=reservation_id, user=request.user
     )
@@ -118,6 +139,12 @@ def update_booking(request, reservation_id):
 
 @login_required
 def delete_booking(request, reservation_id):
+    """
+    Handles booking cancellation.
+
+    - Deletes the booking upon user confirmation.
+    - Redirects to the member page after deletion.
+    """
     booking = get_object_or_404(
         Reservation, id=reservation_id, user=request.user
     )
@@ -134,6 +161,13 @@ def delete_booking(request, reservation_id):
 
 @login_required
 def create_booking(request):
+    """
+    Allows users to create a new booking.
+
+    - Displays an empty booking form.
+    - Saves the booking and assigns default status after submission.
+    - Redirects the user after successful creation.
+    """
     if request.method == "POST":
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -159,6 +193,12 @@ def create_booking(request):
 
 @login_required
 def member_page(request):
+    """
+    Displays the member's booking history.
+
+    - Fetches all past bookings made by the logged-in user.
+    - Orders bookings by most recent first.
+    """
     past_bookings = Reservation.objects.filter(user=request.user).order_by(
         "-booking_date"
     )
@@ -169,6 +209,12 @@ def member_page(request):
 
 @login_required
 def get_available_tables(request):
+    """
+    Retrieves available tables for a selected date and time.
+
+    - Excludes tables that are already booked within ±1 hour of the requested time.
+    - Returns filtered tables as a JSON response.
+    """
     date_str = request.GET.get("date")
     time_str = request.GET.get("time")
 
@@ -220,6 +266,12 @@ def get_available_tables(request):
 
 @login_required
 def cancel_booking(request, reservation_id):
+    """
+    Handles booking cancellation.
+
+    - Deletes the reservation upon user confirmation.
+    - Redirects to a cancellation confirmation page.
+    """
     booking = get_object_or_404(
         Reservation, id=reservation_id, user=request.user
     )
@@ -236,4 +288,7 @@ def cancel_booking(request, reservation_id):
 
 
 def cancel_booking_confirm(request):
+    """
+    Displays a confirmation message after successful booking cancellation.
+    """
     return render(request, "booking-html/cancel_booking_confirm.html")
