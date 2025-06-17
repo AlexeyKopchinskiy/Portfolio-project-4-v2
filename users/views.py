@@ -3,8 +3,25 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, UserUpdateForm
 
+"""
+This module handles user authentication-related views.
+
+Includes:
+- User signup
+- Profile viewing
+- Profile updating
+"""
+
 
 def signup(request):
+    """
+    Handles user registration.
+
+    - Displays the signup form.
+    - Saves the new user upon valid form submission.
+    - Logs in the user automatically after registration.
+    - Redirects to the member page upon successful signup.
+    """
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -20,11 +37,25 @@ def signup(request):
 
 @login_required
 def profile(request):
+    """
+    Displays the user profile page.
+
+    - Requires the user to be logged in.
+    - Loads the profile page template.
+    """
     return render(request, "profile.html")
 
 
 @login_required
 def update_profile(request):
+    """
+    Allows users to update their profile information.
+
+    - Requires authentication.
+    - Loads an editable profile form.
+    - Saves changes if the form is valid.
+    - Redirects to the profile page upon successful update.
+    """
     user = request.user
     if request.method == "POST":
         form = UserUpdateForm(request.POST, instance=user)
