@@ -218,7 +218,8 @@ def get_available_tables(request):
     """
     Retrieves available tables for a selected date and time.
 
-    - Excludes tables that are already booked within ±1 hour of the requested time.
+    - Excludes tables that are already booked within ±1 hour of the requested
+        time.
     - Returns filtered tables as a JSON response.
     """
     date_str = request.GET.get("date")

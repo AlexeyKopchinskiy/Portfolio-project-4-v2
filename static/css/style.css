@@ -63,6 +63,7 @@ body {
 
 .img-fluid {
     position: relative;
+    margin: 5px auto;
     width: 100%;
     min-width: 30%;
     background-color: #188181;
