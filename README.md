@@ -53,9 +53,11 @@ Here are some previews of the app in action:
 
 ### ✅ Additional Linting Tools
 **For automated checks, use:**
+
 ```bash
 pip install flake8
 flake8 your_project/
+```
 
 ### 🐛 Debugging & Error Handling
 - Check logs: tail -f logs/error.log
