@@ -1,4 +1,9 @@
 {% extends "base.html" %} {% block content %}
+<!-- Member Dashboard Template -->
+<!-- This page displays the member's dashboard with their past bookings and options to update or delete them. 
+     It includes a welcome message, a table of past reservations, and buttons for booking a new table. -->
+
+{% load static %}
 <div class="container mt-5">
   <h1>Welcome, {{ user.username }}!</h1>
   <h2 class="text-center">👤 Member Dashboard</h2>
