@@ -88,19 +88,28 @@ Follow these steps to set up the project locally:
 - Create a reservation with your preferred date and time.
 - Manage bookings via the member page.
 - Admin users can oversee all reservations.
+
 ### 📌 Technologies Used
 - Django (backend framework)
 - SQLite/PostgreSQL (database)
 - Bootstrap (frontend styling)
 - Python (core programming language)
+- CSS
+- JavaScript
+- HTML
+
 ### 🤝 Contributing
 We welcome contributions! To contribute:
 - Fork the repository.
 - Create a new branch (git checkout -b feature-branch).
 - Commit changes (git commit -m "Added new feature").
 - Push to GitHub and create a pull request.
+
+## Known Bugs
+There are no known bugs.
+
 ### 📄 License
 This project is licensed under the MIT License.
 
 ### 📢 Contact
-For questions or support, reach out at your-email@example.com.
+For questions or support, reach out at kopchinskiy@gmail.com.
