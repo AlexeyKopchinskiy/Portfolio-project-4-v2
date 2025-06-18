@@ -43,6 +43,7 @@ Here are some previews of the app in action:
 - ✔ Helps detect missing closing tags, incorrect attributes, and accessibility issues.
 
 ![w3validator start page](/static/images/screenshots/w3validator-start-page.jpg)
+![w3validator booking page](/static/images/screenshots/w3validator-booking-page.jpg)
 
 ## 🔍 Code Quality & Linting
 
