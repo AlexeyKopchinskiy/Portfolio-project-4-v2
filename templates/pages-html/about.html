@@ -30,8 +30,10 @@
     <!-- Call to Action -->
     <h2>Reserve Your Table Today!</h2>
     <p class="text-muted">Enjoy the finest sushi experience with friends, family, or colleagues.</p>
-    <a href="{% url 'booking_page' %}" class="btn btn-success btn-lg">Book a Table</a>
-    <a href="{% url 'menu' %}" class="btn btn-primary btn-lg">Explore Our Menu</a>
+    <div style="grid-template-columns: 1fr 1fr;" class="gap-3 d-flex flex-wrap justify-content-center">
+      <a href="{% url 'booking_page' %}" class="btn btn-success btn-lg">Book a Table</a>
+      <a href="{% url 'menu' %}" class="btn btn-primary btn-lg">Explore Our Menu</a>
+    </div>
   </div>
 </section>
 
