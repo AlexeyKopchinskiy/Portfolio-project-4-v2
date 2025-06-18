@@ -3,7 +3,7 @@ body {
     height: 100%;
     /* ✅ Ensures full height */
     background-color: #F9FAFC;
-    background: url("/static/images/Giant-sushi-set-with-overlay.webp");
+    background: url("../images/Giant-sushi-set-with-overlay.webp");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
