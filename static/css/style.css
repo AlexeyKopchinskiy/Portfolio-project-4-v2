@@ -9,15 +9,20 @@ body {
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'Lato', sans-serif;
     background-color: darkgray !important;
 }
 
+/* Makes the content push the footer down */
 .wrapper {
     flex: 1;
-    /* ✅ Makes the content push the footer down */
 }
 
+/** Container styles
+* This container centers the content, provides padding,
+* background color, and applies a box shadow for depth.
+* It is used to wrap the main content of the page.
+*/
 .container {
     margin: 30px auto;
     padding: 20px;
@@ -30,9 +35,10 @@ body {
         rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+/* Pushes the footer down */
 .main-content {
     flex-grow: 1;
-    /* ✅ Pushes the footer down */
+
 }
 
 .footer {
@@ -41,7 +47,6 @@ body {
     padding: 15px 0;
     text-align: center;
 }
-
 
 .dark-bg {
     background-color: #445261;
