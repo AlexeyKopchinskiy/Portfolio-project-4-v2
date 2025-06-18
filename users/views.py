@@ -1,5 +1,6 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, UserUpdateForm
 
@@ -43,7 +44,7 @@ def profile(request):
     - Requires the user to be logged in.
     - Loads the profile page template.
     """
-    return render(request, "profile.html")
+    return render(request, "users-html/profile.html")
 
 
 @login_required
@@ -68,3 +69,16 @@ def update_profile(request):
     return render(
         request, "users-html/update_profile.html", {"form": form}
     )  # Pass the form to the template
+
+
+def custom_logout(request):
+    """Logs out the user and then displays the confirmation page."""
+    logout(request)  # ✅ Logs out the user first
+    return render(
+        request, "users-html/logout_confirmation.html"
+    )  # ✅ Loads the confirmation template directly
+
+
+def logout_confirmation(request):
+    """Displays the logout confirmation page."""
+    return render(request, "users-html/logout_confirmation.html")

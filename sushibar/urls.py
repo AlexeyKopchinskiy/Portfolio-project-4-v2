@@ -23,11 +23,14 @@ from users.views import signup  # Import signup directly
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path(
+        "accounts/", include("django.contrib.auth.urls")
+    ),  # ✅ Handles login/logout/password reset
     path("signup/", signup, name="signup"),  # 🔥 Enables direct /signup/
     path("summernote/", include("django_summernote.urls")),
     path("booking/", include("booking.urls")),
     path("", include("pages.urls")),
-    path("", include("users.urls")),
+    # path("", include("users.urls")),
     path("users/", include("users.urls", namespace="users")),
     path("", include("django.contrib.auth.urls")),
     path(

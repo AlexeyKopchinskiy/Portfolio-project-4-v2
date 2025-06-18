@@ -1,8 +1,32 @@
 {% extends "base.html" %}
-
 {% block content %}
+
 <div class="container mt-5">
-  <h1 class="text-center">User Profile</h1>
-  <p>Welcome, {{ user.username }}!</p>
+  <h1 class="text-center">Account Settings</h1>
+
+  <div class="card p-4 mt-3">
+    <h4>Security & Login</h4>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Last Login:</strong> {{ user.last_login|date:"F d, Y H:i" }}</p>
+    <p><strong>IP Address:</strong> {{ request.META.REMOTE_ADDR }}</p>
+  </div>
+
+  <div class="card p-4 mt-3">
+    <h4>Recent Activity</h4>
+    <ul>
+      <li>Last login: {{ user.last_login }}</li>
+      <li>Profile last updated: {{ user.profile.last_updated }}</li>
+    </ul>
+  </div>
+
+  <div class="mt-4">
+    <div style="grid-template-columns: 1fr 1fr;" class="gap-3 d-flex flex-wrap justify-content-center">
+      <a href="{% url 'users:update_profile' %}" class="btn btn-primary">Edit Profile</a>
+      <a href="{% url 'password_change' %}" class="btn btn-danger">Change Password</a>
+      <a href="{% url 'member' %}" class="btn btn-success">Back to Member Page</a>
+    </div>
+  </div>
 </div>
+
 {% endblock %}

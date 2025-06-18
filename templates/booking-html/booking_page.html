@@ -52,6 +52,19 @@
         />
       </div>
     </div>
+
+    <div class="row g-2 mt-3"> 
+      <div class="form-check col-md-4 mb-2">
+        <input class="form-check-input" type="checkbox" id="smoking" name="smoking">
+        <label class="form-check-label" for="smoking">Smoking Area</label>
+      </div>
+      
+      <div class="form-check col-md-3 mb-3">
+        <input class="form-check-input" type="checkbox" id="accessible" name="accessible">
+        <label class="form-check-label" for="accessible">Accessible Table</label>
+      </div>
+    </div>
+
     <!-- Table Selection -->
     <div class="mb-3">
       <label for="table" class="form-label">Available Tables:</label>
@@ -65,17 +78,6 @@
         {% endfor %}
       </select>
     </div>
-
-    <div class="form-check mb-2">
-      <input class="form-check-input" type="checkbox" id="smoking" name="smoking">
-      <label class="form-check-label" for="smoking">Smoking Area</label>
-    </div>
-    
-    <div class="form-check mb-3">
-      <input class="form-check-input" type="checkbox" id="accessible" name="accessible">
-      <label class="form-check-label" for="accessible">Accessible Table</label>
-    </div>
-       
 
     <!-- Special Requests with Summernote -->
     <div class="mb-3">

@@ -65,12 +65,15 @@
             <li class="nav-item dropdown">
               <a 
                 class="nav-link dropdown-toggle {% if request.path == home_url %}active{% endif %}" 
-                href="{% url 'home' %}" 
+                data-bs-toggle="dropdown"
                 id="homeDropdown"
                 role="button">
                 Home
               </a>
               <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                <li>
+                  <a class="dropdown-item" href="{% url 'home' %}">Home</a>
+                </li>
                 <li>
                   <a class="dropdown-item" href="{% url 'about' %}">About</a>
                 </li>
@@ -83,21 +86,21 @@
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle {% if request.path == home_url %}active{% endif %}"
-                href="{% url 'member' %}"
+                role="button"
+                data-bs-toggle="dropdown"
                 >Member Page</a
               >
               <ul class="dropdown-menu" aria-labelledby="homeDropdown">
                 <li>
+                  <a class="dropdown-item" href="{% url 'member' %}">Member Page</a>
+                </li>
+                <li>
                   <a class="dropdown-item" href="{% url 'users:update_profile' %}">Edit Profile</a>
                 </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'users:profile' %}">Profile</a>
+                </li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link {% if request.path == home_url %}active{% endif %}"
-                href="{% url 'logout' %}"
-                >Logout</a
-              >
             </li>
             <li class="nav-item">
               <a
@@ -105,6 +108,9 @@
                 href="{% url 'booking_page' %}"
                 >Book a Table</a
               >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'users:logout' %}" class="nav-link">Logout</a>
             </li>
 
             {% else %}

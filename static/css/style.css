@@ -32,7 +32,7 @@ body {
 
 .footer {
     width: 100%;
-    color: #06aeec !important;
+    color: #ffffff !important;
     padding: 15px 0;
     text-align: center;
 }
@@ -110,7 +110,6 @@ button {
 .dropdown-menu A:hover {
     color: blueviolet !important;
 }
-
 
 /* 🔵 Large desktop screens (1440px+) */
 @media (min-width: 1440px) {
