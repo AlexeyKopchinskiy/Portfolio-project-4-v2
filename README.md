@@ -42,6 +42,8 @@ Here are some previews of the app in action:
 - ✔ Validates dynamic HTML instead of raw Django template tags.
 - ✔ Helps detect missing closing tags, incorrect attributes, and accessibility issues.
 
+![w3validator start page](/static/images/screenshots/w3validator-start-page.jpg)
+
 ## 🔍 Code Quality & Linting
 
 ### 📝 PEP8 Validation with Code Institute Linter
@@ -50,6 +52,12 @@ Here are some previews of the app in action:
 - 2️⃣ Paste your Python code into the input field.  
 - 3️⃣ Click **"Check Code"** to identify formatting issues.  
 - 4️⃣ Apply suggested fixes for improved readability and maintainability.
+
+#### C.I. Linter validation results:
+![Booking app views.py](/static/images/screenshots/ci_linter_results_for_booking_views.jpg)
+![Booking urls.py](/static/images/screenshots/ci_linter_results_for_booking_urls.jpg)
+
+### 
 
 ### ✅ Additional Linting Tools
 **For automated checks, use:**

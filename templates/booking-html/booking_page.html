@@ -7,13 +7,13 @@
      and special requests. -->
 <div class="container mt-5">
   <h1 class="text-center">Book a Table</h1>
-  <p align="center">Our booking form is AI (Alexey's Intelligence) powered!</p>
+  <p>Our booking form is AI (Alexey's Intelligence) powered!</p>
 
   {% if error %}
   <div class="alert alert-danger">{{ error }}</div>
   {% endif %} {% if user.is_authenticated %}
 
-  <form method="POST" action="">
+  <form method="POST">
     {% csrf_token %}
 
     <div class="row g-3"> 
@@ -27,19 +27,19 @@
           id="booking_date"
           name="booking_date"
           required
-        />
+        >
       </div>
 
       <!-- Booking Time -->
       <div class="col-md-4">
         <label for="booking_time" class="form-label">Booking Time:</label>
-        <input
+        <input 
           type="time"
           class="form-control"
           id="booking_time"
           name="booking_time"
           required
-        />
+        >
       </div>
 
       <!-- Number of Guests -->
@@ -53,7 +53,7 @@
           min="1"
           value="1"
           required
-        />
+        >
       </div>
     </div>
 
@@ -86,7 +86,7 @@
     <!-- Special Requests with Summernote -->
     <div class="form-floating">
       <textarea class="form-control" placeholder="Leave a comment here" id="special_requests" name="special_requests" ></textarea>
-      <label for="floatingTextarea">Special Requests:</label>
+      <label for="special_requests">Special Requests:</label>
     </div>
 
     <div class="mt-3">
