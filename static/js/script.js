@@ -1,8 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Summernote (if applicable)
   if (document.querySelector("#summernote")) {
-    $("#summernote").summernote();
+    $("#summernote").summernote({
+      placeholder: "Enter any special requests or notes here...",
+      tabsize: 2,
+      height: 200,
+      toolbar: [
+        ["style", ["bold", "italic", "underline", "clear"]],
+        ["font", ["strikethrough", "superscript", "subscript"]],
+        ["fontsize", ["fontsize"]],
+        ["color", ["color"]],
+        ["para", ["ul", "ol", "paragraph"]],
+        ["height", ["height"]]
+      ]
+    });
   }
+
+
 
   // Example: Auto-adjust number of guests based on table size
   const guestsInput = document.querySelector("input[name='num_of_guests']");

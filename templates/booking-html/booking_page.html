@@ -66,7 +66,7 @@
     </div>
 
     <!-- Table Selection -->
-    <div class="mb-3">
+    <div class="select-wrapper mb-3">
       <label for="table" class="form-label">Available Tables:</label>
       <select name="table" id="table" class="form-select" size="10" required>
         <option value="">-- Select a Table --</option>
@@ -85,7 +85,6 @@
       <textarea
         id="summernote"
         name="special_requests"
-        class="form-control"
       ></textarea>
     </div>
 
@@ -96,6 +95,7 @@
       </button>
     </div>
   </form>
+
   {% else %}
   <p>You need to <a href="{% url 'login' %}">log in</a> to book a table.</p>
   {% endif %}
