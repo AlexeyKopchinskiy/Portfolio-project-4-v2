@@ -9,7 +9,10 @@ Try the live version here: [Live Demo](https://portfolio-project-4-1f0987e45403.
 ## 📷 Screenshots  
 Here are some previews of the app in action:
 
+**Start page**
 ![Home Page](/static/images/screenshots/screenshot-start-page.jpg)  
+
+**Booking page**
 ![Booking Page](/static/images/screenshots/screenshot-booking-page.jpg)  
 
 ## 🚀 Features
@@ -56,6 +59,7 @@ Here are some previews of the app in action:
 
 **W3 validation results for the start page**
 ![w3validator start page](/static/images/screenshots/w3validator-start-page.jpg)
+
 **W3 validation results for the booking page**
 ![w3validator booking page](/static/images/screenshots/w3validator-booking-page.jpg)
 
@@ -72,6 +76,7 @@ Here are some previews of the app in action:
 
 **C.I. validation results for the booking views**
 ![Booking app views.py](/static/images/screenshots/ci_linter_results_for_booking_views.jpg)
+
 **C.I. validation results for the booking urls**
 ![Booking urls.py](/static/images/screenshots/ci_linter_results_for_booking_urls.jpg)
 
