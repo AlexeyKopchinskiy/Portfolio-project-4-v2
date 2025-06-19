@@ -1,9 +1,5 @@
 body {
     height: 100%;
-    background-image: url("/static/images/giant-sushi-set-with-overlay.webp") !important;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', 'Lato', sans-serif;
