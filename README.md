@@ -70,31 +70,7 @@ Captures each booking made by a user, including time, table, guest count, and pr
 
 ## 🗂️ Entity-Relationship Overview
 
-+--------------------+      +--------------------+
-|    BookingStatus   |      |      Location      |
-+--------------------+      +--------------------+
-| id (PK)            |      | id (PK)            |
-| status             |      | location           |
-+--------------------+      +--------------------+
-                                  ▲
-                                  |
-                       +----------+----------+
-                       |                     |
-               +---------------+    +------------------+
-               |     Table     |    |   Reservation     |
-               +---------------+    +------------------+
-               | id (PK)       |    | id (PK)           |
-               | size          |    | booking_date      |
-               | smoking       |    | booking_time      |
-               | accessible    |    | num_of_guests     |
-               | location_id → |----| location_id       |
-               +---------------+    | special_requests  |
-                      ▲             | booked_on         |
-                      |             | table_id → Table  |
-                      |             | user_id → User    |
-                      |             | booking_status_id |
-                      +-------------|→ BookingStatus    |
-                                     +------------------+
+![custom model](/static/images/screenshots/custom-model.jpg)
 
 🧠 Legend
 - PK: Primary Key
