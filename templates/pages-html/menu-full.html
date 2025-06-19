@@ -1,93 +1,89 @@
     {% extends "base.html" %}
     {% block content %}
     <!-- Menu Page Template -->
-    <!-- This page displays the full menu of the restaurant, including appetizers, main dishes, sushi rolls, and beverages. 
-         It is structured with Bootstrap cards for a clean and organized layout. -->
-
-        {% load static %}
-        <div class="container mt-5">
-            <h1 class="text-center mb-4">🍣 Sushi Bar Menu</h1>
-
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                
-                <!-- Appetizers -->
-                <div class="col">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h3 class="card-title">🍱 Appetizers</h3>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Edamame – Steamed soybeans with sea salt</li>
-                                <li class="list-group-item">Miso Soup – Traditional Japanese soup with tofu, seaweed, and scallions</li>
-                                <li class="list-group-item">Seaweed Salad – Marinated seaweed with sesame seeds</li>
-                                <li class="list-group-item">Gyoza – Pan-fried dumplings filled with pork or vegetables</li>
-                                <li class="list-group-item">Takoyaki – Octopus-filled savory dough balls</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nigiri -->
-                <div class="col">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h3 class="card-title">🍣 Nigiri</h3>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Maguro (Tuna)</li>
-                                <li class="list-group-item">Sake (Salmon)</li>
-                                <li class="list-group-item">Ebi (Shrimp)</li>
-                                <li class="list-group-item">Hamachi (Yellowtail)</li>
-                                <li class="list-group-item">Unagi (Grilled Eel)</li>
-                                <li class="list-group-item">Tamago (Sweet Egg Omelette)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sushi Rolls -->
-                <div class="col">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h3 class="card-title">🌯 Sushi Rolls (Maki)</h3>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">California Roll – Crab, avocado, cucumber</li>
-                                <li class="list-group-item">Spicy Tuna Roll – Tuna, spicy mayo, cucumber</li>
-                                <li class="list-group-item">Dragon Roll – Eel, avocado, cucumber, topped with spicy sauce</li>
-                                <li class="list-group-item">Rainbow Roll – Assorted sashimi over a California roll</li>
-                                <li class="list-group-item">Tempura Shrimp Roll – Crispy shrimp tempura, avocado, eel sauce</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hot Dishes -->
-                <div class="col">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h3 class="card-title">🔥 Hot Dishes</h3>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Udon Noodles – Thick wheat noodles in savory broth</li>
-                                <li class="list-group-item">Katsu Don – Breaded pork cutlet over rice with sauce</li>
-                                <li class="list-group-item">Teriyaki Chicken – Grilled chicken with teriyaki glaze</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Beverages -->
-                <div class="col">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h3 class="card-title">🍶 Beverages</h3>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Green Tea (Hot/Iced)</li>
-                                <li class="list-group-item">Sake (Warm or Cold)</li>
-                                <li class="list-group-item">Japanese Beer (Asahi, Sapporo, Kirin)</li>
-                                <li class="list-group-item">Soft Drinks & Sparkling Water</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div> 
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">🍣 Sushi Bar Menu</h1>
+      
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      
+          <!-- Appetizers -->
+          <div class="col">
+            <div class="card h-100 shadow">
+              <div class="card-body">
+                <h3 class="card-title">🍱 Appetizers</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between"><span>Edamame</span><span>€4.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Miso Soup</span><span>€3.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Seaweed Salad</span><span>€5.00</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Gyoza</span><span>€6.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Takoyaki</span><span>€7.00</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Nigiri -->
+          <div class="col">
+            <div class="card h-100 shadow">
+              <div class="card-body">
+                <h3 class="card-title">🍣 Nigiri</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between"><span>Maguro (Tuna)</span><span>€2.80</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Sake (Salmon)</span><span>€2.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Ebi (Shrimp)</span><span>€2.40</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Hamachi (Yellowtail)</span><span>€3.00</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Unagi (Grilled Eel)</span><span>€3.20</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Tamago (Sweet Egg)</span><span>€2.20</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Sushi Rolls -->
+          <div class="col">
+            <div class="card h-100 shadow">
+              <div class="card-body">
+                <h3 class="card-title">🌯 Sushi Rolls (Maki)</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between"><span>California Roll</span><span>€8.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Spicy Tuna Roll</span><span>€9.00</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Dragon Roll</span><span>€11.00</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Rainbow Roll</span><span>€12.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Tempura Shrimp Roll</span><span>€10.00</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Hot Dishes -->
+          <div class="col">
+            <div class="card h-100 shadow">
+              <div class="card-body">
+                <h3 class="card-title">🔥 Hot Dishes</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between"><span>Udon Noodles</span><span>€9.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Katsu Don</span><span>€11.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Teriyaki Chicken</span><span>€10.50</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Beverages -->
+          <div class="col">
+            <div class="card h-100 shadow">
+              <div class="card-body">
+                <h3 class="card-title">🍶 Beverages</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between"><span>Green Tea (Hot/Iced)</span><span>€2.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Sake</span><span>€6.00</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Japanese Beer</span><span>€4.50</span></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Soft Drinks / Sparkling Water</span><span>€2.80</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      
         </div>
+      </div>
     {% endblock %}
