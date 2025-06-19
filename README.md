@@ -17,6 +17,18 @@ Here are some previews of the app in action:
 - **User-specific** booking history.
 - Seamless **reservation management** (create, update, delete).
 - Intuitive **admin panel** for restaurant staff.
+- Administrator interface
+
+### Admin backen available for the restaurant owner
+
+**Back-end user manager**
+![Admin user manager](/static/images/screenshots/admin-back-end-user-manager.jpg)
+
+**Back-end reservation list**
+![Back-end reservation list](/static/images/screenshots/admin-back-end-reservations-list.jpg)
+
+**Back-end reservation editor**
+![Back-end reservation editor](/static/images/screenshots/admin-back-end-reservations-editor.jpg)
 
 ## 🛡️ Security Measures
 - **Encrypted passwords** using Django’s authentication system.  
@@ -42,7 +54,9 @@ Here are some previews of the app in action:
 - ✔ Validates dynamic HTML instead of raw Django template tags.
 - ✔ Helps detect missing closing tags, incorrect attributes, and accessibility issues.
 
+**W3 validation results for the start page**
 ![w3validator start page](/static/images/screenshots/w3validator-start-page.jpg)
+**W3 validation results for the booking page**
 ![w3validator booking page](/static/images/screenshots/w3validator-booking-page.jpg)
 
 ## 🔍 Code Quality & Linting
@@ -55,7 +69,10 @@ Here are some previews of the app in action:
 - 4️⃣ Apply suggested fixes for improved readability and maintainability.
 
 #### C.I. Linter validation results:
+
+**C.I. validation results for the booking views**
 ![Booking app views.py](/static/images/screenshots/ci_linter_results_for_booking_views.jpg)
+**C.I. validation results for the booking urls**
 ![Booking urls.py](/static/images/screenshots/ci_linter_results_for_booking_urls.jpg)
 
 ### 
