@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+/* global $ */
+
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Summernote (if applicable)
   if (document.querySelector("#summernote")) {
@@ -50,12 +53,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const locationSelect = document.getElementById("location");
   const tableSelect = document.getElementById("table");
 
-  // Save original table options.
-  const originalTableOptions = Array.from(tableSelect.options).map(opt => ({
-    html: opt.innerHTML,
-    value: opt.value,
-    dataLocation: opt.getAttribute("data-location")
-  }));
+  if (tableSelect) {
+    const originalTableOptions = Array.from(tableSelect.options).map(opt => ({
+      html: opt.innerHTML,
+      value: opt.value,
+      dataLocation: opt.getAttribute("data-location")
+    }));
+
+    // You can store this globally if needed
+    window.originalTableOptions = originalTableOptions;
+  } else {
+    console.warn("⚠️ Could not find element with ID 'table'. Skipping table logic.");
+  }
 });
 
 // Script to dynamically update table options based on date and time selection
