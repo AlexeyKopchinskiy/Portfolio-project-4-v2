@@ -112,6 +112,11 @@ Captures each booking made by a user, including time, table, guest count, and pr
 - ✔ Validates dynamic HTML instead of raw Django template tags.
 - ✔ Helps detect missing closing tags, incorrect attributes, and accessibility issues.
 
+### Validating with JSHint
+
+**No erros found by JSHint:**
+![JSHint report](/static/images/screenshots/jshint-report.jpg)
+
 **W3 validation results for the start page**
 ![w3validator start page](/static/images/screenshots/w3validator-start-page.jpg)
 
