@@ -1,10 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Summernote (if applicable)
   if (document.querySelector("#summernote")) {
-    $("#summernote").summernote();
+    $("#summernote").summernote({
+      placeholder: "Enter any special requests or notes here...",
+      tabsize: 2,
+      height: 200,
+      toolbar: [
+        ["style", ["bold", "italic", "underline", "clear"]],
+        ["font", ["strikethrough", "superscript", "subscript"]],
+        ["fontsize", ["fontsize"]],
+        ["color", ["color"]],
+        ["para", ["ul", "ol", "paragraph"]],
+        ["height", ["height"]]
+      ]
+    });
   }
 
-  // Example: Auto-adjust number of guests based on table size
+  // toggle navbar on small screens
+  document.addEventListener("click", function (event) {
+    let navbar = document.querySelector(".navbar-collapse");  // ✅ Selects the Bootstrap collapse menu
+    let toggleButton = document.querySelector(".navbar-toggler");  // ✅ Menu button
+
+    // Check if the click is outside the navbar and toggle button
+    if (!navbar.contains(event.target) && !toggleButton.contains(event.target)) {
+      navbar.classList.remove("show");  // ✅ Closes the menu
+    }
+  });
+
+  // Auto-adjust number of guests based on table size
   const guestsInput = document.querySelector("input[name='num_of_guests']");
   if (guestsInput) {
     guestsInput.addEventListener("input", function () {
@@ -17,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("Booking scripts loaded!");
 });
 
+/*** 
+  * Script to handle location and table selection on the booking page
+  * This script dynamically updates the table options based on the selected location
+*/
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Booking page script loaded.");
 

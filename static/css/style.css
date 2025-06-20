@@ -1,44 +1,42 @@
+html,
 body {
     height: 100%;
+    /* ✅ Ensures full height */
+    background-color: #F9FAFC;
+    background: url("/static/images/Giant-sushi-set-with-overlay.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: darkgray !important;
 }
 
-/** Container styles
-* This container centers the content, provides padding,
-* background color, and applies a box shadow for depth.
-* It is used to wrap the main content of the page.
-*/
+.wrapper {
+    flex: 1;
+    /* ✅ Makes the content push the footer down */
+}
+
 .container {
-    display: flex;
-    margin: 30px auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: #F9FAFC;
-    height: fit-content;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-        rgba(0, 0, 0, 0.12) 0px -12px 30px,
-        rgba(0, 0, 0, 0.12) 0px 4px 6px,
-        rgba(0, 0, 0, 0.17) 0px 12px 13px,
-        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    height: 100%;
 }
 
-/* Makes the content push the footer down */
-.wrapper {
-    display: flex;
-}
-
-/* Pushes the footer down */
 .main-content {
     flex-grow: 1;
+    /* ✅ Pushes the footer down */
 }
 
 .footer {
     width: 100%;
-    color: #ffffff !important;
+    color: #fbfbfc !important;
     padding: 15px 0;
     text-align: center;
 }
+
 
 .dark-bg {
     background-color: #445261;
@@ -55,7 +53,6 @@ body {
 
 .img-fluid {
     position: relative;
-    margin: 5px auto;
     width: 100%;
     min-width: 30%;
     background-color: #188181;
@@ -89,6 +86,13 @@ button {
     color: #08e02c !important;
 }
 
+.flex-shrink-0 {
+    flex-shrink: 0;
+    margin: 0 !important;
+    height: 100%;
+    padding: 0;
+}
+
 /* Enable dropdown on hover */
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;
@@ -107,9 +111,6 @@ button {
     color: blueviolet !important;
 }
 
-select {
-    font-size: smaller !important;
-}
 
 /* 🔵 Large desktop screens (1440px+) */
 @media (min-width: 1440px) {
