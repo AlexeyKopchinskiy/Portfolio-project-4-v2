@@ -76,6 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const accessibleCheckbox = document.getElementById("accessible");
   const tableSelect = document.getElementById("table");
 
+  if (!guestCountInput) {
+    console.warn("guestCountInput not found on this page. Skipping script.");
+    return;
+  }
+
   // ✅ Disable guest count, smoking, and accessible checkboxes initially
   guestCountInput.disabled = true;
   smokingCheckbox.disabled = true;
