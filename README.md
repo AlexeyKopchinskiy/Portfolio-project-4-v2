@@ -8,8 +8,8 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
 
 ## Table of Contents
 
-- Overview
-- Agile Methodology
+* [Overview](#overview)
+* [Agile Methodology](#agile-methodology)
 - User Experience (UX)
   - Strategy / Site Goals
   - Scope / User Stories
@@ -53,6 +53,120 @@ The application is designed with modularity and maintainability in mind. All tem
 Coders Sushi Bar is deployed on Heroku and configured for cloud development via Gitpod. It uses environment variables for secure settings, integrates Google Sheets via `gspread` for optional data export, and supports full password reset flows out of the box.
 
 Whether you're a hungry coder or a curious diner, this project serves up a polished, production-ready experience — with no errors, just sushi.
+
+[Back To Top](#table-of-contents)
+
+---
+
+## Agile Methodology
+
+Coders Sushi Bar was developed using a structured Agile approach, emphasizing iterative delivery, stakeholder alignment, and continuous improvement. The project was divided into five weekly milestones, each functioning as a sprint with clearly defined deliverables and review checkpoints. Development was guided by a comprehensive set of user stories and grouped into strategic **epics**, ensuring that every feature served a real user need and contributed to the overall system architecture.
+
+<details>
+<summary>Screenshots of Kanban Board, Milestones and project board view</summary>
+
+![Kanband: Kanban board](./static/images/github-user-stories-kanban-broject.PNG)
+
+![Kanband: User Stories and epic board](./static/images/github-user-stories-list.png)
+
+![Kanband: Milestones](./static/images/github-milestones.JPG)
+
+</details>
+
+### 📆 Milestone Breakdown
+
+**Milestone 1: Project Setup & Authentication (Week 1)**
+- Initialize Git repository and configure GitHub
+- Set up Django project and database structure
+- Implement user authentication (sign-up, login, logout)
+- Apply role-based access control for customers & restaurant owners
+- Deploy basic version for testing
+
+**Milestone 2: Booking System Development (Week 2)**
+- Design models for restaurant, tables, reservations
+- Implement booking functionality with date/time selection
+- Prevent double bookings
+- Create email notifications for confirmed bookings
+- Develop user-friendly booking interface
+
+**Milestone 3: Dashboard & Menu Management (Week 3)**
+- Build restaurant owner dashboard to manage reservations
+- Display menu details with update functionality
+- Allow restaurant owners to cancel/modify bookings
+- Implement feedback system for customer reviews
+- Optimize UI for easy navigation
+
+**Milestone 4: Testing & Optimization (Week 4)**
+- Write automated Python and JavaScript tests for major features
+- Perform manual UX testing
+- Optimize performance (database indexing, caching)
+- Secure app (hiding secret keys, disabling debug mode)
+- Final debugging before deployment
+
+**Milestone 5: Deployment & Documentation (Week 5)**
+- Deploy final version & test in cloud environment
+- Complete final README documentation
+- Ensure repo cleanliness (no secrets, structured commits)
+- Submit project 🎉
+
+---
+
+### 🧩 Epic Overview
+
+| Epic | Focus |
+|------|-------|
+| **Back-End** | Django architecture, models, views, and database logic |
+| **Blog** | Optional restaurant blog interface and content management |
+| **Booking System** | Reservation flow, availability checks, and email confirmations |
+| **Version Control & Documentation** | GitHub setup, commit hygiene, README and Wiki |
+| **User Authentication & Role-Based** | Secure login, sign-up, and access control |
+| **User Feedback & Assistance** | Reviews, help guides, and onboarding flows |
+| **Database Optimization** | Query tuning, indexing, and performance improvements |
+| **Deployment & Security** | Heroku deployment, environment variables, and HTTPS |
+| **Testing & Validation** | Unit tests, integration tests, and manual UX reviews |
+| **Dashboard** | Admin interface for managing bookings and menus |
+| **Front-End** | Responsive design, navigation, and user experience |
+| **Monitoring** | Logging, error tracking, and system stability tools |
+
+---
+
+### 🎯 MoSCoW Prioritization
+
+To ensure delivery of a minimum viable product (MVP) while allowing room for enhancement, features were prioritized using the **MoSCoW method**:
+
+- **Must-Have**: User authentication, booking system, dashboard access, email confirmations, secure deployment
+- **Should-Have**: Menu management, role-based access control, customer feedback, automated testing
+- **Could-Have**: Blog interface, analytics dashboard, Google Sheets integration, monitoring tools
+- **Won’t-Have (for now)**: Real-time availability updates, multi-language support, payment integration
+
+---
+
+This Agile framework enabled Coders Sushi Bar to evolve from concept to cloud-deployed reality with clarity, velocity, and resilience. Each sprint delivered tangible value, and every epic was aligned with user stories that reflected real-world needs — from hungry customers to busy restaurant owners to meticulous developers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 --------------------------------------------------------------------------------
