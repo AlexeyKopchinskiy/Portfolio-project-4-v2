@@ -15,4 +15,9 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Default Dark Modern",
    "terminal.integrated.gpuAcceleration": "canvas",
+   "cSpell.words": [
+      "gspread",
+      "subfolders",
+      "Summernote"
+   ],
 }
