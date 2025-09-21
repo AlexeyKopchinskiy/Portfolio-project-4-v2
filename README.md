@@ -10,12 +10,12 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
 
 * [Overview](#overview)
 * [Agile Methodology](#agile-methodology)
-- User Experience (UX)
-  - Strategy / Site Goals
-  - Scope / User Stories
-  - Structure / Design Choices
-  - Skeleton / Wireframes
-  - Surface
+* [User Experience (UX)](#user-experience-ux)
+  *[Strategy / Site Goals](#-strategy--site-goals)
+  *[Scope / User Stories](#-scope--user-stories)
+  *[Structure / Design Choices](#-structure--design-choices)
+  *[Skeleton / Wireframes](#-skeleton--wireframes)
+  *[Surface](#-surface)
 - Features
   - Existing Features
   - Future Features
@@ -109,8 +109,6 @@ Coders Sushi Bar was developed using a structured Agile approach, emphasizing it
 - Ensure repo cleanliness (no secrets, structured commits)
 - Submit project 🎉
 
----
-
 ### 🧩 Epic Overview
 
 | Epic | Focus |
@@ -128,8 +126,6 @@ Coders Sushi Bar was developed using a structured Agile approach, emphasizing it
 | **Front-End** | Responsive design, navigation, and user experience |
 | **Monitoring** | Logging, error tracking, and system stability tools |
 
----
-
 ### 🎯 MoSCoW Prioritization
 
 To ensure delivery of a minimum viable product (MVP) while allowing room for enhancement, features were prioritized using the **MoSCoW method**:
@@ -139,14 +135,125 @@ To ensure delivery of a minimum viable product (MVP) while allowing room for enh
 - **Could-Have**: Blog interface, analytics dashboard, Google Sheets integration, monitoring tools
 - **Won’t-Have (for now)**: Real-time availability updates, multi-language support, payment integration
 
----
-
 This Agile framework enabled Coders Sushi Bar to evolve from concept to cloud-deployed reality with clarity, velocity, and resilience. Each sprint delivered tangible value, and every epic was aligned with user stories that reflected real-world needs — from hungry customers to busy restaurant owners to meticulous developers.
 
+[Back To Top](#table-of-contents)
 
+---
 
+## User Experience (UX)
 
+Coders Sushi Bar was designed with a user-first mindset, balancing intuitive navigation, responsive design, and functional clarity. The UX strategy was informed by Agile planning, detailed user stories, and a modular architecture that supports both customer-facing and administrative workflows.
 
+---
+
+### 🎯 Strategy / Site Goals
+
+The primary goal was to create a seamless digital experience for a fictional sushi restaurant, enabling users to:
+- Browse the restaurant’s offerings without logging in
+- Book tables with real-time availability and receive confirmation
+- Manage their accounts and reservations
+- Provide restaurant owners with a dashboard to oversee bookings, menus, and customer feedback
+
+Secondary goals included:
+- Ensuring mobile responsiveness across all devices
+- Supporting secure authentication and role-based access
+- Delivering a polished, production-ready deployment with clear documentation
+
+---
+
+### 📋 Scope / User Stories
+
+User stories were categorized by persona and prioritized using the MoSCoW method:
+
+#### Must-Have
+- Customers can sign up, log in, and book tables
+- Restaurant owners can view, modify, and cancel reservations
+- Email confirmations for bookings
+- Secure authentication and role-based access control
+
+#### Should-Have
+- Menu management for restaurant owners
+- Customer feedback system
+- Responsive design and mobile-friendly navigation
+- Automated testing and performance optimization
+
+#### Could-Have
+- Blog interface for restaurant updates
+- Google Sheets integration for analytics
+- Monitoring and logging tools
+
+User stories were grouped into strategic **epics**:
+- **Booking System**
+- **User Authentication & Role-Based Access**
+- **Dashboard**
+- **Front-End**
+- **Deployment & Security**
+- **Testing & Validation**
+- **Version Control & Documentation**
+- **Monitoring**
+- **Database Optimization**
+- **User Feedback & Assistance**
+- **Blog**
+- **Back-End**
+
+---
+
+### 🧱 Structure / Design Choices
+
+The site architecture reflects a clean separation of concerns:
+- Three core Django apps: `booking`, `pages`, and `users`
+- Centralized template directory with modular subfolders
+- A shared `base.html` layout with dynamic navigation and content blocks
+- Responsive design powered by Bootstrap 5 and custom CSS
+- Summernote integration for rich text editing in admin views
+
+Navigation adapts based on authentication state, offering personalized greetings and member-only access. Dropdown menus are hover-enabled for desktop users and toggle-friendly on mobile.
+
+---
+
+### 📐 Skeleton / Wireframes
+
+Initial wireframes were sketched to define:
+- Homepage layout with hero image and call-to-action
+- Booking form with calendar and time slots
+- Member dashboard with reservation overview
+- Profile page with editable user details
+- Admin dashboard for restaurant owners
+
+These wireframes informed the HTML structure and guided the CSS layout grid, ensuring consistency across breakpoints.
+
+---
+
+### 🎨 Surface
+
+The visual layer emphasizes clarity, warmth, and brand identity:
+- Background image: a giant sushi set with overlay, fixed and center-aligned
+- Color palette: deep gray, vibrant green accents, and soft whites
+- Typography: Roboto for modern readability
+- Interactive elements: hover effects, transitions, and dropdowns
+- Mobile-first adjustments: stacked tables, scrollable containers, and adaptive navbar
+
+The result is a polished, intuitive interface that feels welcoming to customers and empowering to restaurant owners — all while maintaining technical elegance and deployment resilience.
+
+*🎨 Main Color Palette*
+
+| Purpose                        | Color Code     | Description                          |
+|-------------------------------|----------------|--------------------------------------|
+| Background overlay (fallback) | `#F9FAFC`      | Soft off-white for clean contrast    |
+| Primary background override   | `darkgray`     | Neutral fallback tone                |
+| Navbar background             | `#343a40`      | Dark slate for header/nav            |
+| Navbar text & links           | `#ffffff`      | White for high contrast              |
+| Navbar hover & accent         | `#08e02c`      | Vibrant green for interactive cues   |
+| Footer background             | `#445261`      | Deep blue-gray for footer & dropdown |
+| Image background (cards)      | `#188181`      | Teal accent for image containers     |
+| Dropdown hover (optional)     | `blueviolet`   | Highlight color for menu items       |
+
+This palette balances clarity, contrast, and brand personality — with vibrant green accents and deep neutrals supporting a sushi-inspired aesthetic. Let me know if you'd like a visual swatch or accessibility contrast check.
+
+[Back To Top](#table-of-contents)
+
+---
 
 
 
