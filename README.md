@@ -11,11 +11,11 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
 * [Overview](#overview)
 * [Agile Methodology](#agile-methodology)
 * [User Experience (UX)](#user-experience-ux)
-  *[Strategy / Site Goals](#-strategy--site-goals)
-  *[Scope / User Stories](#-scope--user-stories)
-  *[Structure / Design Choices](#-structure--design-choices)
-  *[Skeleton / Wireframes](#-skeleton--wireframes)
-  *[Surface](#-surface)
+  * [Strategy / Site Goals](#-strategy--site-goals)
+  * [Scope / User Stories](#-scope--user-stories)
+  * [Structure / Design Choices](#-structure--design-choices)
+  * [Skeleton / Wireframes](#-skeleton--wireframes)
+  * [Surface](#-surface)
 - Features
   - Existing Features
   - Future Features
@@ -277,6 +277,66 @@ This palette balances clarity, contrast, and brand personality — with vibrant 
 
 
 --------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+## Features
+
+Coders Sushi Bar offers a full-stack, production-ready experience for both customers and restaurant owners. The platform is designed to be intuitive, secure, and scalable, with modular functionality and responsive design at its core. Below is the list of currently implemented features followed by the list of potential future improvements & enchantments.
+
+### ✅ Existing Features
+
+| Feature | Description |
+|--------|-------------|
+| **User Authentication** | Secure sign-up, login, logout, and password reset flows using Django’s built-in auth system. |
+| **Role-Based Access Control (RBAC)** | Differentiated access for customers and restaurant owners, enabling tailored dashboards and permissions. |
+| **Table Booking System** | Customers can select date and time, view availability, and receive email confirmations for reservations. |
+| **Booking Management Dashboard** | Restaurant owners can view, modify, or cancel bookings from a centralized interface. |
+| **Menu Display & Editing** | Customers can browse the restaurant’s menu; owners can update offerings via a rich text editor (Summernote). |
+| **Responsive Design** | Mobile-first layout with adaptive navigation, scrollable tables, and optimized typography across devices. |
+| **Email Notifications** | Automated confirmation emails for bookings and welcome messages for new users. |
+| **Secure Deployment** | Environment variables, debug mode disabled, and static file handling via WhiteNoise for Heroku deployment. |
+| **Centralized Templates** | All HTML templates organized under `/templates`, with modular subfolders and a shared `base.html`. |
+| **Custom Styling** | Clean, sushi-inspired aesthetic using Bootstrap 5 and custom CSS with media queries for all screen sizes. |
+| **User Feedback System** | Customers can leave reviews and comments (optional feature, integrated via dashboard). |
+| **Developer Documentation** | README, milestone tracking, and GitHub Wiki support for setup, contribution, and testing. |
+
+### 🚀 Future Enhancements
+
+| Planned Feature | Purpose |
+|----------------|---------|
+| **Restaurant Blog Interface** | Allow owners to post updates, specials, and stories to engage customers. |
+| **Reservation Analytics Dashboard** | Visualize booking trends, peak hours, and customer behavior. |
+| **Google Sheets Integration** | Export bookings and feedback to Google Sheets for external analysis. |
+| **Real-Time Availability Updates** | Dynamic table availability without page reloads (AJAX or WebSockets). |
+| **Multi-Language Support** | Enable localization for broader accessibility. |
+| **Payment Integration** | Allow customers to pre-pay or hold reservations with deposits. |
+| **Monitoring & Logging Tools** | Add system health tracking and error reporting for long-term stability. |
+| **Accessibility Enhancements** | Improve ARIA roles, keyboard navigation, and screen reader support. |
+| **Restaurant Profile Customization** | Let owners personalize branding, images, and contact info. |
+| **Customer Loyalty Features** | Track repeat visits, offer discounts, and gamify engagement. |
+
+---
+
+This feature set reflects a balance between MVP delivery and long-term scalability. Every existing feature was built with modularity and user value in mind, while future enhancements aim to deepen engagement, improve performance, and expand functionality across user roles.
+
+
+
+
+
+
+
+
+
+
+
+
 OLD STUFF
 --------------------------------------------------------------------------------
 
