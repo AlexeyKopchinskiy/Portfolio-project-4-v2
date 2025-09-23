@@ -16,10 +16,10 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
   * [Structure / Design Choices](#-structure--design-choices)
   * [Skeleton / Wireframes](#-skeleton--wireframes)
   * [Surface](#-surface)
-- Features
-  - Existing Features
-  - Future Features
-- Business Model
+* [Features](#features)
+  * [Existing Features](#-existing-features)
+  * [Future Features](#-future-enhancements)
+* [Business Model](#-business-model)
 - Database design
 - Django Apps
 - Authentication & Authorization
@@ -255,37 +255,6 @@ This palette balances clarity, contrast, and brand personality — with vibrant 
 
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
 ## Features
 
 Coders Sushi Bar offers a full-stack, production-ready experience for both customers and restaurant owners. The platform is designed to be intuitive, secure, and scalable, with modular functionality and responsive design at its core. Below is the list of currently implemented features followed by the list of potential future improvements & enchantments.
@@ -322,10 +291,51 @@ Coders Sushi Bar offers a full-stack, production-ready experience for both custo
 | **Restaurant Profile Customization** | Let owners personalize branding, images, and contact info. |
 | **Customer Loyalty Features** | Track repeat visits, offer discounts, and gamify engagement. |
 
----
-
 This feature set reflects a balance between MVP delivery and long-term scalability. Every existing feature was built with modularity and user value in mind, while future enhancements aim to deepen engagement, improve performance, and expand functionality across user roles.
 
+---
+
+## 💼 Business Model
+
+Coders Sushi Bar simulates a digital-first restaurant experience, designed to streamline operations, enhance customer engagement, and support scalable growth. While built as a portfolio project, the platform reflects real-world business logic and could be adapted for commercial deployment.
+
+### 🧩 Core Value Proposition
+
+- **For Customers**: A seamless, mobile-friendly interface to browse menus, book tables, and manage reservations — with instant feedback and email confirmations.
+- **For Restaurant Owners**: A centralized dashboard to oversee bookings, update menus, and analyze reservation trends — reducing manual overhead and improving service efficiency.
+
+### 🧮 Revenue Streams (Hypothetical)
+
+| Stream | Description |
+|--------|-------------|
+| **Subscription Model** | Monthly fee for restaurant owners to access dashboard, analytics, and customization tools. |
+| **Premium Features** | Add-ons like SMS notifications, branded email templates, or advanced analytics. |
+| **Booking Fees** | Small service fee per confirmed reservation (optional, customer-side or owner-side). |
+| **Advertising & Promotions** | Featured placement for restaurants or seasonal menu highlights. |
+| **Data Insights** | Aggregated, anonymized analytics for industry benchmarking (opt-in only). |
+
+### 🛠 Operational Model
+
+| Role | Capabilities |
+|------|--------------|
+| **Customer** | Browse, book, modify/cancel reservations, manage account, leave feedback. |
+| **Restaurant Owner** | View and manage bookings, edit menus, access dashboard analytics, customize restaurant profile. |
+| **Administrator** | Oversee platform health, manage user roles, moderate content, and maintain security. |
+
+### 📈 Scalability Potential
+
+The platform is designed with modular Django apps, centralized templates, and cloud deployment via Heroku — making it easy to onboard multiple restaurants, expand to new regions, or integrate third-party services (e.g., payment gateways, delivery APIs).
+
+### 🧪 MVP vs. Commercial Expansion
+
+| Tier | Features |
+|------|----------|
+| **MVP (Portfolio)** | Authentication, booking system, dashboard, menu editing, email confirmations. |
+| **Commercial** | Multi-restaurant support, payment integration, loyalty programs, real-time availability, mobile app. |
+
+Coders Sushi Bar demonstrates how thoughtful UX, robust architecture, and Agile development can support a viable business model — whether for a single restaurant or a scalable SaaS platform serving the hospitality industry.
+
+---
 
 
 
