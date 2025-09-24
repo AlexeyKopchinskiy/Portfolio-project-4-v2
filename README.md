@@ -375,7 +375,7 @@ Coders Sushi Bar demonstrates how thoughtful UX, robust architecture, and Agile 
 
 **Menu page mobile**
 
-![Menu page mobile screenshot](./static/images/screenshots/screenshot-menu-page.jpg)
+![Menu page mobile screenshot](./static/images/screenshots/screenshot-menu-page-mobile.jpg)
 
 ### Login/Signup — Auth flow and feedback messages
 
@@ -433,32 +433,6 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 
 OLD STUFF
 --------------------------------------------------------------------------------
-
-# Booking System for Restaurants
-
-## 🏡 About the Project
-A web application allowing users to manage restaurant bookings effortlessly. Users can create, update, and delete their reservations while accessing personalized booking history.^
-
-## 🔗 Live Demo  
-Try the live version here: [Live Demo](https://portfolio-project-4-1f0987e45403.herokuapp.com/)  
-
-## 📷 Screenshots  
-Here are some previews of the app in action:
-
-**Start page**
-![Home Page](/static/images/screenshots/screenshot-start-page.jpg)  
-
-**Booking page**
-![Booking Page](/static/images/screenshots/screenshot-booking-page.jpg)  
-
-## 🚀 Features
-- Secure **user authentication**.
-- **User-specific** booking history.
-- Seamless **reservation management** (create, update, delete).
-- Intuitive **admin panel** for restaurant staff.
-- Administrator interface
-
-This project uses a custom Django model architecture to handle restaurant bookings with flexibility, accessibility, and administrative clarity in mind.
 
 ## 📘 Models
 
