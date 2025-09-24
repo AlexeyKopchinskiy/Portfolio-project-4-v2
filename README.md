@@ -22,7 +22,7 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
 * [Business Model](#-business-model)
 * [Screenshots](#screenshots)
 * [Database design](#-database-design)
-- Django Apps
+* [Django Apps](#-django-apps-overview)
 - Authentication & Authorization
 - Product Management
 - Cart & Checkout Flow
@@ -474,6 +474,69 @@ This schema mirrors operational needs:
 
 ---
 
+
+
+Absolutely — here’s the updated **Apps Overview** section for your `README.md`, now explicitly noting that the **users and user roles** are based on Django’s built-in models:
+
+---
+
+## 🧩 Django Apps Overview
+
+Coders Sushi Bar is structured as a modular Django project, composed of three dedicated apps: `booking`, `pages`, and `users`. This separation of concerns ensures maintainability, scalability, and clarity across both front-end and back-end development.
+
+### 🗓️ `booking` App
+
+Handles all reservation-related functionality, including table management, booking workflows, and seating logic.
+
+**Key Features:**
+- Models for `Reservation`, `Table`, `Location`, and `BookingStatus`
+- Prevents double bookings via table/date/time constraints
+- Supports seating zones (e.g., patio, indoor) and table attributes (smoking, accessible)
+- Includes special requests, guest count, and booking status tracking
+- Reservation ordering by creation timestamp (`booked_on`)
+- Admin-friendly model string representations for clarity
+
+**User Roles:**
+- **Customers**: Can create, view, and cancel their reservations
+- **Restaurant Owners**: Can view, modify, and manage all bookings
+
+### 📄 `pages` App
+
+Manages static and semi-static content that defines the public-facing identity of the restaurant.
+
+**Key Features:**
+- Homepage, About, and Menu views
+- Centralized templates with shared `base.html` layout
+- Summernote integration for rich text editing (e.g., menu descriptions)
+- Responsive design powered by Bootstrap and custom CSS
+- Optional blog interface for restaurant updates (future enhancement)
+
+**User Roles:**
+- **All Visitors**: Can browse content without logging in
+- **Restaurant Owners**: Can edit menu content and manage blog posts
+
+### 👤 `users` App
+
+Handles authentication, profile management, and role-based access control. This app is built on Django’s robust built-in `User` model, extended with custom logic to differentiate between customer and restaurant owner roles.
+
+**Key Features:**
+- Secure sign-up, login, logout, and password reset flows
+- Role differentiation using Django’s built-in user groups or flags
+- Profile editing and account management
+- Personalized dashboard access based on user type
+- Welcome email and login feedback messages
+- Seamless integration with Django’s authentication system
+
+**User Roles:**
+- **Customers**: Can manage their account and bookings
+- **Restaurant Owners**: Gain access to admin tools and dashboards
+
+This modular app architecture ensures that each domain—content, booking, and authentication—is cleanly separated, making the codebase easier to navigate, test, and extend.
+
+
+[Back To Top](#table-of-contents)
+
+---
 
 
 
