@@ -21,7 +21,7 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
   * [Future Features](#-future-enhancements)
 * [Business Model](#-business-model)
 * [Screenshots](#screenshots)
-- Database design
+* [Database design](#-database-design)
 - Django Apps
 - Authentication & Authorization
 - Product Management
@@ -422,6 +422,87 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 </details>
 
 [Back To Top](#table-of-contents)
+
+---
+
+## 🗄️ Database Design
+
+**Coders Sushi Bar** uses a relational database powered by Django’s ORM, structured to reflect real-world restaurant operations. The schema is modular, normalized, and designed for scalability, with clear relationships between users, tables, locations, and reservations.
+
+### 🧩 Core Models & Relationships
+
+| Model            | Description                                                                 | Relationships |
+|------------------|-----------------------------------------------------------------------------|---------------|
+| **User**         | Built-in Django user model for authentication and role-based access         | One-to-many with `Reservation` |
+| **Table**        | Represents individual tables with attributes like size, smoking, accessible | ForeignKey to `Location`; One-to-many with 
+| **Reservation**  | Captures booking details: user, table, date/time, status, and special requests | ForeignKey to `User`, `Table`, `Location`, and `BookingStatus` |
+| **BookingStatus**| Represents the status of a reservation (e.g., Pending, Confirmed, Cancelled)| One-to-many with `Reservation` |
+| **Location**     | Defines seating zones (e.g., Patio, Main Hall, VIP Room)                    | One-to-many with `Table` and `Reservation` |
+`Reservation` |
+
+![ER diagram of the DB login](./static/images/screenshots/database-relations.JPG)
+
++----------------+           +-----------------+           +----------------+
+| BookingStatus  |<--------->|  Reservation    |<--------->|      User      |
+|----------------|           |-----------------|           |----------------|
+| id             |           | id              |           | id             |
+| status         |           | booking_date    |           | username       |
++----------------+           | booking_time    |           +----------------+
+                             | num_of_guests   |
+                             | special_requests|
+                             | booked_on       |
+                             +-----------------+
+                                    ^
+                                    |
+                                    |
+                             +----------------+
+                             |     Table      |
+                             |----------------|
+                             | id             |
+                             | size           |
+                             | smoking        |
+                             | accessible     |
+                             +----------------+
+                                    ^
+                                    |
+                                    |
+                             +----------------+
+                             |   Location     |
+                             |----------------|
+                             | id             |
+                             | location       |
+                             +----------------+
+
+### 🔗 Relationship Diagram (Textual)
+
+- **User ↔ Reservation**: A user can make multiple reservations; each reservation belongs to one user.
+- **Table ↔ Reservation**: Each reservation is linked to a specific table to prevent double-booking.
+- **Location ↔ Table**: Tables are grouped by seating area (e.g., Main Hall, Terrace etc.).
+- **Location ↔ Reservation**: Reservations optionally reference a location for analytics or filtering.
+- **BookingStatus ↔ Reservation**: Each reservation has a status (Pending, Confirmed, Cancelled), allowing for workflow control.
+
+---
+
+### 🧠 Design Considerations
+
+- **Normalization**: Reusable entities like `Location` and `BookingStatus` prevent duplication and support filtering.
+- **Extensibility**: Easily supports future features like multi-restaurant support, analytics, or dynamic availability.
+- **Performance**: Indexed fields like `booking_date`, `booking_time`, and `booked_on` support fast queries and sorting.
+- **Security**: Reservations are tied to authenticated users; access control is enforced via Django views and templates.
+- **Business Logic Alignment**: Reflects how real restaurants manage seating zones, table attributes, and booking workflows.
+
+---
+
+### 📈 Real-World Mapping
+
+This schema mirrors operational needs:
+- Customers book specific tables in defined locations.
+- Restaurant owners can filter bookings by status, date, or seating area.
+- Special requests and guest count are stored for service preparation.
+- Booking status enables confirmation workflows and cancellation tracking.
+
+[Back To Top](#table-of-contents)
+
 ---
 
 
