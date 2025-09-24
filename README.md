@@ -442,6 +442,40 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 
 ![ER diagram of the DB login](./static/images/screenshots/database-relations.JPG)
 
+**BookingStatus**
+Represents the current state of a reservation (e.g., Pending, Confirmed, Cancelled).
+| Field | Type | Description | 
+| status | CharField | Unique name for the status | 
+
+
+**Location**
+Defines different seating areas in the restaurant, such as “Terrace” or “Window Booth”.
+| Field | Type | Description | 
+| location | CharField | Name of the area | 
+
+
+**Table**
+Each table is a reservable unit, assigned to a Location. Tables are annotated with features for better matching.
+| Field | Type | Description | 
+| size | SmallInteger | Number of seats | 
+| smoking | Boolean | Whether smoking is allowed | 
+| accessible | Boolean | If the table accommodates accessibility needs | 
+| location | ForeignKey | Linked to Location | 
+
+
+**Reservation**
+Captures each booking made by a user, including time, table, guest count, and preferences.
+| Field | Type | Description | 
+| table | ForeignKey | Reserved table (Table) | 
+| location | ForeignKey | Optional—can mirror table.location or be filtered | 
+| user | ForeignKey | The user placing the booking (User) | 
+| booking_date | DateField | Date of the reservation | 
+| booking_time | TimeField | Time of the reservation | 
+| num_of_guests | PositiveSmallInteger | Guest count | 
+| booking_status | ForeignKey | Reservation status (BookingStatus) | 
+| special_requests | TextField | Freeform requests (Summernote-enabled) | 
+| booked_on | DateTimeField | Auto-generated timestamp when reservation is made | 
+
 ### 🔗 Relationship Diagram (Textual)
 
 - **User ↔ Reservation**: A user can make multiple reservations; each reservation belongs to one user.
@@ -471,12 +505,6 @@ This schema mirrors operational needs:
 - Booking status enables confirmation workflows and cancellation tracking.
 
 [Back To Top](#table-of-contents)
-
----
-
-
-
-Absolutely — here’s the updated **Apps Overview** section for your `README.md`, now explicitly noting that the **users and user roles** are based on Django’s built-in models:
 
 ---
 
@@ -549,39 +577,7 @@ OLD STUFF
 
 ## 📘 Models
 
-**BookingStatus**
-Represents the current state of a reservation (e.g., Pending, Confirmed, Cancelled).
-| Field | Type | Description | 
-| status | CharField | Unique name for the status | 
 
-
-**Location**
-Defines different seating areas in the restaurant, such as “Terrace” or “Window Booth”.
-| Field | Type | Description | 
-| location | CharField | Name of the area | 
-
-
-**Table**
-Each table is a reservable unit, assigned to a Location. Tables are annotated with features for better matching.
-| Field | Type | Description | 
-| size | SmallInteger | Number of seats | 
-| smoking | Boolean | Whether smoking is allowed | 
-| accessible | Boolean | If the table accommodates accessibility needs | 
-| location | ForeignKey | Linked to Location | 
-
-
-**Reservation**
-Captures each booking made by a user, including time, table, guest count, and preferences.
-| Field | Type | Description | 
-| table | ForeignKey | Reserved table (Table) | 
-| location | ForeignKey | Optional—can mirror table.location or be filtered | 
-| user | ForeignKey | The user placing the booking (User) | 
-| booking_date | DateField | Date of the reservation | 
-| booking_time | TimeField | Time of the reservation | 
-| num_of_guests | PositiveSmallInteger | Guest count | 
-| booking_status | ForeignKey | Reservation status (BookingStatus) | 
-| special_requests | TextField | Freeform requests (Summernote-enabled) | 
-| booked_on | DateTimeField | Auto-generated timestamp when reservation is made | 
 
 
 **Ordering**: Reservations are sorted newest-first via Meta.ordering = ["-booked_on"].
