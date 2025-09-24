@@ -442,37 +442,6 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 
 ![ER diagram of the DB login](./static/images/screenshots/database-relations.JPG)
 
-+----------------+           +-----------------+           +----------------+
-| BookingStatus  |<--------->|  Reservation    |<--------->|      User      |
-|----------------|           |-----------------|           |----------------|
-| id             |           | id              |           | id             |
-| status         |           | booking_date    |           | username       |
-+----------------+           | booking_time    |           +----------------+
-                             | num_of_guests   |
-                             | special_requests|
-                             | booked_on       |
-                             +-----------------+
-                                    ^
-                                    |
-                                    |
-                             +----------------+
-                             |     Table      |
-                             |----------------|
-                             | id             |
-                             | size           |
-                             | smoking        |
-                             | accessible     |
-                             +----------------+
-                                    ^
-                                    |
-                                    |
-                             +----------------+
-                             |   Location     |
-                             |----------------|
-                             | id             |
-                             | location       |
-                             +----------------+
-
 ### 🔗 Relationship Diagram (Textual)
 
 - **User ↔ Reservation**: A user can make multiple reservations; each reservation belongs to one user.
