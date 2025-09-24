@@ -20,6 +20,7 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
   * [Existing Features](#-existing-features)
   * [Future Features](#-future-enhancements)
 * [Business Model](#-business-model)
+* [Screenshots](#screenshots)
 - Database design
 - Django Apps
 - Authentication & Authorization
@@ -293,6 +294,8 @@ Coders Sushi Bar offers a full-stack, production-ready experience for both custo
 
 This feature set reflects a balance between MVP delivery and long-term scalability. Every existing feature was built with modularity and user value in mind, while future enhancements aim to deepen engagement, improve performance, and expand functionality across user roles.
 
+[Back To Top](#table-of-contents)
+
 ---
 
 ## 💼 Business Model
@@ -335,10 +338,91 @@ The platform is designed with modular Django apps, centralized templates, and cl
 
 Coders Sushi Bar demonstrates how thoughtful UX, robust architecture, and Agile development can support a viable business model — whether for a single restaurant or a scalable SaaS platform serving the hospitality industry.
 
+[Back To Top](#table-of-contents)
+
 ---
 
+## Screenshots
 
+<details>
+<summary>Below are screenshots of the main pages of the project. For each page a mobile screenshot is given as well.</summary>
 
+### Homepage — Hero image, navigation, call-to-action
+
+**Start page**
+
+![Startpage screenshot](./static/images/screenshots/screenshot-booking-page.jpg)
+
+**Start page mobile**
+
+![Startpage mobile screenshot](./static/images/screenshots/screenshot-start-page-mobile.jpg)
+
+### Booking Page — Date/time selector, form layout
+
+**Booking page**
+
+![Booking page screenshot](./static/images/screenshots/screenshot-booking-page.jpg)
+
+**Booking page mobile**
+
+![Booking page mobile screenshot](./static/images/screenshots/screenshot-booking-page-mobile.jpg)
+
+### Menu Page — Menu items, styling, responsiveness
+
+**Menu page**
+
+![Menu page screenshot](./static/images/screenshots/screenshot-menu-page.jpg)
+
+**Menu page mobile**
+
+![Menu page mobile screenshot](./static/images/screenshots/screenshot-menu-page.jpg)
+
+### Login/Signup — Auth flow and feedback messages
+
+**Login page**
+
+![Login page screenshot](./static/images/screenshots/screenshot-login-page.jpg)
+
+**Login page mobile**
+
+![Login page mobile screenshot](./static/images/screenshots/screenshot-login-page-mobile.jpg)
+
+**Logout page**
+
+![Log out page screenshot](./static/images/screenshots/screenshot-logout-page.jpg)
+
+**Logout page mobile**
+
+![Log out page mobile screenshot](./static/images/screenshots/screenshot-logout-page-mobile.jpg)
+
+**Sign up page**
+
+![Sign up page screenshot](./static/images/screenshots/screenshot-sign-up-page.jpg)
+
+**Sign up page mobile**
+
+![Sign up page mobile screenshot](./static/images/screenshots/screenshot-sign-up-page-mobile.jpg)
+
+### Member Dashboard — Reservation overview, profile links
+
+**Member page**
+
+![Member page screenshot](./static/images/screenshots/screenshot-member-page.jpg)
+
+**Member page mobile**
+
+![Member page mobile screenshot](./static/images/screenshots/screenshot-member-page-mobile.jpg)
+
+### Restaurant Owner Dashboard — Booking management, menu editing
+
+As Restaurant Owner by definition has admin to Django admin, his admin board is looking like this:
+
+![Restaurant Owner Django admin interface](./static/images/screenshots/screenshot-owner-django-admin.jpg)
+
+</details>
+
+[Back To Top](#table-of-contents)
+---
 
 
 
