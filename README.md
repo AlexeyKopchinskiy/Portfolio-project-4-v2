@@ -579,7 +579,7 @@ This modular app architecture ensures that each domain—content, booking, and a
 
 ## 🧪 Manual Testing
 
-Due to simplicity of the project and the limited time available, the manual testing was preferred over automated testing. With this in mind the Coders Sushi Bar underwent extensive manual testing to ensure usability, reliability, and role-based functionality across all major features. Testing was performed iteratively throughout development, with each milestone followed by targeted validation of newly implemented components.
+Due to simplicity of the project and the limited time available, the manual testing was preferred over automated testing. With this in mind the Coders Sushi Bar underwent extensive manual scrutiny to ensure usability, reliability, and role-based functionality across all major features. Testing was performed iteratively throughout development, with each milestone followed by targeted validation of newly implemented components.
 
 ### 👥 User Role Testing
 
@@ -594,25 +594,21 @@ Due to simplicity of the project and the limited time available, the manual test
 - ✅ Checked personalized greetings and conditional navbar rendering
 - ✅ Verified session persistence and logout behavior
 
----
-
 ### 📅 Booking System Testing
 
 #### 🧾 Reservation Creation
 - ✅ Created bookings with valid date/time and guest count
 - ✅ Submitted special requests and verified database storage
-- ✅ Received confirmation email with correct details
+- ✅ Displayed confirmation page with correct details
 
 #### 🚫 Double Booking Prevention
-- ✅ Attempted to book same table at same time — correctly blocked
+- ✅ Attempted to book same table at same time — correctly blocked by filtering out tables that are already booked within a ±1 hour window of the requested time
 - ✅ Booked different tables at overlapping times — allowed
 
 #### 🗑️ Booking Modification & Cancellation
 - ✅ Cancelled reservations from dashboard
 - ✅ Verified status updates and UI refresh
 - ✅ Checked ordering by `booked_on` timestamp
-
----
 
 ### 🧭 Navigation & UX Testing
 
@@ -626,8 +622,6 @@ Due to simplicity of the project and the limited time available, the manual test
 - ✅ Checked Summernote rendering for rich text content
 - ✅ Verified static file loading and background image display
 
----
-
 ### 🧰 Admin & Dashboard Testing
 
 #### 🧑‍🍳 Restaurant Owner Dashboard
@@ -640,8 +634,6 @@ Due to simplicity of the project and the limited time available, the manual test
 - ✅ Viewed feedback in owner dashboard
 - ✅ Verified moderation and display logic
 
----
-
 ### 🔐 Security & Deployment Checks
 
 - ✅ Disabled Django debug mode in production
@@ -649,28 +641,11 @@ Due to simplicity of the project and the limited time available, the manual test
 - ✅ Tested login throttling and CSRF protection
 - ✅ Confirmed Heroku deployment with static file handling (WhiteNoise)
 
----
-
-### 🧪 Browser & Device Coverage
-
-Manual testing was performed on:
-- Chrome (desktop & mobile)
-- Firefox
-- Safari (iOS)
-- Edge
-- Android Chrome
-
----
-
-This manual testing process ensured that Coders Sushi Bar delivers a stable, intuitive experience across user roles and devices. Let me know if you’d like to complement this with automated test coverage or a checklist for certification.
-
-
-
-### ✅ Steps to Validate Django Templates Using W3C Validator
-- 1️⃣ Open your browser's Developer Tools (F12 → Elements tab).
+### ✅ Steps taken to Validate Django Templates Using W3C Validator
+- 1️⃣ Open browser's Developer Tools (F12 → Elements tab).
 - 2️⃣ Find the rendered HTML of the Django page.
 - 3️⃣ Right-click → "View Page Source" or "Inspect" → Copy the full HTML.
-- 4️⃣ Go to W3C Validator.
+- 4️⃣ Go to W3C Validator (https://validator.w3.org/).
 - 5️⃣ Choose "Validate by Direct Input" and paste the copied HTML.
 - 6️⃣ Click "Check" and review the errors/warnings.
 - 7️⃣ Fix any structural issues in your Django templates ( folder).
