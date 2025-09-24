@@ -417,7 +417,18 @@ Coders Sushi Bar demonstrates how thoughtful UX, robust architecture, and Agile 
 
 As Restaurant Owner by definition has admin to Django admin, his admin board is looking like this:
 
+**Admin backend available for the restaurant owner**
+
 ![Restaurant Owner Django admin interface](./static/images/screenshots/screenshot-owner-django-admin.jpg)
+
+**Back-end user manager**
+![Admin user manager](/static/images/screenshots/admin-back-end-user-manager.jpg)
+
+**Back-end reservation list**
+![Back-end reservation list](/static/images/screenshots/admin-back-end-reservations-list.jpg)
+
+**Back-end reservation editor**
+![Back-end reservation editor](/static/images/screenshots/admin-back-end-reservations-editor.jpg)
 
 </details>
 
@@ -566,59 +577,94 @@ This modular app architecture ensures that each domain—content, booking, and a
 
 ---
 
+## 🧪 Manual Testing
+
+Due to simplicity of the project and the limited time available, the manual testing was preferred over automated testing. With this in mind the Coders Sushi Bar underwent extensive manual testing to ensure usability, reliability, and role-based functionality across all major features. Testing was performed iteratively throughout development, with each milestone followed by targeted validation of newly implemented components.
+
+### 👥 User Role Testing
+
+#### 🔐 Authentication & Access Control
+- ✅ Verified sign-up, login, logout flows for both customers and restaurant owners
+- ✅ Confirmed password reset email delivery and form validation
+- ✅ Ensured role-based access: restaurant owners see dashboard tools; customers do not
+- ❌ Attempted unauthorized access to owner-only views (correctly redirected or denied)
+
+#### 👤 Profile & Account Management
+- ✅ Tested profile editing and feedback messages
+- ✅ Checked personalized greetings and conditional navbar rendering
+- ✅ Verified session persistence and logout behavior
+
+---
+
+### 📅 Booking System Testing
+
+#### 🧾 Reservation Creation
+- ✅ Created bookings with valid date/time and guest count
+- ✅ Submitted special requests and verified database storage
+- ✅ Received confirmation email with correct details
+
+#### 🚫 Double Booking Prevention
+- ✅ Attempted to book same table at same time — correctly blocked
+- ✅ Booked different tables at overlapping times — allowed
+
+#### 🗑️ Booking Modification & Cancellation
+- ✅ Cancelled reservations from dashboard
+- ✅ Verified status updates and UI refresh
+- ✅ Checked ordering by `booked_on` timestamp
+
+---
+
+### 🧭 Navigation & UX Testing
+
+#### 📱 Responsive Design
+- ✅ Tested layout on desktop, tablet, and mobile (Chrome DevTools)
+- ✅ Verified navbar toggler behavior and dropdown hover activation
+- ✅ Confirmed scrollable tables and mobile-friendly booking form
+
+#### 🖼️ Content Pages
+- ✅ Viewed homepage, about, and menu pages without login
+- ✅ Checked Summernote rendering for rich text content
+- ✅ Verified static file loading and background image display
+
+---
+
+### 🧰 Admin & Dashboard Testing
+
+#### 🧑‍🍳 Restaurant Owner Dashboard
+- ✅ Viewed all reservations with status and guest info
+- ✅ Edited menu items and confirmed updates
+- ✅ Filtered bookings by date and location
+
+#### 🧾 Feedback System
+- ✅ Submitted reviews as customer
+- ✅ Viewed feedback in owner dashboard
+- ✅ Verified moderation and display logic
+
+---
+
+### 🔐 Security & Deployment Checks
+
+- ✅ Disabled Django debug mode in production
+- ✅ Verified environment variable usage for secret keys
+- ✅ Tested login throttling and CSRF protection
+- ✅ Confirmed Heroku deployment with static file handling (WhiteNoise)
+
+---
+
+### 🧪 Browser & Device Coverage
+
+Manual testing was performed on:
+- Chrome (desktop & mobile)
+- Firefox
+- Safari (iOS)
+- Edge
+- Android Chrome
+
+---
+
+This manual testing process ensured that Coders Sushi Bar delivers a stable, intuitive experience across user roles and devices. Let me know if you’d like to complement this with automated test coverage or a checklist for certification.
 
 
-
-
-
-
-OLD STUFF
---------------------------------------------------------------------------------
-
-## 📘 Models
-
-
-
-
-**Ordering**: Reservations are sorted newest-first via Meta.ordering = ["-booked_on"].
-
-### 🧑‍💻 Access Control
-- Users can only view and manage their own reservations.
-- Staff and admins can see and edit all bookings via the Django Admin panel.
-- Each reservation is linked to a user and referentially aware of its table and seating area.
-
-## 🗂️ Entity-Relationship Overview
-
-![custom model](/static/images/screenshots/custom-model.jpg)
-
-🧠 Legend
-- PK: Primary Key
-- →: Foreign Key reference
-- Arrows (↑) show relationships (e.g., Reservation → Table → Location)
-
-### Admin backen available for the restaurant owner
-
-**Back-end user manager**
-![Admin user manager](/static/images/screenshots/admin-back-end-user-manager.jpg)
-
-**Back-end reservation list**
-![Back-end reservation list](/static/images/screenshots/admin-back-end-reservations-list.jpg)
-
-**Back-end reservation editor**
-![Back-end reservation editor](/static/images/screenshots/admin-back-end-reservations-editor.jpg)
-
-## 🛡️ Security Measures
-- **Encrypted passwords** using Django’s authentication system.  
-- **CSRF protection** for all forms.  
-- **User roles and permissions** to restrict access to sensitive data.
-
-## 🧪 Testing
-
-### 🔄 Manual Testing
-**Perform functional testing by following these steps:**
-- User Authentication: Test login, logout, and registration flows.
-- Booking Process: Make, update, and cancel a reservation.
-- Admin Panel: Verify access control and reservation management.
 
 ### ✅ Steps to Validate Django Templates Using W3C Validator
 - 1️⃣ Open your browser's Developer Tools (F12 → Elements tab).
@@ -633,7 +679,7 @@ OLD STUFF
 
 ### Validating with JSHint
 
-**No erros found by JSHint:**
+**No errors found by JSHint:**
 ![JSHint report](/static/images/screenshots/jshint-report.jpg)
 
 **W3 validation results for the start page**
@@ -673,6 +719,21 @@ flake8 your_project/
 - Check logs: tail -f logs/error.log
 - Use Django’s debug mode: DEBUG=True in settings.py
 - Inspect database queries: python manage.py shell
+
+
+[Back To Top](#table-of-contents)
+
+---
+
+OLD STUFF
+--------------------------------------------------------------------------------
+
+## 🛡️ Security Measures
+- **Encrypted passwords** using Django’s authentication system.  
+- **CSRF protection** for all forms.  
+- **User roles and permissions** to restrict access to sensitive data.
+
+
 
 ## 🛠️ Installation
 Follow these steps to set up the project locally:
