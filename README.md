@@ -422,13 +422,13 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 ![Restaurant Owner Django admin interface](./static/images/screenshots/screenshot-owner-django-admin.jpg)
 
 **Back-end user manager**
-![Admin user manager](/static/images/screenshots/admin-back-end-user-manager.jpg)
+![Admin user manager](./static/images/screenshots/admin-back-end-user-manager.jpg)
 
 **Back-end reservation list**
-![Back-end reservation list](/static/images/screenshots/admin-back-end-reservations-list.jpg)
+![Back-end reservation list](./static/images/screenshots/admin-back-end-reservations-list.jpg)
 
 **Back-end reservation editor**
-![Back-end reservation editor](/static/images/screenshots/admin-back-end-reservations-editor.jpg)
+![Back-end reservation editor](./static/images/screenshots/admin-back-end-reservations-editor.jpg)
 
 </details>
 
@@ -588,12 +588,14 @@ Due to simplicity of the project and the limited time available, the manual test
 <details>
     <summary>Verified sign-up, login, logout flows for both customers and restaurant owners</summary>
 
-    ![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.JPG)
+![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.JPG)
 
-    ![Login validation](./static/images/screenshots/screenshot-login-form-validation.jpg)
+![Login validation](./static/images/screenshots/screenshot-login-form-validation.jpg)
 
-    ![Logout feedback snapshot](./static/images/screenshots/screenshot-logout-page.jpg)
+![Logout feedback snapshot](./static/images/screenshots/screenshot-logout-page.jpg)
+
 </details>
+
 - ✅ Confirmed password reset email delivery and form validation
 - ✅ Ensured role-based access: restaurant owners see dashboard tools; customers do not
 - ❌ Attempted unauthorized access to owner-only views (correctly redirected or denied)
