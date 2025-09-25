@@ -584,7 +584,14 @@ Due to simplicity of the project and the limited time available, the manual test
 ### 👥 User Role Testing
 
 #### 🔐 Authentication & Access Control
-- ✅ Verified sign-up, login, logout flows for both customers and restaurant owners
+
+<details>
+    <summary>Verified sign-up, login, logout flows for both customers and restaurant owners</summary>
+
+    ![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.JPG)
+
+    ![Logout feedback snapshot](./static/images/screenshots/screenshot-logout-page.jpg)
+</details>
 - ✅ Confirmed password reset email delivery and form validation
 - ✅ Ensured role-based access: restaurant owners see dashboard tools; customers do not
 - ❌ Attempted unauthorized access to owner-only views (correctly redirected or denied)

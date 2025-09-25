@@ -4,15 +4,6 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, UserUpdateForm
 
-"""
-This module handles user authentication-related views.
-
-Includes:
-- User signup
-- Profile viewing
-- Profile updating
-"""
-
 
 def signup(request):
     """
