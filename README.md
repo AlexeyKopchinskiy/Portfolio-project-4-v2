@@ -590,6 +590,8 @@ Due to simplicity of the project and the limited time available, the manual test
 
     ![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.JPG)
 
+    ![Login validation](./static/images/screenshots/screenshot-login-form-validation.jpg)
+
     ![Logout feedback snapshot](./static/images/screenshots/screenshot-logout-page.jpg)
 </details>
 - ✅ Confirmed password reset email delivery and form validation
