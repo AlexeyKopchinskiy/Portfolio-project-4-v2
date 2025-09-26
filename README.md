@@ -70,7 +70,7 @@ Coders Sushi Bar was developed using a structured Agile approach, emphasizing it
 
 ![Kanband: User Stories and epic board](./static/images/github-user-stories-list.png)
 
-![Kanband: Milestones](./static/images/github-milestones.JPG)
+![Kanband: Milestones](./static/images/github-milestones.jpg)
 
 </details>
 
@@ -451,7 +451,7 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 | **Location**     | Defines seating zones (e.g., Patio, Main Hall, VIP Room)                    | One-to-many with `Table` and `Reservation` |
 `Reservation` |
 
-![ER diagram of the DB login](./static/images/screenshots/database-relations.JPG)
+![ER diagram of the DB login](./static/images/screenshots/database-relations.jpg)
 
 **BookingStatus**
 Represents the current state of a reservation (e.g., Pending, Confirmed, Cancelled).
@@ -595,7 +595,7 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - validation feedback on the sign-up page
 
-![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.JPG)
+![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.jpg)
 
 - validation feedback on the login page
 
@@ -615,13 +615,22 @@ Due to simplicity of the project and the limited time available, the manual test
 
 </details>
 
-
-
-
 #### 👤 Profile & Account Management
 - ✅ Tested profile editing and feedback messages
 - ✅ Checked personalized greetings and conditional navbar rendering
 - ✅ Verified session persistence and logout behavior
+
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- validation user profile editor
+
+![validation user profile editor](./static/images/screenshots/screenshot-update-user-profile-form-check.jpg)
+
+
+
+
+</details>
 
 ### 📅 Booking System Testing
 
