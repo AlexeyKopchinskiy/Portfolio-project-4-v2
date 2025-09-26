@@ -593,13 +593,25 @@ Due to simplicity of the project and the limited time available, the manual test
 <details>
     <summary>See corresponding snapshots</summary>
 
+- validation feedback on the sign-up page
+
 ![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.JPG)
+
+- validation feedback on the login page
 
 ![Login validation](./static/images/screenshots/screenshot-login-form-validation.jpg)
 
+- logout feedback
+
 ![Logout feedback snapshot](./static/images/screenshots/screenshot-logout-page.jpg)
 
+- password reset feedback
+
 ![Password reset confirmation](./static/images/screenshots/screenshot-password-reset-confirmation.jpg)
+
+- admin page denied access
+
+![](./static/images/screenshots/screenshot-admin-page-dinied-access.jpg)
 
 </details>
 
