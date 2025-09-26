@@ -627,8 +627,13 @@ Due to simplicity of the project and the limited time available, the manual test
 
 ![validation user profile editor](./static/images/screenshots/screenshot-update-user-profile-form-check.jpg)
 
+- feedback after user profile update
 
+![feedback after user profile update](./static/images/screenshots/screenshot-feedback-after-user-profile-updated.JPG)
 
+- Redirect after unauthorized attempt to access member page
+
+![Redirect after unauthorized attempt to access member page](./static/images/screenshots/screenshot-redirect-after-attempt-to-access-member-page.jpg)
 
 </details>
 
@@ -639,9 +644,28 @@ Due to simplicity of the project and the limited time available, the manual test
 - ✅ Submitted special requests and verified database storage
 - ✅ Displayed confirmation page with correct details
 
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- Booking confirmation
+
+![Booking confirmation](./static/images/screenshots/screenshot-booking-confirmation.jpg)
+
+- Special request in the admin area
+
+![Special request](./static/images/screenshots/screenshot-admin-special-requests.jpg)
+
+- Reservation confirmation
+
+![Reservation confirmation](./static/images/screenshots/screenshot-booking-confirmation.jpg)
+
+</details>
+
 #### 🚫 Double Booking Prevention
 - ✅ Attempted to book same table at same time — correctly blocked by filtering out tables that are already booked within a ±1 hour window of the requested time
 - ✅ Booked different tables at overlapping times — allowed
+
+
 
 #### 🗑️ Booking Modification & Cancellation
 - ✅ Cancelled reservations from dashboard
