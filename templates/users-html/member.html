@@ -14,6 +14,15 @@
     {% endfor %}
   {% endif %}
 
+  {% if user.is_staff %}
+    <div class="text-center mt-5">
+      <p>As a restaurant owner you have access to the inner workings of the website database:</p>
+      <a href="/admin/" class="btn btn-outline-dark">
+        🔧 Go to Django Admin Interface
+      </a>
+      <hr>
+    </div>
+  {% endif %}
 
   <p>Your past reservations:</p>
 

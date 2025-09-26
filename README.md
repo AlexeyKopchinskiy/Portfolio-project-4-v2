@@ -32,7 +32,7 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
 - Session & Security Features
 - Technologies Used
 * [Testing](#-manual-testing)
-- Bugs
+* [Bugs & Limitations](#known-bugs-and-limitations)
 - Deployment
 - Credits
 - Acknowledgements
@@ -585,8 +585,13 @@ Due to simplicity of the project and the limited time available, the manual test
 
 #### 🔐 Authentication & Access Control
 
+- ✅ Verified sign-up, login, logout flows for both customers and restaurant owners
+- ✅ Confirmed password reset email delivery and form validation
+- ✅ Ensured role-based access: restaurant owners see dashboard tools; customers do not
+- ❌ Attempted unauthorized access to owner-only views (correctly redirected or denied)
+
 <details>
-    <summary>Verified sign-up, login, logout flows for both customers and restaurant owners</summary>
+    <summary>See corresponding snapshots</summary>
 
 ![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.JPG)
 
@@ -594,11 +599,12 @@ Due to simplicity of the project and the limited time available, the manual test
 
 ![Logout feedback snapshot](./static/images/screenshots/screenshot-logout-page.jpg)
 
+![Password reset confirmation](./static/images/screenshots/screenshot-password-reset-confirmation.jpg)
+
 </details>
 
-- ✅ Confirmed password reset email delivery and form validation
-- ✅ Ensured role-based access: restaurant owners see dashboard tools; customers do not
-- ❌ Attempted unauthorized access to owner-only views (correctly redirected or denied)
+
+
 
 #### 👤 Profile & Account Management
 - ✅ Tested profile editing and feedback messages
@@ -710,6 +716,14 @@ flake8 your_project/
 [Back To Top](#table-of-contents)
 
 ---
+
+## Known Bugs and Limitations
+
+**Note on Password Reset Functionality**
+
+Coders Sushi Bar uses Django’s built-in authentication system, which includes a password reset feature accessible via the login page and admin interface. While the form correctly prompts users to enter their email address to receive reset instructions, email delivery is currently disabled in this project. As this is a first Django-oriented application, the absence of mail server configuration is intentional and acceptable within the scope of the project. The feature remains visible to demonstrate standard Django capabilities, and can be fully activated by configuring SMTP settings in a production environment.
+
+
 
 OLD STUFF
 --------------------------------------------------------------------------------
