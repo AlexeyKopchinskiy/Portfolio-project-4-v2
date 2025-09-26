@@ -655,10 +655,6 @@ Due to simplicity of the project and the limited time available, the manual test
 
 ![Special request](./static/images/screenshots/screenshot-admin-special-requests.jpg)
 
-- Reservation confirmation
-
-![Reservation confirmation](./static/images/screenshots/screenshot-booking-confirmation.jpg)
-
 </details>
 
 #### 🚫 Double Booking Prevention
@@ -697,6 +693,27 @@ Due to simplicity of the project and the limited time available, the manual test
 - ✅ Tested layout on desktop, tablet, and mobile (Chrome DevTools)
 - ✅ Verified navbar toggler behavior and dropdown hover activation
 - ✅ Confirmed scrollable tables and mobile-friendly booking form
+
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- Mobile start page
+
+![Mobile start page](./static/images/screenshots/screenshot-start-page-mobile.jpg)
+
+- Mobile member page
+
+![Mobile member page](./static/images/screenshots/screenshot-member-page-mobile.jpg)
+
+- Mobile booking page
+
+![Mobile booking page](./static/images/screenshots/screenshot-booking-page-mobile.jpg)
+
+- Mobile profile editor page
+
+![Mobile profile editor](./static/images/screenshots/screenshot-update-user-profile-mobile.jpg)
+
+</details>
 
 #### 🖼️ Content Pages
 - ✅ Viewed homepage, about, and menu pages without login
