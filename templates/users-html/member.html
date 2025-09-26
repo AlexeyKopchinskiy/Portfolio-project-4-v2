@@ -33,7 +33,6 @@
         <th>Date</th>
         <th>Time</th>
         <th>Guests</th>
-        <th>Location</th>
         <th>Table</th>
         <th>Status</th>
         <th>Actions</th>
@@ -45,8 +44,7 @@
         <td>{{ booking.booking_date }}</td>
         <td>{{ booking.booking_time }}</td>
         <td>{{ booking.num_of_guests }}</td>
-        <td>{{ booking.location.name }}</td>
-        <td>{{ booking.table.name }}</td>
+        <td>{{ booking.table.id }}</td>
         <td>{{ booking.booking_status.status }}</td>
         <td>
           <a

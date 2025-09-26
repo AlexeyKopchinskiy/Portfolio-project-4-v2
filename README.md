@@ -665,12 +665,31 @@ Due to simplicity of the project and the limited time available, the manual test
 - ✅ Attempted to book same table at same time — correctly blocked by filtering out tables that are already booked within a ±1 hour window of the requested time
 - ✅ Booked different tables at overlapping times — allowed
 
+<details>
+    <summary>See corresponding snapshots</summary>
 
+- Already booked table removed from the booking list
+
+![Table is safely removed](./static/images/screenshots/screenshot-ommited-table-in-the-list.jpg)
+
+</details>
 
 #### 🗑️ Booking Modification & Cancellation
-- ✅ Cancelled reservations from dashboard
-- ✅ Verified status updates and UI refresh
-- ✅ Checked ordering by `booked_on` timestamp
+- ✅ List of existing booking available for review
+- ✅ Option to cancel booking
+
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- Booking cancellation routine
+
+![Table is safely removed](./static/images/screenshots/screenshot-booking-cencellation-path.jpg)
+
+- Update booking
+
+![Update booking with confirmation](./static/images/screenshots/screenshot-update-bokking-with-confirmation.jpg)
+
+</details>
 
 ### 🧭 Navigation & UX Testing
 
