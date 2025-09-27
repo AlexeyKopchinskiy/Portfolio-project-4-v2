@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("Booking page script loaded.");
 
   const locationSelect = document.getElementById("location");
-  const tableSelect = document.getElementById("table");
+  const tableSelect = document.getElementById("id_table");
 
   if (tableSelect) {
     const originalTableOptions = Array.from(tableSelect.options).map(opt => ({
@@ -71,55 +71,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Script to dynamically update table options based on date and time selection
 document.addEventListener("DOMContentLoaded", function () {
-  const dateInput = document.getElementById("booking_date");
-  const timeInput = document.getElementById("booking_time");
-  const guestCountInput = document.getElementById("num_of_guests");
+  // Only run on pages with booking context
+  if (!document.body.classList.contains("booking-context")) return;
+
+  console.log("Booking filter script initialized.");
+
+  const dateInput = document.getElementById("id_booking_date");
+  const timeInput = document.getElementById("id_booking_time");
+  const guestCountInput = document.getElementById("id_num_of_guests");
   const smokingCheckbox = document.getElementById("smoking");
   const accessibleCheckbox = document.getElementById("accessible");
-  const tableSelect = document.getElementById("table");
+  const tableSelect = document.getElementById("id_table");
 
+  // ✅ Early exit if critical elements are missing
+  if (!dateInput || !timeInput || !guestCountInput || !tableSelect) {
+    console.warn("⚠️ Booking form elements missing. Skipping table filtering logic.");
+    return;
+  }
 
-  // ✅ Disable guest count, smoking, and accessible checkboxes initially
+  // ✅ Disable filters initially
   guestCountInput.disabled = true;
-  smokingCheckbox.disabled = true;
-  accessibleCheckbox.disabled = true;
+  if (smokingCheckbox) smokingCheckbox.disabled = true;
+  if (accessibleCheckbox) accessibleCheckbox.disabled = true;
 
   /**
-  * Updates available table options based on selected date, time, guest count,
-  * smoking preference, and accessibility preference.
-  */
+   * Updates available table options based on selected date, time, guest count,
+   * smoking preference, and accessibility preference.
+   */
   function updateTableOptions() {
-    const selectedDate = dateInput.value;
-    const selectedTime = timeInput.value;
-    const selectedGuests = parseInt(guestCountInput.value, 10) || 0;
-    const smokingOnly = smokingCheckbox.checked;
-    const accessibleOnly = accessibleCheckbox.checked;
+    const selectedDate = dateInput?.value || "";
+    const selectedTime = timeInput?.value?.slice(0, 5) || "";
+    const selectedGuests = parseInt(guestCountInput?.value || "0", 10);
+    const smokingOnly = smokingCheckbox?.checked || false;
+    const accessibleOnly = accessibleCheckbox?.checked || false;
 
-    // ✅ Enable filters only if date & time are selected
-    const enableFilters = selectedDate && selectedTime;
+    const enableFilters = selectedDate !== "" && selectedTime !== "";
+
     guestCountInput.disabled = !enableFilters;
-    smokingCheckbox.disabled = !enableFilters;
-    accessibleCheckbox.disabled = !enableFilters;
+    if (smokingCheckbox) smokingCheckbox.disabled = !enableFilters;
+    if (accessibleCheckbox) accessibleCheckbox.disabled = !enableFilters;
 
-    // ✅ Prevent request if date or time is missing
     if (!enableFilters) {
-      console.warn("Date and time must be selected before filtering tables.");
+      console.warn("⏳ Date and time must be selected before filtering tables.");
       return;
     }
 
-    /**
-     * Fetches available tables from the server based on selected date and time.
-     * Filters tables further based on guest count, smoking preference, and accessibility.
-     */
     fetch(`/booking/get-available-tables/?date=${selectedDate}&time=${selectedTime}`)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Server responded with ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
-        console.log("Available tables:", data.available_tables);
+        if (!data.available_tables) {
+          console.warn("⚠️ No available_tables in response:", data);
+          tableSelect.innerHTML = `<option value="">No available tables</option>`;
+          return;
+        }
 
-        // ✅ Clear existing options
+        console.log("✅ Available tables:", data.available_tables);
+
+        // Clear and repopulate
         tableSelect.innerHTML = `<option value="">-- Select a Table --</option>`;
-
-        // ✅ Filter tables based on guest count, smoking, and accessibility
         const filteredTables = data.available_tables.filter(table => {
           const fitsGuests = selectedGuests <= table.size;
           const fitsSmoking = !smokingOnly || table.smoking === true;
@@ -128,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (filteredTables.length === 0) {
-          console.warn("No tables available for the selected criteria");
           tableSelect.innerHTML = `<option value="">No available tables</option>`;
         } else {
           filteredTables.forEach(table => {
@@ -141,13 +154,16 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
       })
-      .catch(error => console.error("Error fetching tables:", error));
+      .catch(error => {
+        console.error("❌ Error fetching tables:", error);
+        tableSelect.innerHTML = `<option value="">Error loading tables</option>`;
+      });
   }
 
-  // ✅ Update tables when date, time, guest count, smoking, or accessibility changes
+  // ✅ Attach listeners
   dateInput.addEventListener("change", updateTableOptions);
   timeInput.addEventListener("change", updateTableOptions);
   guestCountInput.addEventListener("change", updateTableOptions);
-  smokingCheckbox.addEventListener("change", updateTableOptions);
-  accessibleCheckbox.addEventListener("change", updateTableOptions);
+  if (smokingCheckbox) smokingCheckbox.addEventListener("change", updateTableOptions);
+  if (accessibleCheckbox) accessibleCheckbox.addEventListener("change", updateTableOptions);
 });
