@@ -31,7 +31,7 @@
     <script src="{% static 'summernote/summernote.min.js' %}" defer></script>
   </head>
 
-  <body class="d-flex flex-column h-100 main-bg">
+  <body class="d-flex flex-column h-100 main-bg {% block body_class %}{% endblock %}">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container-fluid">

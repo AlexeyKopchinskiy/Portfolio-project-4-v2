@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
   * This script dynamically updates the table options based on the selected location
 */
 document.addEventListener("DOMContentLoaded", function () {
+  if (!document.body.classList.contains("booking-context")) return;
+
   console.log("Booking page script loaded.");
 
   const locationSelect = document.getElementById("location");
