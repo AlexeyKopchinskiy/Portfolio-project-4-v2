@@ -37,7 +37,7 @@
         <input
           type="date"
           class="form-control"
-          id="booking_date"
+          id="id_booking_date"
           name="booking_date"
           required
         >
@@ -50,7 +50,7 @@
         <input 
           type="time"
           class="form-control"
-          id="booking_time"
+          id="id_booking_time"
           name="booking_time"
           required
         >
@@ -62,7 +62,7 @@
         <input
           type="number"
           class="form-control"
-          id="num_of_guests"
+          id="id_num_of_guests"
           name="num_of_guests"
           min="1"
           value="1"
@@ -86,7 +86,7 @@
     <!-- Table Selection -->
     <div class="select-wrapper mb-3">
       <label for="table" class="form-label">Available Tables:</label>
-      <select name="table" id="table" class="form-select" size="10" required>
+      <select name="table" id="id_table" class="form-select" size="10" required>
         <option value="">-- Select a Table --</option>
         {% for table in tables %}
         <!-- Include a data attribute for filtering -->

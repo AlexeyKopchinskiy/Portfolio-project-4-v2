@@ -17,7 +17,7 @@
         <strong>Table:</strong> Table {{ reservation.table.id }} — Seats:
         {{reservation.table.size|default:"N/A" }}
       </p>
-      <p><strong>Location:</strong> {{ reservation.location }}</p>
+      <p><strong>Location:</strong> {{ reservation.table.location|default:"N/A" }}</p>
     </div>
     <p>We look forward to serving you soon!</p>
     <a
