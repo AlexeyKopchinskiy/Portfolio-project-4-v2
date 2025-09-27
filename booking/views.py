@@ -5,6 +5,7 @@ from .models import Reservation, Table, BookingStatus, Location
 from .forms import BookingForm
 from django.contrib import messages
 from datetime import datetime, timedelta
+from datetime import date
 
 
 @login_required
@@ -17,66 +18,65 @@ def booking_page(request):
     - Processes form submissions to create a new reservation.
     - Redirects to booking confirmation after successful reservation.
     """
-    form = BookingForm()
-    tables = Table.objects.select_related(
-        "location"
-    ).all()  # ✅ Preload locations
+    tables = Table.objects.select_related("location").all()
 
     if request.method == "POST":
-        # Extract data from POST
-        table_id = request.POST.get("table")
-        booking_date = request.POST.get("booking_date")
-        booking_time = request.POST.get("booking_time")
-        num_of_guests = request.POST.get("num_of_guests")
-        special_requests = request.POST.get("special_requests")
+        form = BookingForm(request.POST)
 
-        # Validate that a table is selected
+        # Manual validation: ensure table is selected
+        table_id = request.POST.get("table")
         if not table_id:
-            tables = Table.objects.all()
+            messages.error(request, "❌ Please select a table.")
             return render(
                 request,
                 "booking-html/booking_page.html",
-                {"error": "Please select a table.", "tables": tables},
+                {
+                    "form": form,
+                    "tables": tables,
+                },
             )
 
-        # Get the table object or return an error if not found
+        # Manual validation: ensure table exists
         try:
             table = Table.objects.get(id=int(table_id))
         except (Table.DoesNotExist, ValueError):
-            tables = Table.objects.all()
+            messages.error(request, "❌ Invalid table selection.")
             return render(
                 request,
                 "booking-html/booking_page.html",
-                {"error": "Invalid table selection.", "tables": tables},
+                {
+                    "form": form,
+                    "tables": tables,
+                },
             )
 
-        # Get the default booking status
-        booking_status = BookingStatus.objects.filter(status="Pending").first()
+        # Form validation: check booking_date and other fields
+        if form.is_valid():
+            new_reservation = form.save(commit=False)
+            new_reservation.user = request.user
+            new_reservation.table = table  # ✅ Assign validated table
+            new_reservation.booking_status = BookingStatus.objects.filter(
+                status="Pending"
+            ).first()
+            new_reservation.save()
+            messages.success(request, "✅ Your reservation has been created.")
+            return redirect(
+                "booking_confirmation", reservation_id=new_reservation.id
+            )
+        else:
+            messages.error(request, "❌ Please correct the errors below.")
+            print(form.errors)  # ✅ Debug: see what failed
 
-        # Create the reservation (without location)
-        new_reservation = Reservation.objects.create(
-            table=table,
-            user=request.user,
-            booking_date=booking_date,
-            booking_time=booking_time,
-            num_of_guests=num_of_guests,
-            booking_status=booking_status,
-            special_requests=special_requests,
-        )
+    else:
+        form = BookingForm()
 
-        print("New reservation created with ID:", new_reservation.id)
-
-        # Redirect to the confirmation page
-        return redirect(
-            "booking_confirmation", reservation_id=new_reservation.id
-        )
-
-    # For GET requests, load tables into context
-    tables = Table.objects.all()
     return render(
         request,
         "booking-html/booking_page.html",
-        {"tables": tables, "form": form},
+        {
+            "form": form,
+            "tables": tables,
+        },
     )
 
 
