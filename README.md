@@ -715,6 +715,7 @@ Due to simplicity of the project and the limited time available, the manual test
 
 </details>
 
+
 #### 🖼️ Content Pages
 - ✅ Viewed homepage, about, and menu pages without login
 - ✅ Checked Summernote rendering for rich text content
@@ -722,15 +723,17 @@ Due to simplicity of the project and the limited time available, the manual test
 
 ### 🧰 Admin & Dashboard Testing
 
-#### 🧑‍🍳 Restaurant Owner Dashboard
+#### 🧑‍🍳 Restaurant Owner Dashboard (Django Admin)
 - ✅ Viewed all reservations with status and guest info
-- ✅ Edited menu items and confirmed updates
-- ✅ Filtered bookings by date and location
 
-#### 🧾 Feedback System
-- ✅ Submitted reviews as customer
-- ✅ Viewed feedback in owner dashboard
-- ✅ Verified moderation and display logic
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- Django Admin: list of active reservation
+
+![Django Admin: list of active reservation](./static/images/screenshots/screenshot-django-admin-reservation-list.JPG)
+
+</details>
 
 ### 🔐 Security & Deployment Checks
 
