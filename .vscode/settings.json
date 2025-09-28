@@ -16,7 +16,10 @@
    "workbench.colorTheme": "Default Dark Modern",
    "terminal.integrated.gpuAcceleration": "canvas",
    "cSpell.words": [
+      "Alexey's",
+      "endfor",
       "gspread",
+      "onclick",
       "subfolders",
       "Summernote",
       "Wireframes"

@@ -39,8 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-
-  console.log("Booking scripts loaded!");
 });
 
 /*** 
@@ -49,8 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
 */
 document.addEventListener("DOMContentLoaded", function () {
   if (!document.body.classList.contains("booking-context")) return;
-
-  console.log("Booking page script loaded.");
 
   const locationSelect = document.getElementById("location");
   const tableSelect = document.getElementById("id_table");
@@ -73,8 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   // Only run on pages with booking context
   if (!document.body.classList.contains("booking-context")) return;
-
-  console.log("Booking filter script initialized.");
 
   const dateInput = document.getElementById("id_booking_date");
   const timeInput = document.getElementById("id_booking_time");

@@ -649,7 +649,7 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - Booking confirmation
 
-![Booking confirmation](./static/images/screenshots/screenshot-booking-confirmation.jpg)
+![Booking confirmation](./static/images/screenshots/screenshot-booking-confirmation-mobile.jpg)
 
 - Special request in the admin area
 
