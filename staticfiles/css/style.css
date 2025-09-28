@@ -111,12 +111,6 @@ button {
     color: blueviolet !important;
 }
 
-.errorlist {
-    color: red;
-    list-style-type: none;
-    padding: 0;
-}
-
 
 /* 🔵 Large desktop screens (1440px+) */
 @media (min-width: 1440px) {
