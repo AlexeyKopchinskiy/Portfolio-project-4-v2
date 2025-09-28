@@ -160,4 +160,5 @@ document.addEventListener("DOMContentLoaded", function () {
   guestCountInput.addEventListener("change", updateTableOptions);
   if (smokingCheckbox) smokingCheckbox.addEventListener("change", updateTableOptions);
   if (accessibleCheckbox) accessibleCheckbox.addEventListener("change", updateTableOptions);
+
 });

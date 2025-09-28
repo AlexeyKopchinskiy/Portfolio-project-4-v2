@@ -66,9 +66,15 @@ Coders Sushi Bar was developed using a structured Agile approach, emphasizing it
 <details>
 <summary>Screenshots of Kanban Board, Milestones and project board view</summary>
 
+- Kanban board:
+
 ![Kanband: Kanban board](./static/images/github-user-stories-kanban-broject.PNG)
 
+- User Stories and epic board
+
 ![Kanband: User Stories and epic board](./static/images/github-user-stories-list.png)
+
+- Milestones:
 
 ![Kanband: Milestones](./static/images/github-milestones.jpg)
 
@@ -349,67 +355,67 @@ Coders Sushi Bar demonstrates how thoughtful UX, robust architecture, and Agile 
 
 ### Homepage — Hero image, navigation, call-to-action
 
-**Start page**
+- Start page
 
 ![Startpage screenshot](./static/images/screenshots/screenshot-booking-page.jpg)
 
-**Start page mobile**
+- Start page mobile
 
 ![Startpage mobile screenshot](./static/images/screenshots/screenshot-start-page-mobile.jpg)
 
 ### Booking Page — Date/time selector, form layout
 
-**Booking page**
+- Booking page
 
 ![Booking page screenshot](./static/images/screenshots/screenshot-booking-page.jpg)
 
-**Booking page mobile**
+- Booking page mobile
 
 ![Booking page mobile screenshot](./static/images/screenshots/screenshot-booking-page-mobile.jpg)
 
 ### Menu Page — Menu items, styling, responsiveness
 
-**Menu page**
+- Menu page
 
 ![Menu page screenshot](./static/images/screenshots/screenshot-menu-page.jpg)
 
-**Menu page mobile**
+- Menu page mobile
 
 ![Menu page mobile screenshot](./static/images/screenshots/screenshot-menu-page-mobile.jpg)
 
 ### Login/Signup — Auth flow and feedback messages
 
-**Login page**
+- Login page
 
 ![Login page screenshot](./static/images/screenshots/screenshot-login-page.jpg)
 
-**Login page mobile**
+- Login page mobile
 
 ![Login page mobile screenshot](./static/images/screenshots/screenshot-login-page-mobile.jpg)
 
-**Logout page**
+- Logout page
 
 ![Log out page screenshot](./static/images/screenshots/screenshot-logout-page.jpg)
 
-**Logout page mobile**
+- Logout page mobile
 
 ![Log out page mobile screenshot](./static/images/screenshots/screenshot-logout-page-mobile.jpg)
 
-**Sign up page**
+- Sign up page
 
 ![Sign up page screenshot](./static/images/screenshots/screenshot-sign-up-page.jpg)
 
-**Sign up page mobile**
+- Sign up page mobile
 
 ![Sign up page mobile screenshot](./static/images/screenshots/screenshot-sign-up-page-mobile.jpg)
 
 ### Member Dashboard — Reservation overview, profile links
 
-**Member page**
+- Member page
 
 ![Member page screenshot](./static/images/screenshots/screenshot-member-page.jpg)
 
-**Member page mobile**
+- Member page mobile
 
 ![Member page mobile screenshot](./static/images/screenshots/screenshot-member-page-mobile.jpg)
 
@@ -417,17 +423,20 @@ Coders Sushi Bar demonstrates how thoughtful UX, robust architecture, and Agile 
 
 As Restaurant Owner by definition has admin to Django admin, his admin board is looking like this:
 
-**Admin backend available for the restaurant owner**
+- Admin backend available for the restaurant owner
 
 ![Restaurant Owner Django admin interface](./static/images/screenshots/screenshot-owner-django-admin.jpg)
 
-**Back-end user manager**
+- Back-end user manager
+
 ![Admin user manager](./static/images/screenshots/admin-back-end-user-manager.jpg)
 
-**Back-end reservation list**
+- Back-end reservation list
+
 ![Back-end reservation list](./static/images/screenshots/admin-back-end-reservations-list.jpg)
 
-**Back-end reservation editor**
+- Back-end reservation editor
+
 ![Back-end reservation editor](./static/images/screenshots/admin-back-end-reservations-editor.jpg)
 
 </details>
@@ -697,19 +706,19 @@ Due to simplicity of the project and the limited time available, the manual test
 <details>
     <summary>See corresponding snapshots</summary>
 
-- Mobile start page
+- Mobile start page:
 
 ![Mobile start page](./static/images/screenshots/screenshot-start-page-mobile.jpg)
 
-- Mobile member page
+- Mobile member page:
 
 ![Mobile member page](./static/images/screenshots/screenshot-member-page-mobile.jpg)
 
-- Mobile booking page
+- Mobile booking page:
 
 ![Mobile booking page](./static/images/screenshots/screenshot-booking-page-mobile.jpg)
 
-- Mobile profile editor page
+- Mobile profile editor page:
 
 ![Mobile profile editor](./static/images/screenshots/screenshot-update-user-profile-mobile.jpg)
 
@@ -720,6 +729,20 @@ Due to simplicity of the project and the limited time available, the manual test
 - ✅ Viewed homepage, about, and menu pages without login
 - ✅ Checked Summernote rendering for rich text content
 - ✅ Verified static file loading and background image display
+
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- Summernote rich text content in the Booking editor:
+
+![Summernote rich text content in the Booking editor](./static/images/screenshots/screenshot-checked-summernote-rendering-for-richtext-content.jpg)
+
+- Static files loading
+
+![Static files loading](./static/images/screenshots/screenshot-verified-static-file-loading-and-background-imagedisplay.jpg)
+
+</details>
+
 
 ### 🧰 Admin & Dashboard Testing
 
