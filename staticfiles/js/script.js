@@ -161,4 +161,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (smokingCheckbox) smokingCheckbox.addEventListener("change", updateTableOptions);
   if (accessibleCheckbox) accessibleCheckbox.addEventListener("change", updateTableOptions);
 
-});
+  // ✅ Initial trigger (optional)
+  updateTableOptions();
+
+  // ✅ Confirm script loaded
+  console.log("✅ Booking script loaded cleanly");
+}); // ← This was missing

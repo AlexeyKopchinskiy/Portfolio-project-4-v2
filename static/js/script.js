@@ -161,4 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (smokingCheckbox) smokingCheckbox.addEventListener("change", updateTableOptions);
   if (accessibleCheckbox) accessibleCheckbox.addEventListener("change", updateTableOptions);
 
+  // Optional: trigger once on load
+  updateTableOptions();
 });
