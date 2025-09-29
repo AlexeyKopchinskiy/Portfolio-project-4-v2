@@ -23,19 +23,15 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
 * [Screenshots](#screenshots)
 * [Database design](#-database-design)
 * [Django Apps](#-django-apps-overview)
-- Authentication & Authorization
-- Product Management
-- Cart & Checkout Flow
-- Payment Integration
-- Order Management
-- Media & File Storage
-- Session & Security Features
-- Technologies Used
+* [Authentication & Authorization](#-authentication--authorization)
+* [Technologies Used](#-technologies-used)
 * [Testing](#-manual-testing)
 * [Bugs & Limitations](#known-bugs-and-limitations)
 * [Deployment](#-deployment)
-- Credits
-- Acknowledgements
+* [Credits](#-credits)
+* [Acknowledgements](#-acknowledgements)
+* [License](#-license)
+* [Contact](#-contact)
 
 ---
 
@@ -586,6 +582,39 @@ This modular app architecture ensures that each domain—content, booking, and a
 
 ---
 
+## 🔐 Authentication & Authorization
+
+This project includes foundational authentication and authorization mechanisms, with room for future enhancements as user roles and access control evolve.
+
+### ✅ Authentication
+
+- **User Login & Logout**: Handled via Django’s built-in auth system (`django.contrib.auth`)
+  - Login view supports credential validation and session management
+  - Logout securely clears session data
+- **Session-Based Auth**: Users are authenticated via secure session cookies
+- **Password Handling**: Passwords are hashed using Django’s default PBKDF2 algorithm
+- **Login Form**: Customizable form with validation and error messaging
+- **Throttling**: Not yet implemented — rate-limiting for login attempts is planned for production hardening
+
+### 🔒 Authorization
+
+- **Authenticated Access**: Views and forms are protected using `@login_required` decorators or `LoginRequiredMixin`
+- **Role-Based Access**: Not yet implemented — all authenticated users currently share the same access level
+- **Admin Panel**: Django admin is enabled for superusers with full model control
+- **Future Plans**:
+  - Introduce user roles (e.g. staff, manager, customer)
+  - Restrict access to booking, editing, and reporting features based on role
+  - Add granular permissions via `django.contrib.auth.models.Permission` or custom logic
+
+### 🛡️ Security Notes
+
+- **CSRF Protection**: Middleware is present but not enforced across all forms. CSRF tokens will be added once form flows are finalized.
+- **Environment Isolation**: Authentication logic is tested in local and staging environments before production rollout
+
+[Back To Top](#table-of-contents)
+
+---
+
 ## 🧪 Manual Testing
 
 Due to simplicity of the project and the limited time available, the manual testing was preferred over automated testing. With this in mind the Coders Sushi Bar underwent extensive manual scrutiny to ensure usability, reliability, and role-based functionality across all major features. Testing was performed iteratively throughout development, with each milestone followed by targeted validation of newly implemented components.
@@ -1013,6 +1042,41 @@ This project is ready for both local development and remote deployment on Heroku
 
 ---
 
+## 🧰 Technologies Used
+
+### 🖥️ Core Stack
+
+- **Python 3.11+** — Primary language for backend logic
+- **Django** — Web framework powering models, views, forms, and admin
+- **SQLite / PostgreSQL** — Local development with SQLite; Heroku-ready for PostgreSQL
+- **HTML5 / CSS3 / JavaScript (ES6+)** — Frontend templating and interactivity
+- **Jinja-like Django Templates** — Dynamic rendering with block inheritance and context-aware logic
+
+### 🧪 Development Tools
+
+- **VS Code** — Customized for multi-file debugging and persistent tab workflow
+- **JSHint** — Linting for JavaScript with ES11 support
+- **Git & GitHub** — Version control and collaboration
+- **Postman** — API testing and form submission simulation
+- **Browser DevTools** — Visual validation of static assets, form behavior, and network responses
+
+### ☁️ Deployment & Environment
+
+- **Heroku** — Remote hosting with environment variable injection and CLI management
+- **Gunicorn** — WSGI server for production deployment
+- **WhiteNoise** — Static file serving in production
+- **Environment Variables** — Secure injection of secrets (`SECRET_KEY`, DB credentials)
+- **`.env` + `.gitignore`** — Local secrets excluded from version control
+
+### 🛡️ Security & Validation
+
+- **CSRF Middleware (Django)** — Present but not enforced in forms (see limitations)
+- **Login Throttling** — Planned via `django-ratelimit` or DRF throttling
+- **Session Management** — Explicit configuration for cookie age and browser behavior
+
+[Back To Top](#table-of-contents)
+
+---
 
 ## Known Bugs and Limitations
 
@@ -1034,54 +1098,72 @@ Security Note: This is acceptable in controlled environments but should be addre
 
 ---
 
+## 🙌 Credits
 
-OLD STUFF
---------------------------------------------------------------------------------
+This project was developed and maintained by **Alexey Kopchinskiy**, with a focus on secure deployment, reviewer empathy, and scalable backend architecture.
 
-## 🛡️ Security Measures
-- **Encrypted passwords** using Django’s authentication system.  
-- **CSRF protection** for all forms.  
-- **User roles and permissions** to restrict access to sensitive data.
+### 🧠 Core Contributions
 
+- Code Institute Tutors / Stuff
+- Django backend development and form validation
+- JavaScript logic for booking flow and dynamic filtering
+- Deployment troubleshooting and static asset integrity
+- Repo hygiene, environment variable security, and documentation clarity
 
+### 🛠 Tools & Libraries
 
-## 🛠️ Installation
-Follow these steps to set up the project locally:
+- [Django](https://www.djangoproject.com/) — Web framework
+- [JSHint](https://jshint.com/) — JavaScript linting
+- [Heroku](https://www.heroku.com/) — Cloud deployment
+- [VS Code](https://code.visualstudio.com/) — Development environment
+- [CI Python Linter](https://pep8ci.herokuapp.com/) - CI Python Linter
 
-### bash
-- git clone https://github.com/your-repo.git
-- cd your-repo
-- pip install -r requirements.txt
-- python manage.py migrate
-- python manage.py runserver
+### 💡 Inspiration & Support
 
-## 🎯 Usage
-- Sign up/Login to access your booking dashboard.
-- Create a reservation with your preferred date and time.
-- Manage bookings via the member page.
-- Admin users can oversee all reservations.
+- Code Institute Course of lectures
+- Code Institute support at Discord
+- Django documentation and community examples
+- Stack Overflow for edge-case debugging
+- GitHub issues and open-source best practices
 
-### 📌 Technologies Used
-- Django (backend framework)
-- SQLite/PostgreSQL (database)
-- Bootstrap (frontend styling)
-- Python (core programming language)
-- CSS
-- JavaScript
-- HTML
+[Back To Top](#table-of-contents)
 
-### 🤝 Contributing
-We welcome contributions! To contribute:
-- Fork the repository.
-- Create a new branch (git checkout -b feature-branch).
-- Commit changes (git commit -m "Added new feature").
-- Push to GitHub and create a pull request.
+---
 
-## Known Bugs
-There are no known bugs.
+## 🙏 Acknowledgements
 
-### 📄 License
-This project is licensed under the MIT License.
+This project was built with the support, insight, and inspiration of many individuals and resources.
 
-### 📢 Contact
+### 👨‍🏫 Code Institute
+
+Special thanks to the Code Institute tutors and support team for their guidance, technical feedback, and encouragement throughout the development process. Their expertise helped shape both the backend architecture and deployment strategy.
+
+### 🧠 Community & Resources
+
+- Django Documentation — For clear, practical guidance on models, forms, and deployment
+- Stack Overflow — For solving edge-case bugs and implementation quirks
+- GitHub Community — For repo hygiene inspiration and open-source best practices
+- Heroku Docs — For environment variable setup and static file handling
+- VS Code Extensions — For optimizing multi-file debugging and linting workflows
+
+### 🙌 General Support
+
+Thanks to friends, peers, and reviewers who provided feedback, challenged assumptions, and helped refine the user experience. Your input made the project stronger, more secure, and more user-friendly.
+
+[Back To Top](#table-of-contents)
+
+--
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute this software with proper attribution.  
+See the `LICENSE` file for full terms.
+
+[Back To Top](#table-of-contents)
+
+--
+
+## 📢 Contact
+
 For questions or support, reach out at kopchinskiy@gmail.com.
