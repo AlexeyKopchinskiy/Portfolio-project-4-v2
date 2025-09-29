@@ -1,4 +1,4 @@
-/* jshint esversion: 6 */
+/* jshint esversion: 11 */
 /* global $ */
 
 document.addEventListener("DOMContentLoaded", function () {

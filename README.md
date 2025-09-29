@@ -790,16 +790,25 @@ Due to simplicity of the project and the limited time available, the manual test
 - ✔ Validates dynamic HTML instead of raw Django template tags.
 - ✔ Helps detect missing closing tags, incorrect attributes, and accessibility issues.
 
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- W3 validation results for the start page
+![w3validator start page](/static/images/screenshots/w3validator-start-page.jpg)
+
+- W3 validation for member page
+
+![Member page w3 validation](./static/images/screenshots/screenshot-w3-validation-member-page.jpg)
+
+- W3 validation results for the booking page
+![w3validator booking page](/static/images/screenshots/w3validator-booking-page.jpg)
+
+</details>
+
 ### Validating with JSHint
 
 **No errors found by JSHint:**
-![JSHint report](/static/images/screenshots/jshint-report.jpg)
-
-**W3 validation results for the start page**
-![w3validator start page](/static/images/screenshots/w3validator-start-page.jpg)
-
-**W3 validation results for the booking page**
-![w3validator booking page](/static/images/screenshots/w3validator-booking-page.jpg)
+![JSHint report](/static/images/screenshots/validation-jshint.jpg)
 
 ## 🔍 Code Quality & Linting
 
@@ -812,11 +821,62 @@ Due to simplicity of the project and the limited time available, the manual test
 
 #### C.I. Linter validation results:
 
-**C.I. validation results for the booking views**
-![Booking app views.py](/static/images/screenshots/ci_linter_results_for_booking_views.jpg)
+**C.I. validation results for the user app**
+
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- User app views
+
+![User app views](/static/images/screenshots/ci-python-linter-user-views.jpg)
+
+- User app urls
+
+![User app urls](/static/images/screenshots/ci-python-linter-user-urls.jpg)
+
+- User app forms
+
+![User app forms](/static/images/screenshots/ci-python-linter-user-forms.jpg)
+
+</details>    
+
+**C.I. validation results for the pages urls**
+
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- Pages app views
+
+![Pages app views](/static/images/screenshots/ci-python-linter-pages-views.jpg)
+
+- Pages app urls
+
+![Pages app urls](/static/images/screenshots/ci-python-linter-pages-urls.jpg)
+
+</details>    
 
 **C.I. validation results for the booking urls**
-![Booking urls.py](/static/images/screenshots/ci_linter_results_for_booking_urls.jpg)
+
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- booking app views
+
+![booking app views](/static/images/screenshots/ci-python-linter-booking-views.jpg)
+
+- booking app urls
+
+![booking app urls](/static/images/screenshots/ci-python-linter-booking-urls.jpg)
+
+- booking app forms
+
+![booking app forms](/static/images/screenshots/ci-python-linter-booking-forms.jpg)
+
+- booking app models
+
+![booking app forms](/static/images/screenshots/ci-python-linter-booking-models.jpg)
+
+</details> 
 
 ### 
 
