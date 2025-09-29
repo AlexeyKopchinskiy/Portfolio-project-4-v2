@@ -33,7 +33,7 @@
 
       <!-- Booking Date -->
       <div class="col-md-4">
-        <label for="booking_date" class="form-label">Booking Date:</label>
+        <label for="id_booking_date" class="form-label">Booking Date:</label>
         <input
           type="date"
           class="form-control"
@@ -46,7 +46,7 @@
 
       <!-- Booking Time -->
       <div class="col-md-4">
-        <label for="booking_time" class="form-label">Booking Time:</label>
+        <label for="id_booking_time" class="form-label">Booking Time:</label>
         <input 
           type="time"
           class="form-control"
@@ -58,7 +58,7 @@
 
       <!-- Number of Guests -->
       <div class="col-md-4">
-        <label for="num_of_guests" class="form-label">Number of Guests:</label>
+        <label for="id_num_of_guests" class="form-label">Number of Guests:</label>
         <input
           type="number"
           class="form-control"
@@ -85,7 +85,7 @@
 
     <!-- Table Selection -->
     <div class="select-wrapper mb-3">
-      <label for="table" class="form-label">Available Tables:</label>
+      <label for="id_table" class="form-label">Available Tables:</label>
       <select name="table" id="id_table" class="form-select" size="10" required>
         <option value="">-- Select a Table --</option>
         {% for table in tables %}
