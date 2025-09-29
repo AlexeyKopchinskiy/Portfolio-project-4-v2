@@ -762,17 +762,31 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - ✅ Disabled Django debug mode in production
 - ✅ Verified environment variable usage for secret keys
-- ✅ Tested login throttling and CSRF protection
-- ✅ Confirmed Heroku deployment with static file handling (WhiteNoise)
+
+<details>
+    <summary>See corresponding snapshots</summary>
+
+- Debug set to False
+
+![Debug -> false](./static/images/screenshots/screenshot-debug-false.jpg)
+
+- Secrets are accessed securely
+
+![secrets isolated](./static/images/screenshots/screenshot-secret-key-isolated.jpg)
+
+- .gitignore
+
+![.gitignore](./static/images/screenshots/screenshot-gitignore.jpg)
+
+
+</details>
 
 ### ✅ Steps taken to Validate Django Templates Using W3C Validator
-- 1️⃣ Open browser's Developer Tools (F12 → Elements tab).
-- 2️⃣ Find the rendered HTML of the Django page.
-- 3️⃣ Right-click → "View Page Source" or "Inspect" → Copy the full HTML.
-- 4️⃣ Go to W3C Validator (https://validator.w3.org/).
-- 5️⃣ Choose "Validate by Direct Input" and paste the copied HTML.
-- 6️⃣ Click "Check" and review the errors/warnings.
-- 7️⃣ Fix any structural issues in your Django templates ( folder).
+- Right-click on the page → "View Page Source" or "Inspect" → Copy the full HTML.
+- Go to W3C Validator (https://validator.w3.org/).
+- Choose "Validate by Direct Input" and paste the copied HTML.
+- Click "Check" and review the errors/warnings.
+- Fix any structural issues in your Django templates ( folder).
 - ✔ Validates dynamic HTML instead of raw Django template tags.
 - ✔ Helps detect missing closing tags, incorrect attributes, and accessibility issues.
 
