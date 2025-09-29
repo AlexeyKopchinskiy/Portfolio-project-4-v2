@@ -33,7 +33,7 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
 - Technologies Used
 * [Testing](#-manual-testing)
 * [Bugs & Limitations](#known-bugs-and-limitations)
-- Deployment
+* [Deployment](#-deployment)
 - Credits
 - Acknowledgements
 
@@ -810,9 +810,9 @@ Due to simplicity of the project and the limited time available, the manual test
 **No errors found by JSHint:**
 ![JSHint report](/static/images/screenshots/validation-jshint.jpg)
 
-## 🔍 Code Quality & Linting
+### 🔍 Code Quality & Linting
 
-### 📝 PEP8 Validation with Code Institute Linter
+#### 📝 PEP8 Validation with Code Institute Linter
 **To ensure your Python code follows best practices:**
 - 1️⃣ Go to [Code Institute Linter](https://pep8ci.herokuapp.com/).  
 - 2️⃣ Paste your Python code into the input field.  
@@ -898,12 +898,141 @@ flake8 your_project/
 
 ---
 
+
+## 🚀 Deployment
+
+This project is ready for both local development and remote deployment on Heroku. Below are the setup steps and security considerations.
+
+---
+
+### 🖥️ Local Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/your-project.git
+   cd your-project
+   ```
+
+2. **Create and activate a virtual environment**
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Create `.env` file for local secrets**
+   ```ini
+   DJANGO_SECRET_KEY=your-local-secret-key
+   DEBUG=True
+   DATABASE_URL=sqlite:///db.sqlite3
+   ```
+
+5. **Apply migrations and run the server**
+   ```bash
+   python manage.py migrate
+   python manage.py runserver
+   ```
+
+6. **Collect static files (optional for local testing)**
+   ```bash
+   python manage.py collectstatic --noinput
+   ```
+
+---
+
+### ☁️ Heroku Deployment
+
+1. **Create a Heroku app**
+   ```bash
+   heroku create your-app-name
+   ```
+
+2. **Set environment variables**
+   ```bash
+   heroku config:set DJANGO_SECRET_KEY=your-production-secret-key
+   heroku config:set DEBUG=False
+   heroku config:set DATABASE_URL=your-production-db-url
+   ```
+
+3. **Push to Heroku**
+   ```bash
+   git push heroku main
+   ```
+
+4. **Run migrations**
+   ```bash
+   heroku run python manage.py migrate
+   ```
+
+5. **Collect static files**
+   ```bash
+   heroku run python manage.py collectstatic --noinput
+   ```
+
+6. **Verify deployment**
+   - Visit `https://your-app-name.herokuapp.com`
+   - Confirm static assets load correctly
+   - Test login, booking, and form functionality
+
+---
+
+### 🔐 Security Notes
+
+- **Environment Variables**: All secrets (e.g. `SECRET_KEY`, DB credentials) are injected via environment variables. No sensitive data is committed.
+- **CSRF Protection**: Middleware is present but not actively used in forms. CSRF tokens are not enforced unless explicitly added.
+- **Login Throttling**: Not currently implemented. Consider adding rate-limiting via `django-ratelimit` or DRF throttling for brute-force protection.
+
+---
+
+### 📁 Repo Hygiene
+
+- `.env`, `.venv`, `__pycache__`, and platform-specific files are excluded via `.gitignore`
+- Static files are versioned and served via `/static/`
+- Deployment artifacts (e.g. `cloudinary_python.txt`, `blog/fixtures/`) are managed separately
+
+### ✅ Visual Deployment Checklist
+
+| Feature                          | Verified | Screenshot / Evidence |
+|----------------------------------|----------|------------------------|
+| **Environment Variables Used**   | ✅        | `settings.py` shows `os.environ.get()` usage |
+| **`.env` Excluded from Git**     | ✅        | `.gitignore` includes `.env` |
+| **Static Files Loaded Correctly**| ✅        | DevTools shows full `script.js`, no truncation |
+| **Login Functionality**          | ✅        | Screenshot of successful login |
+| **Booking Form Loads Tables**    | ✅        | Screenshot of table dropdown populated |
+| **CSRF Token Present (if used)** | ⚠️        | Not enforced in forms (middleware present) |
+| **Heroku Environment Configured**| ✅        | `heroku config` output with `DJANGO_SECRET_KEY` |
+| **Local Setup Verified**         | ✅        | `runserver` output and working localhost |
+| **Database Migrations Applied**  | ✅        | `python manage.py migrate` output |
+| **No Secrets in Repo**           | ✅        | GitHub search for `SECRET_KEY` returns nothing |
+
+[Back To Top](#table-of-contents)
+
+---
+
+
 ## Known Bugs and Limitations
 
 **Note on Password Reset Functionality**
 
 Coders Sushi Bar uses Django’s built-in authentication system, which includes a password reset feature accessible via the login page and admin interface. While the form correctly prompts users to enter their email address to receive reset instructions, email delivery is currently disabled in this project. As this is a first Django-oriented application, the absence of mail server configuration is intentional and acceptable within the scope of the project. The feature remains visible to demonstrate standard Django capabilities, and can be fully activated by configuring SMTP settings in a production environment.
 
+** ❌ CSRF Protection Not Fully Implemented**
+
+While Django’s CSRF middleware is enabled by default, full CSRF protection is not currently enforced across all forms. This is a deliberate decision during development to streamline testing and avoid token-related interruptions in early-stage workflows.
+
+- Forms do not yet include {% csrf_token %}, and POST requests may bypass CSRF validation.
+- This setup simplifies local testing and integration with external tools (e.g. Postman, JS fetch).
+- CSRF enforcement will be reintroduced once form flows are finalized and user authentication is hardened.
+
+Security Note: This is acceptable in controlled environments but should be addressed before production deployment. Reviewers are encouraged to flag any form that handles sensitive data without CSRF protection.
+
+[Back To Top](#table-of-contents)
+
+---
 
 
 OLD STUFF
