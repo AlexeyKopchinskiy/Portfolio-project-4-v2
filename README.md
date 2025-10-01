@@ -457,7 +457,7 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 
 -----
 
-![DB relation diagram](./static/images/screenshots/database-relations.jpg)
+![DB relation diagram](./static/images/screenshots/database-relations-2.jpg)
 
 **BookingStatus**
 Represents the current state of a reservation (e.g., Pending, Confirmed, Cancelled).
