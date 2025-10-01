@@ -21,7 +21,7 @@ Coders Sushi Bar is a full-stack Django web application that simulates a modern 
   * [Future Features](#-future-enhancements)
 * [Business Model](#-business-model)
 * [Screenshots](#screenshots)
-* [Database design](#-database-design)
+* [Database design](#️-database-design)
 * [Django Apps](#-django-apps-overview)
 * [Authentication & Authorization](#-authentication--authorization)
 * [Technologies Used](#-technologies-used)
