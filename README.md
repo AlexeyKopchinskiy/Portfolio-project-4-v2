@@ -1056,6 +1056,7 @@ This project is ready for both local development and remote deployment on Heroku
 ### 🧪 Development Tools
 
 - **VS Code** — Customized for multi-file debugging and persistent tab workflow
+- **DBeaver** — Universal Database Manager
 - **JSHint** — Linting for JavaScript with ES11 support
 - **Git & GitHub** — Version control and collaboration
 - **Postman** — API testing and form submission simulation
@@ -1141,6 +1142,7 @@ Special thanks to the Code Institute tutors and support team for their guidance,
 
 ### 🧠 Community & Resources
 
+- Code Institute Discord community
 - Django Documentation — For clear, practical guidance on models, forms, and deployment
 - Stack Overflow — For solving edge-case bugs and implementation quirks
 - GitHub Community — For repo hygiene inspiration and open-source best practices
