@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     "booking",
     "pages",
     "users",
-    # 'whitenoise.runserver_nostatic',  # For serving static files in development
+    # 'whitenoise.runserver_nostatic',  # For static files in development
 ]
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
