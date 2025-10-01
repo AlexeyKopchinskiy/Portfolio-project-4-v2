@@ -6,3 +6,4 @@ gunicorn==20.1.0
 psycopg2==2.9.10
 gspread==6.1.4
 google-auth==2.38.0
+pillow==11.3.0
