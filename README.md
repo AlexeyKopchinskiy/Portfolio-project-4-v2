@@ -455,7 +455,7 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 | **BookingStatus**| Represents the status of a reservation (e.g., Pending, Confirmed, Cancelled)| One-to-many with `Reservation` |
 | **Location**     | Defines seating zones (e.g., Patio, Main Hall, VIP Room)                    | One-to-many with `Table` and `Reservation` |
 
-![ER diagram of the DB login](/static/images/screenshots/database-relations.jpg)
+![ER diagram of the DB login](./static/images/screenshots/database-relations.jpg)
 
 **BookingStatus**
 Represents the current state of a reservation (e.g., Pending, Confirmed, Cancelled).
