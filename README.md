@@ -1,6 +1,6 @@
 # Coders Sushi bar website
 
-![Website responsiveness mock up](./static/images/sushi-bar-mockup.png) 
+![Website responsiveness mock up](/static/images/sushi-bar-mockup.png) 
 
 Coders Sushi Bar is a full-stack Django web application that simulates a modern sushi restaurant experience, combining user-friendly booking functionality, secure authentication, and dynamic content delivery. Built around three modular apps—booking, pages, and users—the system offers a clean, responsive interface powered by Bootstrap, with centralized templates and rich text editing via Summernote. It’s designed for deployment on Heroku, supports cloud development with Gitpod, and integrates optional Google Sheets functionality for data export. Whether you're managing reservations or customizing your profile, Coders Sushi Bar delivers a polished, production-ready platform with a playful touch.
 
@@ -64,15 +64,15 @@ Coders Sushi Bar was developed using a structured Agile approach, emphasizing it
 
 - Kanban board:
 
-![Kanband: Kanban board](./static/images/github-user-stories-kanban-broject.PNG)
+![Kanband: Kanban board](/static/images/github-user-stories-kanban-broject.PNG)
 
 - User Stories and epic board
 
-![Kanband: User Stories and epic board](./static/images/github-user-stories-list.png)
+![Kanband: User Stories and epic board](/static/images/github-user-stories-list.png)
 
 - Milestones:
 
-![Kanband: Milestones](./static/images/github-milestones.jpg)
+![Kanband: Milestones](/static/images/github-milestones.jpg)
 
 </details>
 
@@ -353,67 +353,67 @@ Coders Sushi Bar demonstrates how thoughtful UX, robust architecture, and Agile 
 
 - Start page
 
-![Startpage screenshot](./static/images/screenshots/screenshot-booking-page.jpg)
+![Startpage screenshot](/static/images/screenshots/screenshot-booking-page.jpg)
 
 - Start page mobile
 
-![Startpage mobile screenshot](./static/images/screenshots/screenshot-start-page-mobile.jpg)
+![Startpage mobile screenshot](/static/images/screenshots/screenshot-start-page-mobile.jpg)
 
 ### Booking Page — Date/time selector, form layout
 
 - Booking page
 
-![Booking page screenshot](./static/images/screenshots/screenshot-booking-page.jpg)
+![Booking page screenshot](/static/images/screenshots/screenshot-booking-page.jpg)
 
 - Booking page mobile
 
-![Booking page mobile screenshot](./static/images/screenshots/screenshot-booking-page-mobile.jpg)
+![Booking page mobile screenshot](/static/images/screenshots/screenshot-booking-page-mobile.jpg)
 
 ### Menu Page — Menu items, styling, responsiveness
 
 - Menu page
 
-![Menu page screenshot](./static/images/screenshots/screenshot-menu-page.jpg)
+![Menu page screenshot](/static/images/screenshots/screenshot-menu-page.jpg)
 
 - Menu page mobile
 
-![Menu page mobile screenshot](./static/images/screenshots/screenshot-menu-page-mobile.jpg)
+![Menu page mobile screenshot](/static/images/screenshots/screenshot-menu-page-mobile.jpg)
 
 ### Login/Signup — Auth flow and feedback messages
 
 - Login page
 
-![Login page screenshot](./static/images/screenshots/screenshot-login-page.jpg)
+![Login page screenshot](/static/images/screenshots/screenshot-login-page.jpg)
 
 - Login page mobile
 
-![Login page mobile screenshot](./static/images/screenshots/screenshot-login-page-mobile.jpg)
+![Login page mobile screenshot](/static/images/screenshots/screenshot-login-page-mobile.jpg)
 
 - Logout page
 
-![Log out page screenshot](./static/images/screenshots/screenshot-logout-page.jpg)
+![Log out page screenshot](/static/images/screenshots/screenshot-logout-page.jpg)
 
 - Logout page mobile
 
-![Log out page mobile screenshot](./static/images/screenshots/screenshot-logout-page-mobile.jpg)
+![Log out page mobile screenshot](/static/images/screenshots/screenshot-logout-page-mobile.jpg)
 
 - Sign up page
 
-![Sign up page screenshot](./static/images/screenshots/screenshot-sign-up-page.jpg)
+![Sign up page screenshot](/static/images/screenshots/screenshot-sign-up-page.jpg)
 
 - Sign up page mobile
 
-![Sign up page mobile screenshot](./static/images/screenshots/screenshot-sign-up-page-mobile.jpg)
+![Sign up page mobile screenshot](/static/images/screenshots/screenshot-sign-up-page-mobile.jpg)
 
 ### Member Dashboard — Reservation overview, profile links
 
 - Member page
 
-![Member page screenshot](./static/images/screenshots/screenshot-member-page.jpg)
+![Member page screenshot](/static/images/screenshots/screenshot-member-page.jpg)
 
 - Member page mobile
 
-![Member page mobile screenshot](./static/images/screenshots/screenshot-member-page-mobile.jpg)
+![Member page mobile screenshot](/static/images/screenshots/screenshot-member-page-mobile.jpg)
 
 ### Restaurant Owner Dashboard — Booking management, menu editing
 
@@ -421,19 +421,19 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 
 - Admin backend available for the restaurant owner
 
-![Restaurant Owner Django admin interface](./static/images/screenshots/screenshot-owner-django-admin.jpg)
+![Restaurant Owner Django admin interface](/static/images/screenshots/screenshot-owner-django-admin.jpg)
 
 - Back-end user manager
 
-![Admin user manager](./static/images/screenshots/admin-back-end-user-manager.jpg)
+![Admin user manager](/static/images/screenshots/admin-back-end-user-manager.jpg)
 
 - Back-end reservation list
 
-![Back-end reservation list](./static/images/screenshots/admin-back-end-reservations-list.jpg)
+![Back-end reservation list](/static/images/screenshots/admin-back-end-reservations-list.jpg)
 
 - Back-end reservation editor
 
-![Back-end reservation editor](./static/images/screenshots/admin-back-end-reservations-editor.jpg)
+![Back-end reservation editor](/static/images/screenshots/admin-back-end-reservations-editor.jpg)
 
 </details>
 
@@ -455,7 +455,7 @@ As Restaurant Owner by definition has admin to Django admin, his admin board is 
 | **BookingStatus**| Represents the status of a reservation (e.g., Pending, Confirmed, Cancelled)| One-to-many with `Reservation` |
 | **Location**     | Defines seating zones (e.g., Patio, Main Hall, VIP Room)                    | One-to-many with `Table` and `Reservation` |
 
-![ER diagram of the DB login](./static/images/screenshots/database-relations.jpg)
+![ER diagram of the DB login](/static/images/screenshots/database-relations.jpg)
 
 **BookingStatus**
 Represents the current state of a reservation (e.g., Pending, Confirmed, Cancelled).
@@ -632,23 +632,23 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - validation feedback on the sign-up page
 
-![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.jpg)
+![Sign-up form validation](/static/images/screenshots/screenshot-signup-form-validation.jpg)
 
 - validation feedback on the login page
 
-![Login validation](./static/images/screenshots/screenshot-login-form-validation.jpg)
+![Login validation](/static/images/screenshots/screenshot-login-form-validation.jpg)
 
 - logout feedback
 
-![Logout feedback snapshot](./static/images/screenshots/screenshot-logout-page.jpg)
+![Logout feedback snapshot](/static/images/screenshots/screenshot-logout-page.jpg)
 
 - password reset feedback
 
-![Password reset confirmation](./static/images/screenshots/screenshot-password-reset-confirmation.jpg)
+![Password reset confirmation](/static/images/screenshots/screenshot-password-reset-confirmation.jpg)
 
 - admin page denied access
 
-![](./static/images/screenshots/screenshot-admin-page-dinied-access.jpg)
+![](/static/images/screenshots/screenshot-admin-page-dinied-access.jpg)
 
 </details>
 
@@ -662,15 +662,15 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - validation user profile editor
 
-![validation user profile editor](./static/images/screenshots/screenshot-update-user-profile-form-check.jpg)
+![validation user profile editor](/static/images/screenshots/screenshot-update-user-profile-form-check.jpg)
 
 - feedback after user profile update
 
-![feedback after user profile update](./static/images/screenshots/screenshot-feedback-after-user-profile-updated.JPG)
+![feedback after user profile update](/static/images/screenshots/screenshot-feedback-after-user-profile-updated.JPG)
 
 - Redirect after unauthorized attempt to access member page
 
-![Redirect after unauthorized attempt to access member page](./static/images/screenshots/screenshot-redirect-after-attempt-to-access-member-page.jpg)
+![Redirect after unauthorized attempt to access member page](/static/images/screenshots/screenshot-redirect-after-attempt-to-access-member-page.jpg)
 
 </details>
 
@@ -686,11 +686,11 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - Booking confirmation
 
-![Booking confirmation](./static/images/screenshots/screenshot-booking-confirmation-mobile.jpg)
+![Booking confirmation](/static/images/screenshots/screenshot-booking-confirmation-mobile.jpg)
 
 - Special request in the admin area
 
-![Special request](./static/images/screenshots/screenshot-admin-special-requests.jpg)
+![Special request](/static/images/screenshots/screenshot-admin-special-requests.jpg)
 
 </details>
 
@@ -703,7 +703,7 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - Already booked table removed from the booking list
 
-![Table is safely removed](./static/images/screenshots/screenshot-ommited-table-in-the-list.jpg)
+![Table is safely removed](/static/images/screenshots/screenshot-ommited-table-in-the-list.jpg)
 
 </details>
 
@@ -716,11 +716,11 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - Booking cancellation routine
 
-![Table is safely removed](./static/images/screenshots/screenshot-booking-cencellation-path.jpg)
+![Table is safely removed](/static/images/screenshots/screenshot-booking-cencellation-path.jpg)
 
 - Update booking
 
-![Update booking with confirmation](./static/images/screenshots/screenshot-update-bokking-with-confirmation.jpg)
+![Update booking with confirmation](/static/images/screenshots/screenshot-update-bokking-with-confirmation.jpg)
 
 </details>
 
@@ -736,19 +736,19 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - Mobile start page:
 
-![Mobile start page](./static/images/screenshots/screenshot-start-page-mobile.jpg)
+![Mobile start page](/static/images/screenshots/screenshot-start-page-mobile.jpg)
 
 - Mobile member page:
 
-![Mobile member page](./static/images/screenshots/screenshot-member-page-mobile.jpg)
+![Mobile member page](/static/images/screenshots/screenshot-member-page-mobile.jpg)
 
 - Mobile booking page:
 
-![Mobile booking page](./static/images/screenshots/screenshot-booking-page-mobile.jpg)
+![Mobile booking page](/static/images/screenshots/screenshot-booking-page-mobile.jpg)
 
 - Mobile profile editor page:
 
-![Mobile profile editor](./static/images/screenshots/screenshot-update-user-profile-mobile.jpg)
+![Mobile profile editor](/static/images/screenshots/screenshot-update-user-profile-mobile.jpg)
 
 </details>
 
@@ -763,11 +763,11 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - Summernote rich text content in the Booking editor:
 
-![Summernote rich text content in the Booking editor](./static/images/screenshots/screenshot-checked-summernote-rendering-for-richtext-content.jpg)
+![Summernote rich text content in the Booking editor](/static/images/screenshots/screenshot-checked-summernote-rendering-for-richtext-content.jpg)
 
 - Static files loading
 
-![Static files loading](./static/images/screenshots/screenshot-verified-static-file-loading-and-background-imagedisplay.jpg)
+![Static files loading](/static/images/screenshots/screenshot-verified-static-file-loading-and-background-imagedisplay.jpg)
 
 </details>
 
@@ -782,7 +782,7 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - Django Admin: list of active reservation
 
-![Django Admin: list of active reservation](./static/images/screenshots/screenshot-django-admin-reservation-list.JPG)
+![Django Admin: list of active reservation](/static/images/screenshots/screenshot-django-admin-reservation-list.JPG)
 
 </details>
 
@@ -796,15 +796,15 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - Debug set to False
 
-![Debug -> false](./static/images/screenshots/screenshot-debug-false.jpg)
+![Debug -> false](/static/images/screenshots/screenshot-debug-false.jpg)
 
 - Secrets are accessed securely
 
-![secrets isolated](./static/images/screenshots/screenshot-secret-key-isolated.jpg)
+![secrets isolated](/static/images/screenshots/screenshot-secret-key-isolated.jpg)
 
 - .gitignore
 
-![.gitignore](./static/images/screenshots/screenshot-gitignore.jpg)
+![.gitignore](/static/images/screenshots/screenshot-gitignore.jpg)
 
 
 </details>
@@ -826,7 +826,7 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - W3 validation for member page
 
-![Member page w3 validation](./static/images/screenshots/screenshot-w3-validation-member-page.jpg)
+![Member page w3 validation](/static/images/screenshots/screenshot-w3-validation-member-page.jpg)
 
 - W3 validation results for the booking page
 ![w3validator booking page](/static/images/screenshots/w3validator-booking-page.jpg)
