@@ -634,7 +634,7 @@ Due to simplicity of the project and the limited time available, the manual test
 
 - validation feedback on the sign-up page
 
-![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation.jpg)
+![Sign-up form validation](./static/images/screenshots/screenshot-signup-form-validation-2.jpg)
 
 - validation feedback on the login page
 
