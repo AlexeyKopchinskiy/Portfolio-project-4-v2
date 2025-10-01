@@ -1,4 +1,4 @@
-/* jshint esversion: 6 */
+/* jshint esversion: 11 */
 /* global $ */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -161,9 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (smokingCheckbox) smokingCheckbox.addEventListener("change", updateTableOptions);
   if (accessibleCheckbox) accessibleCheckbox.addEventListener("change", updateTableOptions);
 
-  // ✅ Initial trigger (optional)
+  // Optional: trigger once on load
   updateTableOptions();
-
-  // ✅ Confirm script loaded
-  console.log("✅ Booking script loaded cleanly");
-}); // ← This was missing
+});
