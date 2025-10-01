@@ -2,15 +2,14 @@ html,
 body {
     height: 100%;
     /* ✅ Ensures full height */
-    background-color: #F9FAFC;
     background: url("/static/images/giant-sushi-set-with-overlay.webp");
+    background-color: darkgray !important;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: darkgray !important;
 }
 
 .wrapper {
