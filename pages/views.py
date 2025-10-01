@@ -24,6 +24,7 @@ def about(request):
 
 @login_required
 def member_page(request):
+    """Renders the member page with user's past bookings."""
     past_bookings = Reservation.objects.filter(user=request.user).order_by(
         "-booking_date"
     )
