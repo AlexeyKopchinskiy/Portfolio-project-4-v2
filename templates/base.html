@@ -1,5 +1,5 @@
 {% load static %}
-{% comment %} {% url 'home' as home_url %} {% endcomment %}
+{% url 'home' as home_url %}
 <!-- Base Template for the Sushi Bar Project -->
 <!-- This template serves as the base layout for the Sushi Bar project, 
      including navigation, footer, and content blocks. -->
@@ -9,26 +9,26 @@
     <title>Coders Sushi Bar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon  -->
-    {% comment %} <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}"> {% endcomment %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
     <!-- Bootstrap CSS -->
-    {% comment %} <link
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
-    > {% endcomment %}
+    >
     <!-- Custom CSS -->
-    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     <!-- ✅ Load jQuery first -->
-    {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <!-- Summernote editor -->
-    {% comment %} <link
+    <link
       rel="stylesheet"
       href="{% static 'summernote/summernote.min.css' %}"
-    > {% endcomment %}
-    {% comment %} <script src="{% static 'summernote/summernote.min.js' %}" defer></script> {% endcomment %}
+    >
+    <script src="{% static 'summernote/summernote.min.js' %}" defer></script>
   </head>
 
   <body class="d-flex flex-column h-100 main-bg {% block body_class %}{% endblock %}">
@@ -147,11 +147,11 @@
       </p>
     </footer>
 
-    {% comment %} <script
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
-    ></script> {% endcomment %}
-    {% comment %} <script src="{% static 'js/script.js' %}"></script> {% endcomment %}
+    ></script>
+    <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>

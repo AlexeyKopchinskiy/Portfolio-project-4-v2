@@ -1086,7 +1086,7 @@ This project is ready for both local development and remote deployment on Heroku
 
 Coders Sushi Bar uses Django’s built-in authentication system, which includes a password reset feature accessible via the login page and admin interface. While the form correctly prompts users to enter their email address to receive reset instructions, email delivery is currently disabled in this project. As this is a first Django-oriented application, the absence of mail server configuration is intentional and acceptable within the scope of the project. The feature remains visible to demonstrate standard Django capabilities, and can be fully activated by configuring SMTP settings in a production environment.
 
-** ❌ CSRF Protection Not Fully Implemented**
+**❌ CSRF Protection Not Fully Implemented**
 
 While Django’s CSRF middleware is enabled by default, full CSRF protection is not currently enforced across all forms. This is a deliberate decision during development to streamline testing and avoid token-related interruptions in early-stage workflows.
 
@@ -1095,6 +1095,15 @@ While Django’s CSRF middleware is enabled by default, full CSRF protection is 
 - CSRF enforcement will be reintroduced once form flows are finalized and user authentication is hardened.
 
 Security Note: This is acceptable in controlled environments but should be addressed before production deployment. Reviewers are encouraged to flag any form that handles sensitive data without CSRF protection.
+
+**Lighthouse Testing Note**
+
+During performance profiling with Lighthouse, the homepage occasionally triggered a NO_NAVSTART error — a known issue when Chrome fails to capture the navigation trace due to timing inconsistencies. This did not reflect any actual rendering or performance problems.
+
+After multiple tests (including CLI runs and incognito sessions), the page consistently scored 100% across all Lighthouse categories. The error appears only sporadically and is tied to how Lighthouse captures the trace, not to the page’s structure or behavior.
+
+Developers encountering similar issues may refer to Lighthouse’s trace documentation or run tests via CLI for more consistent results.
+
 
 [Back To Top](#table-of-contents)
 
